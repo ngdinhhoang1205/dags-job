@@ -1,0 +1,14 @@
+dbnomics
+lxml
+matplotlib
+numpy
+openpyxl
+pandas
+pandas-datareader
+pillow
+pycountry
+pycountry-convert
+python-dotenv
+requests
+sdmx
+tenacity
