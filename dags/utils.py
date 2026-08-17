@@ -1,3 +1,4 @@
+import json
 import os
 import re
 import pandas as pd
@@ -29,6 +30,35 @@ def replace_table(df, table_name, engine):
         if inspect(conn).has_table(table_name):
             conn.execute(text(f'TRUNCATE TABLE "{table_name}"'))
         df.to_sql(table_name, conn, if_exists="append", index=False)
+
+
+def log_job_run(engine, table_written, rows_written, status, extra=None):
+    """Record one job run in the `job_runs` audit table (business DB) — separate from Airflow's own
+    metadata DB, which only tracks task state/timing, not what a task actually did. `extra` is
+    optional free-form data (dict), stored as JSONB. Creates the table on first run if needed."""
+    with engine.begin() as conn:
+        conn.execute(text("""
+            CREATE TABLE IF NOT EXISTS job_runs (
+                id SERIAL PRIMARY KEY,
+                run_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+                table_written TEXT NOT NULL,
+                rows_written INTEGER,
+                status TEXT NOT NULL,
+                extra JSONB
+            )
+        """))
+        conn.execute(
+            text("""
+                INSERT INTO job_runs (table_written, rows_written, status, extra)
+                VALUES (:table_written, :rows_written, :status, CAST(:extra AS JSONB))
+            """),
+            {
+                "table_written": table_written,
+                "rows_written": rows_written,
+                "status": status,
+                "extra": json.dumps(extra) if extra is not None else None,
+            },
+        )
 
 IMF_API_BASE = "https://api.imf.org/external/sdmx/3.0/data/dataflow"
 

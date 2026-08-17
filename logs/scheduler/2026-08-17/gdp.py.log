@@ -1,0 +1,57 @@
+[2026-08-17T15:46:39.180+0000] {processor.py:186} INFO - Started process (PID=2282) to work on /opt/airflow/dags/gdp.py
+[2026-08-17T15:46:39.181+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/gdp.py for tasks to queue
+[2026-08-17T15:46:39.182+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:46:39.182+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/gdp.py
+[2026-08-17T15:46:39.208+0000] {processor.py:925} INFO - DAG(s) 'gdp_data' retrieved from /opt/airflow/dags/gdp.py
+[2026-08-17T15:46:39.301+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:46:39.300+0000] {override.py:1911} INFO - Created Permission View: can read on DAG:gdp_data
+[2026-08-17T15:46:39.314+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:46:39.314+0000] {override.py:1911} INFO - Created Permission View: can delete on DAG:gdp_data
+[2026-08-17T15:46:39.322+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:46:39.321+0000] {override.py:1911} INFO - Created Permission View: can edit on DAG:gdp_data
+[2026-08-17T15:46:39.330+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:46:39.330+0000] {override.py:1911} INFO - Created Permission View: can read on DAG Run:gdp_data
+[2026-08-17T15:46:39.338+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:46:39.337+0000] {override.py:1911} INFO - Created Permission View: can delete on DAG Run:gdp_data
+[2026-08-17T15:46:39.349+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:46:39.348+0000] {override.py:1911} INFO - Created Permission View: menu access on DAG Run:gdp_data
+[2026-08-17T15:46:39.357+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:46:39.357+0000] {override.py:1911} INFO - Created Permission View: can create on DAG Run:gdp_data
+[2026-08-17T15:46:39.366+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:46:39.366+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-17T15:46:39.378+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:46:39.378+0000] {dag.py:3262} INFO - Creating ORM DAG for gdp_data
+[2026-08-17T15:46:39.387+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:46:39.387+0000] {dag.py:4180} INFO - Setting next_dagrun for gdp_data to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-17T15:46:39.409+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/gdp.py took 0.236 seconds
+[2026-08-17T15:47:09.563+0000] {processor.py:186} INFO - Started process (PID=2305) to work on /opt/airflow/dags/gdp.py
+[2026-08-17T15:47:09.564+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/gdp.py for tasks to queue
+[2026-08-17T15:47:09.566+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:47:09.566+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/gdp.py
+[2026-08-17T15:47:09.589+0000] {processor.py:925} INFO - DAG(s) 'gdp_data' retrieved from /opt/airflow/dags/gdp.py
+[2026-08-17T15:47:09.609+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:47:09.609+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-17T15:47:09.626+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:47:09.626+0000] {dag.py:4180} INFO - Setting next_dagrun for gdp_data to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-17T15:47:09.645+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/gdp.py took 0.087 seconds
+[2026-08-17T15:47:19.875+0000] {processor.py:186} INFO - Started process (PID=2322) to work on /opt/airflow/dags/gdp.py
+[2026-08-17T15:47:19.877+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/gdp.py for tasks to queue
+[2026-08-17T15:47:19.880+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:47:19.879+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/gdp.py
+[2026-08-17T15:47:19.916+0000] {processor.py:925} INFO - DAG(s) 'gdp_data' retrieved from /opt/airflow/dags/gdp.py
+[2026-08-17T15:47:19.950+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:47:19.949+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-17T15:47:19.967+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:47:19.967+0000] {dag.py:4180} INFO - Setting next_dagrun for gdp_data to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-17T15:47:19.990+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/gdp.py took 0.123 seconds
+[2026-08-17T15:47:50.382+0000] {processor.py:186} INFO - Started process (PID=2342) to work on /opt/airflow/dags/gdp.py
+[2026-08-17T15:47:50.383+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/gdp.py for tasks to queue
+[2026-08-17T15:47:50.384+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:47:50.384+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/gdp.py
+[2026-08-17T15:47:50.419+0000] {processor.py:925} INFO - DAG(s) 'gdp_data' retrieved from /opt/airflow/dags/gdp.py
+[2026-08-17T15:47:50.438+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:47:50.438+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-17T15:47:50.453+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:47:50.453+0000] {dag.py:4180} INFO - Setting next_dagrun for gdp_data to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-17T15:47:50.470+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/gdp.py took 0.092 seconds
+[2026-08-17T15:48:20.928+0000] {processor.py:186} INFO - Started process (PID=2365) to work on /opt/airflow/dags/gdp.py
+[2026-08-17T15:48:20.931+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/gdp.py for tasks to queue
+[2026-08-17T15:48:20.933+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:48:20.933+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/gdp.py
+[2026-08-17T15:48:20.972+0000] {processor.py:925} INFO - DAG(s) 'gdp_data' retrieved from /opt/airflow/dags/gdp.py
+[2026-08-17T15:48:20.999+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:48:20.999+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-17T15:48:21.020+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:48:21.020+0000] {dag.py:4180} INFO - Setting next_dagrun for gdp_data to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-17T15:48:21.044+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/gdp.py took 0.120 seconds
+[2026-08-17T15:48:51.510+0000] {processor.py:186} INFO - Started process (PID=2388) to work on /opt/airflow/dags/gdp.py
+[2026-08-17T15:48:51.511+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/gdp.py for tasks to queue
+[2026-08-17T15:48:51.518+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:48:51.518+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/gdp.py
+[2026-08-17T15:48:51.540+0000] {processor.py:925} INFO - DAG(s) 'gdp_data' retrieved from /opt/airflow/dags/gdp.py
+[2026-08-17T15:48:51.562+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:48:51.562+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-17T15:48:51.579+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:48:51.579+0000] {dag.py:4180} INFO - Setting next_dagrun for gdp_data to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-17T15:48:51.596+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/gdp.py took 0.091 seconds
+[2026-08-17T15:49:08.766+0000] {processor.py:186} INFO - Started process (PID=2401) to work on /opt/airflow/dags/gdp.py
+[2026-08-17T15:49:08.767+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/gdp.py for tasks to queue
+[2026-08-17T15:49:08.769+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:49:08.769+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/gdp.py
+[2026-08-17T15:49:08.809+0000] {processor.py:925} INFO - DAG(s) 'gdp_data' retrieved from /opt/airflow/dags/gdp.py
+[2026-08-17T15:49:08.832+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:49:08.832+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-17T15:49:08.848+0000] {logging_mixin.py:190} INFO - [2026-08-17T15:49:08.848+0000] {dag.py:4180} INFO - Setting next_dagrun for gdp_data to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-17T15:49:08.867+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/gdp.py took 0.107 seconds

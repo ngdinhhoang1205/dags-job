@@ -933,3 +933,35 @@
 [2026-08-14T17:17:16.962+0000] {processor.py:186} INFO - Started process (PID=797) to work on /opt/airflow/dags/example_pandas_job.py
 [2026-08-14T17:17:16.964+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/example_pandas_job.py for tasks to queue
 [2026-08-14T17:17:16.968+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:17:16.967+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:17:16.993+0000] {processor.py:925} INFO - DAG(s) 'fetch_exchange_rate' retrieved from /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:17:17.018+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:17:17.018+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-14T17:17:17.037+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:17:17.037+0000] {dag.py:4180} INFO - Setting next_dagrun for fetch_exchange_rate to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-14T17:17:17.057+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/example_pandas_job.py took 0.099 seconds
+[2026-08-14T17:17:47.225+0000] {processor.py:186} INFO - Started process (PID=810) to work on /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:17:47.226+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/example_pandas_job.py for tasks to queue
+[2026-08-14T17:17:47.230+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:17:47.230+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:17:47.245+0000] {processor.py:925} INFO - DAG(s) 'fetch_exchange_rate' retrieved from /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:17:47.266+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:17:47.266+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-14T17:17:47.284+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:17:47.284+0000] {dag.py:4180} INFO - Setting next_dagrun for fetch_exchange_rate to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-14T17:17:47.313+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/example_pandas_job.py took 0.093 seconds
+[2026-08-14T17:18:17.555+0000] {processor.py:186} INFO - Started process (PID=824) to work on /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:18:17.556+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/example_pandas_job.py for tasks to queue
+[2026-08-14T17:18:17.558+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:18:17.558+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:18:17.573+0000] {processor.py:925} INFO - DAG(s) 'fetch_exchange_rate' retrieved from /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:18:17.592+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:18:17.592+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-14T17:18:17.607+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:18:17.606+0000] {dag.py:4180} INFO - Setting next_dagrun for fetch_exchange_rate to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-14T17:18:17.632+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/example_pandas_job.py took 0.082 seconds
+[2026-08-14T17:18:47.832+0000] {processor.py:186} INFO - Started process (PID=837) to work on /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:18:47.833+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/example_pandas_job.py for tasks to queue
+[2026-08-14T17:18:47.836+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:18:47.836+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:18:47.859+0000] {processor.py:925} INFO - DAG(s) 'fetch_exchange_rate' retrieved from /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:18:47.882+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:18:47.881+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-14T17:18:47.898+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:18:47.898+0000] {dag.py:4180} INFO - Setting next_dagrun for fetch_exchange_rate to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-14T17:18:47.916+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/example_pandas_job.py took 0.088 seconds
+[2026-08-14T17:19:18.094+0000] {processor.py:186} INFO - Started process (PID=850) to work on /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:19:18.095+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/example_pandas_job.py for tasks to queue
+[2026-08-14T17:19:18.099+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:19:18.099+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:19:18.129+0000] {processor.py:925} INFO - DAG(s) 'fetch_exchange_rate' retrieved from /opt/airflow/dags/example_pandas_job.py
+[2026-08-14T17:19:18.155+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:19:18.155+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-08-14T17:19:18.172+0000] {logging_mixin.py:190} INFO - [2026-08-14T17:19:18.172+0000] {dag.py:4180} INFO - Setting next_dagrun for fetch_exchange_rate to 2026-09-01 00:00:00+00:00, run_after=2026-10-01 00:00:00+00:00
+[2026-08-14T17:19:18.201+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/example_pandas_job.py took 0.113 seconds
