@@ -9,7 +9,7 @@ from airflow.decorators import dag, task
     schedule="@monthly",
     start_date=pendulum.datetime(2026, 8, 13, tz="UTC"),
     catchup=True,
-    tags=["country_mapping"],
+    tags=["gdp_data"],
 )
 def gdp_data():
     @task
@@ -23,7 +23,7 @@ def gdp_data():
             imf_gdp = fetch_series(
             provider_code="IMF", 
             dataset_code="IFS", 
-            max_nb_series=50000000000,
+            max_nb_series=5000,
             dimensions={
                 "FREQ": ["A"],
                 "INDICATOR": ['NGDP_XDC']

@@ -12,6 +12,7 @@ x-airflow-common: &airflow-common
     BUSINESS_POSTGRES_USER: "${BUSINESS_POSTGRES_USER:-business}"
     BUSINESS_POSTGRES_PASSWORD: "${BUSINESS_POSTGRES_PASSWORD:-business}"
     BUSINESS_POSTGRES_DB: "${BUSINESS_POSTGRES_DB:-business}"
+    IMF_API_KEY: "${IMF_API_KEY:-}"
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs

@@ -316,24 +316,20 @@ def fetch_imf_data(country_dict, dataset_code="IFS", metric_suffix="PCPI_IX", fr
         return pd.DataFrame()
     
 
-def fetch_imf_bulk(dataset_code="IFS", metric_code="NGDP_R_XDC", frequency="Q", country_list=None, max_nb_series=50):
+def fetch_imf_bulk(dataset_code=None, metric_code=None, frequency=None, country_list=None, max_nb_series=5000):
     """
-    Cào dữ liệu vĩ mô từ IMF bằng phương pháp lọc Dimension của DBnomics.
-    Tránh lỗi nối chuỗi ID sai cấu trúc.
+    Fetch macro data from the IMF using DBnomics' dimension-filtering method.
+    Avoids errors from incorrectly concatenated series ID strings.
     """
-    print(f"--- Đang tải dữ liệu cho mã: {metric_code} ({frequency}) ---")
-    
-    # Thiết lập bộ lọc kích thước (Dimensions) theo chuẩn API DBnomics
-    # FREQ: Tần suất (M, Q, A)
-    # INDICATOR: Mã chỉ số vĩ mô của IMF
+    # Set up the dimension filters per the DBnomics API convention.
+    # FREQ: frequency (M, Q, A)
+    # INDICATOR: IMF macro indicator code
     if dataset_code=="WEO:2025-04" and metric_code=="LUR":
         dimensions = {
-            # "freq": [frequency],
             "weo-subject": [metric_code],
             "unit": 'pcent'
         }
-        
-        # Nếu người dùng truyền vào danh sách mã nước cụ thể (ví dụ: ['VN', 'US', 'DE'])
+        # If the caller passed a specific list of country codes (e.g. ['VN', 'US', 'DE'])
         if country_list:
             dimensions["weo-country"] = country_list
     else:
@@ -341,34 +337,25 @@ def fetch_imf_bulk(dataset_code="IFS", metric_code="NGDP_R_XDC", frequency="Q", 
             "FREQ": [frequency],
             "INDICATOR": [metric_code]
         }
-        
-        # Nếu người dùng truyền vào danh sách mã nước cụ thể (ví dụ: ['VN', 'US', 'DE'])
+        # If the caller passed a specific list of country codes (e.g. ['VN', 'US', 'DE'])
         if country_list:
             dimensions["REF_AREA"] = country_list
 
     try:
-        # Gọi API tải hàng loạt theo bộ lọc
+        # Call the bulk-download API with the filters above.
         df = fetch_series(provider_code="IMF", dataset_code=dataset_code, dimensions=dimensions, max_nb_series=max_nb_series)
-        
         if df.empty:
-            print(f"⚠️ Không tìm thấy dữ liệu nào khớp với mã {metric_code}.")
             return pd.DataFrame()
-            
-        # Chuẩn hóa lại tên cột để đồng bộ với cấu trúc Power BI của bạn
-        # DBnomics trả về cột 'REF_AREA' làm mã quốc gia và 'Reference Area' làm tên quốc gia
+        # Rename columns to match the dashboard's expected structure.
+        # DBnomics returns 'REF_AREA' as the country code and 'Reference Area' as the country name.
         df = df.rename(columns={
             "REF_AREA": "country_code",
             "Reference Area": "country_name",
             "period": "Date"
         })
-        
-        # Chỉ giữ lại các cột cốt lõi cần thiết cho Dashboard
+        # Keep only the core columns needed for the dashboard.
         core_columns = ["Date", "value", "country_code", "country_name"]
         df = df[[col for col in core_columns if col in df.columns]]
-        
-        print(f"✅ Tải thành công {len(df)} dòng dữ liệu!")
         return df
-
     except Exception as e:
-        print(f"❌ Lỗi hệ thống khi gọi API: {e}")
         return pd.DataFrame()
