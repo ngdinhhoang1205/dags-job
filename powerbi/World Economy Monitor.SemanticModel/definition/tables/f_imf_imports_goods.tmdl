@@ -1,0 +1,71 @@
+table f_imf_imports_goods
+	lineageTag: b446d63b-013b-49d2-9edb-e916f88da559
+
+	column COUNTRY
+		dataType: string
+		lineageTag: 2fb4f76c-ed3f-4438-8ef0-891424636eca
+		summarizeBy: none
+		sourceColumn: COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICATOR
+		dataType: string
+		lineageTag: 16e16e34-8b05-44d3-ac34-d2004ca00343
+		summarizeBy: none
+		sourceColumn: INDICATOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTERPART_COUNTRY
+		dataType: string
+		lineageTag: b81e663b-501b-4f88-b961-53c05e8e02ee
+		summarizeBy: none
+		sourceColumn: COUNTERPART_COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FREQUENCY
+		dataType: string
+		lineageTag: 8cd4f47d-65e3-4a27-863c-7d39fe2b356b
+		summarizeBy: none
+		sourceColumn: FREQUENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column period
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7a635436-d5ed-4c8a-afd4-0ca1513ffe89
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column value
+		dataType: int64
+		formatString: 0
+		lineageTag: 8469ffc4-bacd-4187-83f5-46ccc3e89a0f
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_imf_imports_goods = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_imports.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"COUNTRY", type text}, {"INDICATOR", type text}, {"COUNTERPART_COUNTRY", type text}, {"FREQUENCY", type text}, {"period", type date}, {"value", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

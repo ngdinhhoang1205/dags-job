@@ -1,0 +1,10 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "82d0374d1750a23416c8",
+  "displayName": "YoY_GDP_Tooltip",
+  "displayOption": "ActualSize",
+  "height": 140,
+  "width": 500,
+  "visibility": "HiddenInViewMode",
+  "type": "Tooltip"
+}

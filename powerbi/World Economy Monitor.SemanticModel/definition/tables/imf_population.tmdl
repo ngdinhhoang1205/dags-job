@@ -1,0 +1,63 @@
+table imf_population
+	lineageTag: f0501773-0d80-4645-96ab-1e2f7271e857
+
+	column COUNTRY
+		dataType: string
+		lineageTag: 58379dc3-e4e7-4f5a-9de0-6d217d14ef95
+		summarizeBy: none
+		sourceColumn: COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICATOR
+		dataType: string
+		lineageTag: 8fe57394-60c8-4bc7-9d48-e5a8e92021b3
+		summarizeBy: none
+		sourceColumn: INDICATOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column FREQUENCY
+		dataType: string
+		lineageTag: 2fb21e71-6c6e-4068-86e5-4f88b14c23d7
+		summarizeBy: none
+		sourceColumn: FREQUENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column period
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: d04f3e95-066a-4800-af9f-3d9b3b35c962
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column value
+		dataType: int64
+		formatString: #,0
+		lineageTag: d963d0e7-fdb4-46a7-bf33-04966f578bec
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	partition imf_population = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_population.csv"),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"COUNTRY", type text}, {"INDICATOR", type text}, {"FREQUENCY", type text}, {"period", type date}, {"value", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

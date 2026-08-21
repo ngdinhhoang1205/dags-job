@@ -1,0 +1,184 @@
+table f_gross_domestic_product
+	lineageTag: ed3e12c5-f049-46fb-980f-0a12e76055d7
+
+	column @frequency
+		dataType: string
+		lineageTag: 4e34b54c-b69b-45c2-847e-e6d03cc7b3d4
+		summarizeBy: none
+		sourceColumn: @frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_code
+		dataType: string
+		lineageTag: f33143f8-af0e-42a8-8b9a-13f4627b45b1
+		summarizeBy: none
+		sourceColumn: provider_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataset_code
+		dataType: string
+		lineageTag: 64473dd3-1008-4f8e-a467-c051c0af8b61
+		summarizeBy: none
+		sourceColumn: dataset_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataset_name
+		dataType: string
+		lineageTag: ba99d161-edc2-4351-b016-ce693e3f9ab9
+		summarizeBy: none
+		sourceColumn: dataset_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column series_code
+		dataType: string
+		lineageTag: 8095837d-b9ef-4209-8cbf-7ca3793cf153
+		summarizeBy: none
+		sourceColumn: series_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column series_name
+		dataType: string
+		lineageTag: 51c82c3d-c081-47ba-8ce0-310d258afa85
+		summarizeBy: none
+		sourceColumn: series_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column original_period
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ec55680-fcbc-4423-94cf-9d38ec779404
+		summarizeBy: sum
+		sourceColumn: original_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column period
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: f8e560f6-3db3-4e5b-8b51-c908ee1bd7d8
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column original_value
+		dataType: double
+		lineageTag: 09aa4a03-3d56-4d35-840a-adc920dce45f
+		summarizeBy: sum
+		sourceColumn: original_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column value
+		dataType: double
+		formatString: #,0
+		lineageTag: 84268141-d63e-4231-b585-734ce5af0638
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	column FREQ
+		dataType: string
+		lineageTag: 3987058e-e8cc-4680-bcba-2fa9c0c9fe4e
+		summarizeBy: none
+		sourceColumn: FREQ
+
+		annotation SummarizationSetBy = Automatic
+
+	column REF_AREA
+		dataType: string
+		lineageTag: a8c7d03f-8aee-45b4-a6ff-53b37bdecd53
+		summarizeBy: none
+		sourceColumn: REF_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICATOR
+		dataType: string
+		lineageTag: 05888cbd-208c-48a0-8988-639765eb9e94
+		summarizeBy: none
+		sourceColumn: INDICATOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column Frequency
+		dataType: string
+		lineageTag: a1a61790-f30e-4f98-b1d8-3cc1f66e22fb
+		summarizeBy: none
+		sourceColumn: Frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reference Area'
+		dataType: string
+		lineageTag: 87edb765-a804-4bfd-a644-036a2518484d
+		summarizeBy: none
+		sourceColumn: Reference Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Indicator 2'
+		dataType: string
+		lineageTag: ff86c2d3-13ae-4d33-986c-20b6c87652ec
+		summarizeBy: none
+		sourceColumn: Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column value_usd
+		dataType: double
+		lineageTag: 6f0624a0-f276-4a9e-8a16-8a3665ed4e9f
+		summarizeBy: sum
+		sourceColumn: value_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column local/usd
+		dataType: double
+		lineageTag: 5d8da40c-2327-4818-a289-fc5e381f9e74
+		summarizeBy: sum
+		sourceColumn: local/usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column usd/local
+		dataType: double
+		lineageTag: ec909101-500f-46c1-8db9-c3d7aa67024d
+		summarizeBy: sum
+		sourceColumn: usd/local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition f_gross_domestic_product = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_gdp.csv"),[Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"@frequency", type text}, {"provider_code", type text}, {"dataset_code", type text}, {"dataset_name", type text}, {"series_code", type text}, {"series_name", type text}, {"original_period", Int64.Type}, {"period", type date}, {"original_value", type number}, {"value", type number}, {"FREQ", type text}, {"REF_AREA", type text}, {"INDICATOR", type text}, {"Frequency", type text}, {"Reference Area", type text}, {"Indicator", type text}, {"usd/local", type number}, {"local/usd", type number}, {"value_usd", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

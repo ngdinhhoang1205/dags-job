@@ -1,0 +1,158 @@
+expression Parameter1 = #"Sample File" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 5a844d52-2b32-407f-b5e5-653673f0d52e
+	queryGroup: 'Transform File from im_ex\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Sample File' =
+		let
+		    Source = Folder.Files("D:\Projects\DA Porforlio\data\im_ex"),
+		    Navigation1 = Source{0}[Content]
+		in
+		    Navigation1
+	lineageTag: a0996cf4-4c1a-48fb-817c-57832d631ad8
+	queryGroup: 'Transform File from im_ex\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform Sample File' =
+		let
+		    Source = Csv.Document(Parameter1,[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"Indicator", "Indicator.1"}})
+		in
+		    #"Renamed Columns"
+	lineageTag: fa0383f6-db55-4de5-b8b2-49f47b4a7663
+	queryGroup: 'Transform File from im_ex'
+
+	annotation PBI_ResultType = Table
+
+expression 'Transform File' =
+		let
+		    Source = (Parameter1 as binary) => let
+		    Source = Csv.Document(Parameter1,[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"Indicator", "Indicator.1"}})
+		in
+		    #"Renamed Columns"
+		in
+		    Source
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transform Sample File""}" ]
+	lineageTag: 8f98ef0f-1cee-4c61-af1b-9e2cfc436d3c
+	queryGroup: 'Transform File from im_ex\Helper Queries'
+
+	annotation PBI_ResultType = Function
+
+expression Parameter2 = #"Sample File (2)" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File (2)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 775c4304-38bc-46a3-b0eb-9e616f730668
+	queryGroup: 'Transform File from f_import_value\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression Parameter3 = #"Sample File (3)" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File (3)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: d99a57da-85a0-42ef-b0e5-f9b3444ae1a2
+	queryGroup: 'Transform File from f_export_value\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Sample File (2)' =
+		let
+		    Source = Folder.Files("D:\Projects\DA Porforlio\data\im"),
+		    Navigation1 = Source{0}[Content]
+		in
+		    Navigation1
+	lineageTag: 366a70ea-697b-43b8-af63-0ded731af822
+	queryGroup: 'Transform File from f_import_value\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform Sample File (2)' =
+		let
+		    Source = Csv.Document(Parameter2,[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"Indicator", "Indicator.1"}})
+		in
+		    #"Renamed Columns"
+	lineageTag: e40edef0-264d-48ba-95fe-a940d86da083
+	queryGroup: 'Transform File from f_import_value'
+
+	annotation PBI_ResultType = Table
+
+expression 'Transform File (2)' =
+		let
+		    Source = (Parameter2 as binary) => let
+		    Source = Csv.Document(Parameter2,[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"Indicator", "Indicator.1"}})
+		in
+		    #"Renamed Columns"
+		in
+		    Source
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transform Sample File (2)""}" ]
+	lineageTag: 40058cbe-ac4f-4ddf-b0df-6a6d74d31aa9
+	queryGroup: 'Transform File from f_import_value\Helper Queries'
+
+	annotation PBI_ResultType = Function
+
+expression 'Sample File (3)' =
+		let
+		    Source = Folder.Files("D:\Projects\DA Porforlio\data\ex"),
+		    Navigation1 = Source{0}[Content]
+		in
+		    Navigation1
+	lineageTag: 08d89f75-f644-4301-bd81-70d0c8b3ff2b
+	queryGroup: 'Transform File from f_export_value\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform Sample File (3)' =
+		let
+		    Source = Csv.Document(Parameter3,[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"Indicator", "Indicator.1"}})
+		in
+		    #"Renamed Columns"
+	lineageTag: 0eab3ced-ed44-42e4-ae99-27d0f89887f5
+	queryGroup: 'Transform File from f_export_value'
+
+	annotation PBI_ResultType = Table
+
+expression 'Transform File (3)' =
+		let
+		    Source = (Parameter3 as binary) => let
+		    Source = Csv.Document(Parameter3,[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"Indicator", "Indicator.1"}})
+		in
+		    #"Renamed Columns"
+		in
+		    Source
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transform Sample File (3)""}" ]
+	lineageTag: 2bd7b30f-ae70-49c3-85c1-d36c407590c4
+	queryGroup: 'Transform File from f_export_value\Helper Queries'
+
+	annotation PBI_ResultType = Exception
+
+expression 'Errors in f_export_value' =
+		let
+		Source = f_export_value,
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Source.Name", "@frequency", "provider_code", "dataset_code", "dataset_name", "series_code", "series_name", "original_period", "period", "original_value", "value", "FREQ", "REF_AREA", "INDICATOR", "COUNTERPART_AREA", "Frequency", "Reference Area", "Indicator.1", "Counterpart Reference Area"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Source.Name", "@frequency", "provider_code", "dataset_code", "dataset_name", "series_code", "series_name", "original_period", "period", "original_value", "value", "FREQ", "REF_AREA", "INDICATOR", "COUNTERPART_AREA", "Frequency", "Reference Area", "Indicator.1", "Counterpart Reference Area"})
+		in
+		    #"Reordered Columns"
+	lineageTag: 611167dc-8f65-44a9-ad10-8a8135b9e33c
+	queryGroup: 'Query Errors - 7/22/2026 10:51:04 PM'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

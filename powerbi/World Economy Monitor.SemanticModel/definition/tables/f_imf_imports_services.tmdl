@@ -1,0 +1,80 @@
+table f_imf_imports_services
+	lineageTag: b3db0569-16f1-4011-9220-2a95ec5b718a
+
+	column COUNTRY
+		dataType: string
+		lineageTag: 04ac3b83-771c-4202-a3b5-a2aa3dd35dbf
+		summarizeBy: none
+		sourceColumn: COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column BOP_ACCOUNTING_ENTRY
+		dataType: string
+		lineageTag: 2fbfca88-34ed-4741-bb79-0d9535675c42
+		summarizeBy: none
+		sourceColumn: BOP_ACCOUNTING_ENTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICATOR
+		dataType: string
+		lineageTag: e86c953c-4dc3-42c1-90ac-919082df4029
+		summarizeBy: none
+		sourceColumn: INDICATOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIT
+		dataType: string
+		lineageTag: 02ac37f7-4247-4b5f-820e-56c48b451ab9
+		summarizeBy: none
+		sourceColumn: UNIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column FREQUENCY
+		dataType: string
+		lineageTag: 6f785494-0ed3-48bf-b385-5a6352ee684a
+		summarizeBy: none
+		sourceColumn: FREQUENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column period
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 67204482-c51e-4b83-98df-ecde6ab54318
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column value
+		dataType: double
+		lineageTag: d3b2dc90-d59d-488a-8ab6-aab44c1b52f2
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition f_imf_imports_services = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_services_imports.csv"),[Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"COUNTRY", type text}, {"BOP_ACCOUNTING_ENTRY", type text}, {"INDICATOR", type text}, {"UNIT", type text}, {"FREQUENCY", type text}, {"period", type date}, {"value", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

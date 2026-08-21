@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "World Economy Monitor"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5b8c34ee-23cd-49c3-987c-a892b8ddc5de"
+  }
+}

@@ -1,0 +1,435 @@
+table Measures_Table
+	lineageTag: 2661a5aa-3679-4034-9d80-ba8e767857a0
+
+	measure _current_gdp = ```
+			
+			VAR current_year = [_current_gpd_year]
+			RETURN    SUMX(
+			        FILTER(f_gross_domestic_product, YEAR(f_gross_domestic_product[period]) = current_year), 
+			        f_gross_domestic_product[value_usd]
+			        )
+			
+			```
+		formatString: #,0
+		lineageTag: 771115f7-48f8-4ad6-8232-f48a91ff8e83
+
+	measure _yoy_gdp = ```
+			
+			VAR current_year = YEAR(MAX(f_gross_domestic_product[period]))
+			VAR current_gdp = SUMX(FILTER(f_gross_domestic_product, YEAR(f_gross_domestic_product[period]) = current_year), f_gross_domestic_product[value_usd])
+			VAR previous_gdp = CALCULATE(
+			        SUM(f_gross_domestic_product[value_usd]),
+			        // SAMEPERIODLASTYEAR(f_gross_domestic_product[period]),
+			        SAMEPERIODLASTYEAR(d_calendar[Date]),
+			        REMOVEFILTERS(f_gross_domestic_product) 
+			    )
+			
+			RETURN DIVIDE(current_gdp-previous_gdp, previous_gdp, 0)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6910365f-2c5f-4338-8e79-ffe5f05290ba
+
+	measure _current_year = YEAR(NOW())-2
+		formatString: 0
+		lineageTag: 84d99c77-3cbb-4786-9316-596564a90962
+		dataCategory: Uncategorized
+
+	measure _total_gdp = SUMX(f_gross_domestic_product, f_gross_domestic_product[value])
+		lineageTag: f04dbf27-bae1-40d4-8633-3af4b01be867
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _yoy_ipi =
+			
+			VAR latest_date = MAX(f_industrial_production_index[Date])
+			VAR latest_year = YEAR(latest_date)
+			VAR same_date_previous_year = MAX(f_industrial_production_index[Date])-365
+			VAR previous_year = YEAR(same_date_previous_year)
+			VAR current_ipi = AVERAGEX(FILTER(f_industrial_production_index, AND(YEAR(f_industrial_production_index[Date])=latest_year, f_industrial_production_index[Date]<=latest_date)), f_industrial_production_index[value])
+			VAR previous_ipi = AVERAGEX(FILTER(f_industrial_production_index, AND(YEAR(f_industrial_production_index[Date])=previous_year, f_industrial_production_index[Date]<=same_date_previous_year)), f_industrial_production_index[value])
+			RETURN DIVIDE(current_ipi-previous_ipi, previous_ipi, 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 98ca56b1-bba7-44f3-9289-b677f32a2d71
+
+	measure _previous_year = [_current_year]-1
+		formatString: 0
+		lineageTag: 4e8d848d-a201-4ec9-a69b-d52d7eaba04b
+
+	measure _mom_ipi =
+			
+			VAR latest_date = MAX(f_industrial_production_index[Date])
+			VAR previous_month = EOMONTH(latest_date, -2) + 1
+			VAR current_ipi = SUMX(FILTER(f_industrial_production_index, f_industrial_production_index[Date]=latest_date), f_industrial_production_index[value])
+			VAR previous_ipi = SUMX(FILTER(f_industrial_production_index, f_industrial_production_index[Date]=previous_month), f_industrial_production_index[value])
+			RETURN DIVIDE(current_ipi-previous_ipi, previous_ipi, 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8791e000-4a27-4234-943b-ba964f856d4f
+
+	measure _current_month = [_current_year]*100+MONTH(MAXX(FILTER(f_industrial_production_index, YEAR(f_industrial_production_index[Date])=[_current_year]), f_industrial_production_index[Date]))
+		formatString: 0
+		lineageTag: f81da267-89bb-495f-b5af-35ddbef6f043
+
+	measure _previous_month = [_current_month]-1
+		formatString: 0
+		lineageTag: f9da6273-8208-45ce-bbf0-58960575012b
+
+	measure _yoy_cpi_overview = ```
+			
+			VAR latest_date = MAX(f_consumer_price_index[period])
+			VAR latest_year = YEAR(latest_date)
+			VAR same_date_previous_year = MAX(f_consumer_price_index[period])-365
+			VAR previous_year = YEAR(same_date_previous_year)
+			
+			VAR current_cpi = SUMX(FILTER(f_consumer_price_index, AND(YEAR(f_consumer_price_index[period])=latest_year, f_consumer_price_index[period]<= latest_date)), f_consumer_price_index[value])
+			// VAR previous_cpi = CALCULATE(
+			//         SUM(f_consumer_price_index[value]),
+			//         SAMEPERIODLASTYEAR(f_consumer_price_index[period]),
+			//         REMOVEFILTERS(f_consumer_price_index) 
+			//     )
+			VAR previous_cpi = CALCULATE(
+			        SUM(f_consumer_price_index[value]),
+			        YEAR(f_consumer_price_index[period])=previous_year,
+			        f_consumer_price_index[period]<= same_date_previous_year
+			    )
+			RETURN DIVIDE(current_cpi-previous_cpi, previous_cpi, 0)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 459786dc-d6e6-4654-baae-550fd2f6210e
+
+	measure _mom_cpi =
+			
+			VAR latest_date = MAX(f_consumer_price_index[period])
+			VAR previous_month = EOMONTH(latest_date, -2) + 1
+			VAR current_cpi = SUMX(FILTER(f_consumer_price_index, f_consumer_price_index[period]=latest_date), f_consumer_price_index[value])
+			VAR previous_cpi = SUMX(FILTER(f_consumer_price_index, f_consumer_price_index[period]=previous_month), f_consumer_price_index[value])
+			
+			RETURN DIVIDE(current_cpi-previous_cpi, previous_cpi, 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 356619cc-f2ec-4406-a71b-8a69835aae58
+
+	measure _current_policy_rate_overview = ```
+			
+			VAR latest_date = MAX(f_cb_policy_rates[period])
+			VAR policy_rate = AVERAGEX(FILTER(f_cb_policy_rates, f_cb_policy_rates[period]=latest_date), f_cb_policy_rates[value]/100)
+			
+			RETURN policy_rate
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: df75c173-e20d-40ad-8550-b08c8251f779
+
+	measure _mom_policy_rate =
+			
+			VAR latest_date = MAX(f_cb_policy_rates[period])
+			VAR previous_month = EOMONTH(latest_date, -2) + 1
+			VAR current_policy_rate = AVERAGEX(FILTER(f_cb_policy_rates, f_cb_policy_rates[period]=latest_date), f_cb_policy_rates[value])
+			VAR previous_policy_rate = AVERAGEX(FILTER(f_cb_policy_rates, f_cb_policy_rates[period]=previous_month), f_cb_policy_rates[value])
+			
+			RETURN 100*(current_policy_rate-previous_policy_rate)
+		formatString: 0
+		lineageTag: 140e096d-5882-4fb3-b4e5-3dbc0222115d
+
+	measure _current_unemployment_rate =
+			
+			VAR current_year = YEAR(MAX(f_unemployment_rate[period]))
+			VAR current_unemployment_rate = CALCULATE(
+			    AVERAGE(f_unemployment_rate[value]),
+			    YEAR(f_unemployment_rate[period])=current_year)
+			
+			RETURN current_unemployment_rate/100
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 161cab18-2866-47e5-b248-398830435ee7
+
+	measure _yoy_unemployment_rate =
+			
+			VAR current_year = YEAR(MAX(f_unemployment_rate[period]))
+			VAR previous_year = YEAR(MAX(f_unemployment_rate[period]))-1
+			VAR current_unemployment_rate = CALCULATE(
+			    AVERAGE(f_unemployment_rate[value]),
+			    YEAR(f_unemployment_rate[period])=current_year)
+			VAR previous_unemployment_rate = CALCULATE(
+			    AVERAGE(f_unemployment_rate[value]),
+			    YEAR(f_unemployment_rate[period])=previous_year)
+			
+			RETURN DIVIDE(current_unemployment_rate-previous_unemployment_rate, previous_unemployment_rate, 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ae029301-14a7-4960-83ed-860ef4c9286e
+
+	measure _yoy_retail = ```
+			
+			VAR current_year = YEAR(MAX(f_retail_sales[period])) 
+			VAR previous_year = current_year-1
+			VAR current_retail = SUMX(FILTER(f_retail_sales, YEAR(f_retail_sales[period])=current_year), f_retail_sales[value])
+			VAR previous_retail = SUMX(FILTER(f_retail_sales, YEAR(f_retail_sales[period])=previous_year), f_retail_sales[value])
+			
+			RETURN DIVIDE(current_retail-previous_retail, previous_retail, 0)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d9b8ba7e-1d2b-401d-b64d-ee0a2422aa7a
+
+	measure _current_gpd_year = ```
+			YEAR(MAX(f_gross_domestic_product[period])) 
+			```
+		formatString: 0
+		lineageTag: a820c542-c430-441c-bad4-2fd9b8f23e14
+
+	measure _mom_retail =
+			
+			VAR current_year = YEAR(MAX(f_retail_sales[period]))
+			VAR previous_year = current_year-1
+			VAR current_month = current_year*100 + MAXX(FILTER(f_retail_sales, YEAR(f_retail_sales[period])=current_year), MONTH(f_retail_sales[period]))
+			VAR previous_month = IF(MAXX(FILTER(f_retail_sales, YEAR(f_retail_sales[period])=current_year), MONTH(f_retail_sales[period]))=1, previous_year*100+12, current_month-1)
+			VAR current_retail = SUMX(FILTER(f_retail_sales, YEAR(f_retail_sales[period])*100+MONTH(f_retail_sales[period])=current_month), f_retail_sales[value])
+			VAR previous_retail = SUMX(FILTER(f_retail_sales, YEAR(f_retail_sales[period])*100+MONTH(f_retail_sales[period])=previous_month), f_retail_sales[value])
+			
+			RETURN DIVIDE(current_retail-previous_retail, previous_retail, 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c618621a-d96c-4849-b755-b51a451ada6c
+
+	measure _current_import_goods =
+			
+			VAR current_year_goods = YEAR(MAX(f_imf_imports_goods[period]))
+			VAR current_year_service = YEAR(MAX(f_imf_imports_services[period]))
+			VAR current_year = IF(current_year_goods<current_year_service, current_year_goods, current_year_service)
+			VAR current_value_goods = SUMX(FILTER(f_imf_imports_goods, YEAR(f_imf_imports_goods[period])=current_year), f_imf_imports_goods[value])
+			VAR current_value_services = SUMX(FILTER(f_imf_imports_services, YEAR(f_imf_imports_services[period])=current_year), f_imf_imports_services[value])
+			RETURN DIVIDE(current_value_goods, 1000000)
+		lineageTag: ac0e8b5b-6108-4177-9bd1-cc3039f294c1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _current_export_goods =
+			
+			VAR current_year_goods = YEAR(MAX(f_imf_exports_goods[period]))
+			VAR current_year_service = YEAR(MAX(f_imf_exports_services[period]))
+			VAR current_year = IF(current_year_goods<current_year_service, current_year_goods, current_year_service)
+			
+			VAR current_value_goods = SUMX(FILTER(f_imf_exports_goods, YEAR(f_imf_exports_goods[period])=current_year), f_imf_exports_goods[value])
+			VAR current_value_services = SUMX(FILTER(f_imf_exports_services, YEAR(f_imf_exports_services[period])=current_year), f_imf_exports_services[value])
+			RETURN DIVIDE(current_value_goods, 1000000)
+		lineageTag: 7916cc5f-783f-4170-bb1f-993ca0853246
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _current_trade_balance_goods = [_current_export_goods]-[_current_import_goods]
+		lineageTag: f5e28d82-3039-4d09-b5cb-9cbd6070c1c2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _current_gdp_subtitle = "Latest: " & [_current_gpd_year]
+		lineageTag: c9284181-1df3-4707-9ccf-fee40c2d8ece
+
+	measure _yoy_gdp_subtitle = [_current_gpd_year] & " vs. " & [_current_gpd_year]-1
+		lineageTag: 25e02610-2f7f-427e-9bf6-46cd59238690
+
+	measure _current_retail_year = YEAR(MAX(f_retail_sales[period]))
+		formatString: 0
+		lineageTag: ae06332a-5923-4bdb-8984-a402e458bc7d
+
+	measure _mom_retail_subtitle =
+			
+			VAR latest_date = MAX(f_retail_sales[period])
+			VAR previous_month = EOMONTH(latest_date, -2) + 1
+			RETURN IF(latest_date<>BLANK(), FORMAT(latest_date, "yyyy-mm") & " vs. " & FORMAT(previous_month, "yyyy-mm"), BLANK())
+		lineageTag: dd1ed56b-dd84-44d5-9a71-f35468f91b31
+
+	measure _yoy_retail_subtitle = ```
+			
+			VAR current_year = YEAR(MAX(f_retail_sales[period])) 
+			VAR previous_year = current_year-1
+			RETURN IF(current_year<>BLANK(), current_year & " vs. " & previous_year, BLANK())
+			```
+		lineageTag: 84e17603-d70a-4e61-93d8-0be2c90bfae9
+
+	measure _current_unemployment_rate_subtitle =
+			
+			VAR current_year = MAX(f_unemployment_rate[period])
+			RETURN "Latest In " & FORMAT(current_year, "yyyy")
+		lineageTag: 0c8f5100-f3f4-45af-a9c6-c203fc8d7729
+
+	measure _yoy_unemployment_rate_subtitle =
+			
+			VAR current_year = YEAR(MAX(f_unemployment_rate[period]))
+			VAR previous_year = YEAR(MAX(f_unemployment_rate[period]))-1
+			RETURN current_year & " vs. " & previous_year
+		lineageTag: 5e810f98-e8d5-4835-9aa0-bfa9db022eb1
+
+	measure _yoy_ipi_subtitle =
+			
+			VAR latest_date = MAX(f_industrial_production_index[Date])
+			VAR latest_year = DATE(YEAR(latest_date), 1, 1)
+			VAR same_date_previous_year = MAX(f_industrial_production_index[Date])-365
+			VAR previous_year = DATE(YEAR(same_date_previous_year), 1, 1)
+			RETURN "[" & FORMAT(latest_year, "yyyy-mm") & "; " & FORMAT(latest_date, "yyyy-mm") & "]" & " over " & "[" & FORMAT(previous_year, "yyyy-mm") & "; " & FORMAT(same_date_previous_year, "yyyy-mm") & "]"
+		lineageTag: ba31ce32-bd4c-45e5-b2c7-567bbe41ad7f
+
+	measure _mom_ipi_subtitle =
+			
+			VAR latest_date = MAX(f_industrial_production_index[Date])
+			VAR previous_month = EOMONTH(latest_date, -2) + 1
+			RETURN FORMAT(latest_date, "yyyy-mm") & " over " & FORMAT(previous_month, "yyyy-mm")
+		lineageTag: 88b9cbca-87ed-4b8c-8ed1-33da4f241509
+
+	measure _yoy_cpi_subtitle_overview =
+			
+			VAR latest_date = MAX(f_consumer_price_index[period])
+			VAR latest_year = DATE(YEAR(latest_date), 1, 1)
+			VAR same_date_previous_year = MAX(f_consumer_price_index[period])-365
+			VAR previous_year = DATE(YEAR(same_date_previous_year), 1, 1)
+			RETURN "[" & FORMAT(latest_year, "yyyy-mm") & "; " & FORMAT(latest_date, "yyyy-mm") & "]" & " over " & "[" & FORMAT(previous_year, "yyyy-mm") & "; " & FORMAT(same_date_previous_year, "yyyy-mm") & "]"
+		lineageTag: ccfdbb46-aa2a-49db-8adc-db2d0105bc9b
+
+	measure _mom_cpi_subtitle =
+			
+			VAR latest_date = MAX(f_consumer_price_index[period])
+			VAR previous_month = EOMONTH(latest_date, -2) + 1
+			RETURN FORMAT(latest_date, "yyyy-mm") & " over " & FORMAT(previous_month, "yyyy-mm")
+		lineageTag: 03bd1f5e-1895-406b-9fda-8409b65e526e
+
+	measure _gdp_% =
+			
+			VAR current_gdp = SUMX(f_gross_domestic_product, f_gross_domestic_product[value_usd])
+			VAR previous_gdp = SUMX(FILTER(f_gross_domestic_product, DATEADD(d_calendar[Date], -1, YEAR)), f_gross_domestic_product[value_usd])
+			RETURN DIVIDE(current_gdp-previous_gdp, previous_gdp, 0)
+		lineageTag: a24abe51-94f9-4bb6-b17d-2bee0dd3d50e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _total_ipi = SUMX(f_industrial_production_index, f_industrial_production_index[value])
+		lineageTag: daaf871b-7588-4f58-a30b-fbba39dd2b18
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _current_population =
+			
+			VAR current_year = MAX(imf_population[period])
+			VAR current_population = MAXX(FILTER(imf_population, imf_population[period]=current_year), imf_population[value])
+			
+			RETURN current_population
+		formatString: 0
+		lineageTag: 17e7c7cd-aa3f-47dd-b230-9e2e788bfc3c
+
+	measure _current_gdp_per_capita = ```
+			
+			VAR current_year_gdp = MAX(f_gross_domestic_product[period])
+			VAR current_year_pop = MAX(imf_population[period])
+			VAR current_year = IF(current_year_gdp <= current_year_pop, current_year_gdp, current_year_pop)
+			VAR gdp = SUMX(
+			        FILTER(f_gross_domestic_product, f_gross_domestic_product[period] = current_year), 
+			        f_gross_domestic_product[value_usd]
+			        )
+			VAR pop = SUMX(FILTER(imf_population, imf_population[period]=current_year),
+			        imf_population[value]
+			)
+			RETURN DIVIDE(gdp, pop, 0)*1000000
+			```
+		lineageTag: bd843749-183e-4314-b292-960a06e8403a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _yoy_cpi =
+			
+			VAR current_cpi = AVERAGEX(f_consumer_price_index, f_consumer_price_index[value])
+			VAR previous_cpi = CALCULATE(AVERAGE(f_consumer_price_index[value]), DATEADD(d_calendar[Date], -1, YEAR))
+			RETURN DIVIDE(current_cpi-previous_cpi, previous_cpi, 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7a089e6e-dc44-49cb-8149-ab8fafd20f30
+
+	measure _policy_rate = AVERAGE(f_cb_policy_rates[value])/100
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9fea51b5-a6f4-41e4-bafc-105e6bea4042
+
+	measure _retail_total = SUMX(f_retail_sales, f_retail_sales[value])
+		lineageTag: a941b840-bedc-4027-885f-d631687cecec
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _current_population_year = YEAR(MAXX(imf_population, imf_population[period]))
+		formatString: 0
+		lineageTag: 85bea402-5025-4732-99c4-0dc5886eb16b
+
+	measure _current_import_year =
+			
+			VAR current_year_goods = YEAR(MAX(f_imf_imports_goods[period]))
+			VAR current_year_service = YEAR(MAX(f_imf_imports_services[period]))
+			RETURN IF(current_year_goods<current_year_service, current_year_goods, current_year_service)
+		formatString: 0
+		lineageTag: 4e4870d5-1b90-4019-a532-bddd47128524
+
+	measure _current_export_year =
+			
+			VAR current_year_goods = YEAR(MAX(f_imf_exports_goods[period]))
+			VAR current_year_service = YEAR(MAX(f_imf_exports_services[period]))
+			RETURN IF(current_year_goods<current_year_service, current_year_goods, current_year_service)
+		formatString: 0
+		lineageTag: 0f484f36-f0d0-4375-86e2-1db9e7664bba
+
+	measure _current_export_service =
+			
+			VAR current_year = YEAR(MAX(f_imf_exports_services[period]))
+			VAR current_value_goods = SUMX(FILTER(f_imf_exports_goods, YEAR(f_imf_exports_goods[period])=current_year), f_imf_exports_goods[value])
+			VAR current_value_services = SUMX(FILTER(f_imf_exports_services, YEAR(f_imf_exports_services[period])=current_year), f_imf_exports_services[value])
+			RETURN DIVIDE(current_value_services, 1000000)
+		lineageTag: 4cdd682f-974b-4bc4-9728-d03c81f5d1b3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _current_import_service =
+			
+			VAR current_year = YEAR(MAX(f_imf_imports_services[period]))
+			VAR current_value_goods = SUMX(FILTER(f_imf_imports_goods, YEAR(f_imf_imports_goods[period])=current_year), f_imf_imports_goods[value])
+			VAR current_value_services = SUMX(FILTER(f_imf_imports_services, YEAR(f_imf_imports_services[period])=current_year), f_imf_imports_services[value])
+			RETURN DIVIDE(current_value_services, 1000000)
+		lineageTag: a9a7d85d-bab8-4eb7-88bf-e91888082d5a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _current_trade_balance_service = [_current_export_service]-[_current_import_service]
+		lineageTag: 634cb4cc-7446-42a7-87ad-88ea15eee226
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _trade_balance_p_gdp = DIVIDE([_current_trade_balance], [_current_gdp], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f7695b1c-591a-426a-a169-122f6a0b349e
+
+	measure _current_trade_balance = [_current_trade_balance_goods]+[_current_trade_balance_service]
+		lineageTag: 1f5533eb-6348-4cba-91a3-64c95f8e6593
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _current_policy_rate_year = FORMAT(MAX(f_cb_policy_rates[period]), "yyyy-mm-dd")
+		lineageTag: 24e85c5a-44f4-48fa-bbad-defaa2ceb3d3
+
+	measure _current_policy_rate_subtitle = "Latest: " & [_current_policy_rate_year]
+		lineageTag: 73acb4ba-f915-4881-be93-30a3edef874e
+
+	measure _yoy_cpi_time_series = ```
+			
+			VAR current_cpi = SUMX(f_consumer_price_index, f_consumer_price_index[value])
+			VAR previous_cpi = CALCULATE(
+			        SUM(f_consumer_price_index[value]),
+			        SAMEPERIODLASTYEAR(f_consumer_price_index[period]),
+			        REMOVEFILTERS(f_consumer_price_index) 
+			    )
+			
+			RETURN DIVIDE(current_cpi-previous_cpi, previous_cpi, 0)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4cca561c-f736-45e3-8ebf-f2c32e996059
+
+	column Value
+		formatString: 0
+		lineageTag: 42ec9451-10d8-4f13-9535-08121cb2c23c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Measures_Table = calculated
+		mode: import
+		source = {BLANK()}
+
+	annotation PBI_Id = 3924ee70fef84d899f7d651e2c218d2f
+

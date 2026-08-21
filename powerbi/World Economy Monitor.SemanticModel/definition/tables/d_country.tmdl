@@ -1,0 +1,50 @@
+table d_country
+	lineageTag: ae3bb8dc-a9a6-4873-a684-82261529f489
+
+	column iso2_code
+		dataType: string
+		lineageTag: 6ad9d2f9-6fca-42e3-aafa-33cfa216193c
+		summarizeBy: none
+		sourceColumn: iso2_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column iso3_code
+		dataType: string
+		lineageTag: 399d5efc-79e6-4ae5-ae2a-0ce551f16846
+		summarizeBy: none
+		sourceColumn: iso3_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_name
+		dataType: string
+		lineageTag: 17aeb4de-9852-4f13-aab4-c0961ed18b26
+		summarizeBy: none
+		sourceColumn: country_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column continent
+		dataType: string
+		lineageTag: be0a195e-1e8a-4db7-8fb0-58bad4fe7dc4
+		summarizeBy: none
+		sourceColumn: continent
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_country = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\d_country.csv"),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"", Int64.Type}, {"iso2_code", type text}, {"iso3_code", type text}, {"country_name", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{""})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

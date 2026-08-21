@@ -1,0 +1,153 @@
+table f_cb_policy_rates
+	lineageTag: e2b3586d-92b0-4d14-8352-3eb5a1351132
+
+	column Column1
+		dataType: int64
+		formatString: 0
+		lineageTag: 825a389d-8ef1-4cb1-acae-82bf62aab575
+		summarizeBy: sum
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column @frequency
+		dataType: string
+		lineageTag: c8d5b650-e861-4359-82e0-121c5cbf2a74
+		summarizeBy: none
+		sourceColumn: @frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_code
+		dataType: string
+		lineageTag: 99c20da4-672b-47ae-a39f-33c6d5c62608
+		summarizeBy: none
+		sourceColumn: provider_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataset_code
+		dataType: string
+		lineageTag: 3028ffb8-ce1e-4dc7-9e71-11b8ffc794fa
+		summarizeBy: none
+		sourceColumn: dataset_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataset_name
+		dataType: string
+		lineageTag: 88748509-63fb-429f-b40d-2d2d92e806ca
+		summarizeBy: none
+		sourceColumn: dataset_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column series_code
+		dataType: string
+		lineageTag: 2e60719f-fdf7-4ef8-97c5-30d1e012086b
+		summarizeBy: none
+		sourceColumn: series_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column series_name
+		dataType: string
+		lineageTag: 74ef1078-c216-4f0a-80d7-810403ab53e8
+		summarizeBy: none
+		sourceColumn: series_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column original_period
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e68937cf-36fc-41d1-8360-64430cc3a555
+		summarizeBy: none
+		sourceColumn: original_period
+
+		variation Variation
+			isDefault
+			relationship: 62b2b910-538d-4a41-abaf-3383a0715ac4
+			defaultHierarchy: LocalDateTable_224dd0b7-5155-4f0c-8ad3-6dfc6cdb9900.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column period
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 383477ad-3cac-4b89-9f8b-4a85159eedbd
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column original_value
+		dataType: string
+		lineageTag: d81efefb-2b30-4828-b661-094a326fefc0
+		summarizeBy: none
+		sourceColumn: original_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: double
+		lineageTag: 51b37f33-e9a1-4b8d-881c-f17581447686
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FREQ
+		dataType: string
+		lineageTag: 6589cb18-468b-4bc9-9f2d-ad16ac19b5c6
+		summarizeBy: none
+		sourceColumn: FREQ
+
+		annotation SummarizationSetBy = Automatic
+
+	column REF_AREA
+		dataType: string
+		lineageTag: 049993f6-b9a3-4acf-b32b-edf3ddb981f8
+		summarizeBy: none
+		sourceColumn: REF_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Frequency
+		dataType: string
+		lineageTag: fcbb64c8-00d8-49c3-8c65-334d9ed88915
+		summarizeBy: none
+		sourceColumn: Frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reference area'
+		dataType: string
+		lineageTag: 71be52b0-7c8c-4baa-bf41-e50b2fe7b496
+		summarizeBy: none
+		sourceColumn: Reference area
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_cb_policy_rates = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\cb_policy_rates.csv"),[Delimiter=",", Columns=15, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"", Int64.Type}, {"@frequency", type text}, {"provider_code", type text}, {"dataset_code", type text}, {"dataset_name", type text}, {"series_code", type text}, {"series_name", type text}, {"original_period", type date}, {"period", type date}, {"original_value", type text}, {"value", type number}, {"FREQ", type text}, {"REF_AREA", type text}, {"Frequency", type text}, {"Reference area", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

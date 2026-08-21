@@ -1,0 +1,10 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "4ba93f3c9c1c10b158d0",
+  "displayName": "GDP_Tooltip",
+  "displayOption": "ActualSize",
+  "height": 140,
+  "width": 230,
+  "visibility": "HiddenInViewMode",
+  "type": "Tooltip"
+}

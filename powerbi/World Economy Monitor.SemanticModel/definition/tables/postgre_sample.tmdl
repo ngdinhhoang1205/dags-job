@@ -1,0 +1,47 @@
+table postgre_sample
+	lineageTag: ae0c693f-3bf4-41ea-945c-5385bd925d68
+
+	column iso2_code
+		dataType: string
+		lineageTag: 63c6faf1-2e57-443c-af76-b3a98cbac1bb
+		summarizeBy: none
+		sourceColumn: iso2_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column iso3_code
+		dataType: string
+		lineageTag: 43a1b070-3e4a-419d-aaaf-859b9ba41c40
+		summarizeBy: none
+		sourceColumn: iso3_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_name
+		dataType: string
+		lineageTag: 0335cccb-f08e-4791-a3ff-cc3ab17215ea
+		summarizeBy: none
+		sourceColumn: country_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column continent
+		dataType: string
+		lineageTag: 173e721b-f339-4434-97d5-3a0fbf0fa473
+		summarizeBy: none
+		sourceColumn: continent
+
+		annotation SummarizationSetBy = Automatic
+
+	partition postgre_sample = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business", [CommandTimeout=#duration(0, 1, 0, 0)]), "SELECT *#(lf)FROM country_mapping", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

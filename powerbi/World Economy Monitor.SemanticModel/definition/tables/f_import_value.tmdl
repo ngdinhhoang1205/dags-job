@@ -1,0 +1,190 @@
+table f_import_value
+	lineageTag: 2b0e8495-2874-408c-a4cf-d67a7e0a32e5
+
+	column 'Source.Name'
+		dataType: string
+		lineageTag: 8ce076cb-563e-48b1-9de3-be25ea1db6d7
+		summarizeBy: none
+		sourceColumn: Source.Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column @frequency
+		dataType: string
+		lineageTag: fc2ebe95-ded7-424e-83cf-14b9f289e6a6
+		summarizeBy: none
+		sourceColumn: @frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_code
+		dataType: string
+		lineageTag: 079bd4af-048b-4e18-8af8-968dbbafdbd4
+		summarizeBy: none
+		sourceColumn: provider_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataset_code
+		dataType: string
+		lineageTag: 4194cbd9-3f66-42e6-bf6f-5bde681c0a1e
+		summarizeBy: none
+		sourceColumn: dataset_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataset_name
+		dataType: string
+		lineageTag: 3f73b5b1-5dfe-4443-b423-9d52db5dbf8d
+		summarizeBy: none
+		sourceColumn: dataset_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column series_code
+		dataType: string
+		lineageTag: cedbe541-d76a-413e-bd6d-611265af5b0a
+		summarizeBy: none
+		sourceColumn: series_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column series_name
+		dataType: string
+		lineageTag: c7e88f3d-e100-414f-a171-0fa204c505ce
+		summarizeBy: none
+		sourceColumn: series_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column original_period
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 51102b96-8550-49b7-8385-9ddd8e8089ab
+		summarizeBy: none
+		sourceColumn: original_period
+
+		variation Variation
+			isDefault
+			relationship: a651a461-01d2-4189-9863-6c9752bf573e
+			defaultHierarchy: LocalDateTable_da58b041-c6a4-43ae-b3c8-f12f4a24875a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column period
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 179216f4-4c48-449f-bcfa-6ee213a6c44b
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column original_value
+		dataType: double
+		lineageTag: 1e735949-0fbc-4256-8006-60338e8918e5
+		summarizeBy: sum
+		sourceColumn: original_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column value
+		dataType: double
+		lineageTag: c554a6b2-439e-4a50-a88b-7930ffb1e2f1
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FREQ
+		dataType: string
+		lineageTag: dab41030-fd44-4f0c-971a-e0a4562a52b1
+		summarizeBy: none
+		sourceColumn: FREQ
+
+		annotation SummarizationSetBy = Automatic
+
+	column REF_AREA
+		dataType: string
+		lineageTag: bb3ecfc7-cafe-4b6e-9626-3a171e889e5f
+		summarizeBy: none
+		sourceColumn: REF_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICATOR
+		dataType: string
+		lineageTag: c6cc01eb-3cba-4844-8423-45503c99cf3d
+		summarizeBy: none
+		sourceColumn: INDICATOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTERPART_AREA
+		dataType: string
+		lineageTag: 17ea8552-8ec2-4cc3-975a-4ac8e19e7789
+		summarizeBy: none
+		sourceColumn: COUNTERPART_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Frequency
+		dataType: string
+		lineageTag: 639e9a80-6f3c-44c0-b38c-1dffd65628d1
+		summarizeBy: none
+		sourceColumn: Frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reference Area'
+		dataType: string
+		lineageTag: 6ddfaaaa-89e5-4b88-8bd4-c4ef190302a8
+		summarizeBy: none
+		sourceColumn: Reference Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Indicator.1'
+		dataType: string
+		lineageTag: 470d8f9d-ceef-4dc1-bfac-e453d5fe5b21
+		summarizeBy: none
+		sourceColumn: Indicator.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Counterpart Reference Area'
+		dataType: string
+		lineageTag: 554ce575-5f8c-402e-bc89-96a039866ebb
+		summarizeBy: none
+		sourceColumn: Counterpart Reference Area
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_import_value = m
+		mode: import
+		source =
+				let
+				    Source = Folder.Files("D:\Projects\DA Porforlio\data\im"),
+				    #"Filtered Hidden Files1" = Table.SelectRows(Source, each [Attributes]?[Hidden]? <> true),
+				    #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Hidden Files1", "Transform File (2)", each #"Transform File (2)"([Content])),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transform File (2)"}),
+				    #"Expanded Table Column1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Transform File (2)", Table.ColumnNames(#"Transform File (2)"(#"Sample File (2)"))),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Table Column1",{{"Source.Name", type text}, {"@frequency", type text}, {"provider_code", type text}, {"dataset_code", type text}, {"dataset_name", type text}, {"series_code", type text}, {"series_name", type text}, {"original_period", type date}, {"period", type date}, {"original_value", type number}, {"value", type number}, {"FREQ", type text}, {"REF_AREA", type text}, {"INDICATOR", type text}, {"COUNTERPART_AREA", type text}, {"Frequency", type text}, {"Reference Area", type text}, {"Indicator.1", type text}, {"Counterpart Reference Area", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,190 @@
+table f_retail_sales
+	lineageTag: 2e74f09e-db75-443e-a568-1ce2a563f582
+
+	column Column1
+		dataType: int64
+		formatString: 0
+		lineageTag: ff432276-3712-4cb1-88cd-acf62073c86d
+		summarizeBy: sum
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column @frequency
+		dataType: string
+		lineageTag: 4bcf7719-1716-43cf-9d11-81098990890a
+		summarizeBy: none
+		sourceColumn: @frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_code
+		dataType: string
+		lineageTag: 3993bc3f-97ea-4f82-8c69-da01c9db834d
+		summarizeBy: none
+		sourceColumn: provider_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataset_code
+		dataType: string
+		lineageTag: eb20379f-8566-4456-aeb2-176274b18f65
+		summarizeBy: none
+		sourceColumn: dataset_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataset_name
+		dataType: string
+		lineageTag: dcfb9e46-54dc-41d3-b48e-8c20327af0c4
+		summarizeBy: none
+		sourceColumn: dataset_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column series_code
+		dataType: string
+		lineageTag: ec5880e2-4552-44d6-8785-a5afacf6f7f6
+		summarizeBy: none
+		sourceColumn: series_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column series_name
+		dataType: string
+		lineageTag: 423be6d2-0772-4682-9880-ef5d55108319
+		summarizeBy: none
+		sourceColumn: series_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column original_period
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: e37da451-a7c1-4d48-87c1-9c56aebd8ad4
+		summarizeBy: none
+		sourceColumn: original_period
+
+		variation Variation
+			isDefault
+			relationship: b982ab64-50e6-4b01-a3ef-169675838848
+			defaultHierarchy: LocalDateTable_21f8d766-408c-4519-9227-2b70000baeeb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column period
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7637f61a-6776-4099-9766-3f3060d97d91
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column original_value
+		dataType: double
+		lineageTag: 4a412e3a-c842-4977-a227-4f3390f7735a
+		summarizeBy: sum
+		sourceColumn: original_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column value
+		dataType: double
+		lineageTag: e2a4dea0-ff8a-4846-9d5e-650ed58be35f
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LOCATION
+		dataType: string
+		lineageTag: 6bcbbac3-243c-413e-9700-7d4a60f85d22
+		summarizeBy: none
+		sourceColumn: LOCATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBJECT
+		dataType: string
+		lineageTag: b6e3d6e4-82a7-4368-8d7e-b2d1a3476a51
+		summarizeBy: none
+		sourceColumn: SUBJECT
+
+		annotation SummarizationSetBy = Automatic
+
+	column MEASURE
+		dataType: string
+		lineageTag: 049148f1-52a7-4467-9514-52645831e82e
+		summarizeBy: none
+		sourceColumn: MEASURE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FREQUENCY
+		dataType: string
+		lineageTag: 07e46dcd-3caf-428f-a691-b399f638ec54
+		summarizeBy: none
+		sourceColumn: FREQUENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 6c626038-cadb-42a6-8335-bb0ef77b3e88
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subject.1'
+		dataType: string
+		lineageTag: d5337b84-7de4-4996-a3db-8485e142ef0d
+		summarizeBy: none
+		sourceColumn: Subject.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Measure.1'
+		dataType: string
+		lineageTag: 98921c4d-0652-4cf8-980b-80dc0d154b54
+		summarizeBy: none
+		sourceColumn: Measure.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frequency.1'
+		dataType: string
+		lineageTag: 1635585f-b035-4d1b-ad4e-7950db4da0ee
+		summarizeBy: none
+		sourceColumn: Frequency.1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_retail_sales = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\retail_sales.csv"),[Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"", Int64.Type}, {"@frequency", type text}, {"provider_code", type text}, {"dataset_code", type text}, {"dataset_name", type text}, {"series_code", type text}, {"series_name", type text}, {"original_period", type date}, {"period", type date}, {"original_value", type number}, {"value", type number}, {"LOCATION", type text}, {"SUBJECT", type text}, {"MEASURE", type text}, {"FREQUENCY", type text}, {"Country", type text}, {"Subject", type text}, {"Measure", type text}, {"Frequency", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Subject", "Subject.1"}, {"Measure", "Measure.1"}, {"Frequency", "Frequency.1"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

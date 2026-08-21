@@ -2,3 +2,4 @@
 __pycache__/
 *.pyc
 logs/
+powerbi/World Economy Monitor.SemanticModel/.pbi/cache.abf

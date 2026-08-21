@@ -1,0 +1,116 @@
+table d_calendar
+	lineageTag: e73784b7-3baf-4e6d-8590-33839695034f
+
+	column Date
+		formatString: yyyy-mm-dd
+		lineageTag: 2b080871-0cf1-43a6-8950-deee0ba5b5a0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 335a6b1e-59bf-4637-864c-793f395aa2b4
+			defaultHierarchy: LocalDateTable_35297e2b-eb05-4156-83d9-d2d62e3b524b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Year
+		formatString: 0
+		lineageTag: deb6281b-5745-4253-9bff-3d3c9765fe31
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month No'
+		formatString: 0
+		lineageTag: 46dbca64-a786-4330-80d7-3fe97c5dcc31
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Month No]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: 03e67b58-c6c5-48fa-a82d-a919a74fec6c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year-Month
+		lineageTag: f8f920f5-3a45-4a4b-98a0-f539cf2f0e38
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year-Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: 8dcdcd84-ab1b-41c9-bb37-f4106c7c360e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year-Quarter
+		lineageTag: 56cb0b72-3860-4b36-a586-ddbb10d16e75
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year-Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		formatString: 0
+		lineageTag: 081d4e1d-74e1-4de9-8499-2e95a8e43c05
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [YearMonth]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_calendar = calculated
+		mode: import
+		source = ```
+				
+				VAR _AllDates = 
+				    UNION(
+				        SELECTCOLUMNS(f_cb_policy_rates, "Date", f_cb_policy_rates[period]),
+				        SELECTCOLUMNS(f_consumer_price_index, "Date", f_consumer_price_index[period]),
+				        SELECTCOLUMNS(f_gross_domestic_product, "Date", f_gross_domestic_product[period]),
+				        SELECTCOLUMNS(f_industrial_production_index, "Date", f_industrial_production_index[Date]),
+				        SELECTCOLUMNS(f_PMI, "Date", f_PMI[period]),
+				        SELECTCOLUMNS(f_retail_sales, "Date", f_retail_sales[period]),
+				        SELECTCOLUMNS(f_trade_balance, "Date", f_trade_balance[period]),
+				        SELECTCOLUMNS(f_unemployment_rate, "Date", f_unemployment_rate[period]),
+				        SELECTCOLUMNS(f_imf_exports_goods, "Date", f_imf_exports_goods[period]),
+				        SELECTCOLUMNS(f_imf_imports_goods, "Date", f_imf_imports_goods[period]),
+				        SELECTCOLUMNS(f_imf_exports_services, "Date", f_imf_exports_services[period]),
+				        SELECTCOLUMNS(f_imf_imports_services, "Date", f_imf_imports_services[period])
+				    )
+				
+				VAR _StartDate = MINX(_AllDates, [Date])
+				VAR _EndDate   = MAXX(_AllDates, [Date])
+				
+				RETURN
+				    ADDCOLUMNS(
+				        CALENDAR(_StartDate, _EndDate),
+				        "Year", YEAR([Date]),
+				        "Month No", MONTH([Date]),
+				        "Month", FORMAT([Date], "mmm"),
+				        "Year-Month", FORMAT([Date], "yyyy-mm"),
+				        "YearMonth", YEAR([Date])*100+MONTH([Date]),
+				        "Quarter", "Q" & FORMAT([Date], "q"),
+				        "Year-Quarter", FORMAT([Date], "yyyy") & "-Q" & FORMAT([Date], "q")
+				    )
+				```
+
+	annotation PBI_Id = 636fb59272a8481e988929e72e7040b6
+

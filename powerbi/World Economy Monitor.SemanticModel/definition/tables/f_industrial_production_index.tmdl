@@ -1,0 +1,62 @@
+table f_industrial_production_index
+	lineageTag: 27ea85fc-0155-43b9-8fba-9005fa812b9f
+
+	column Date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a8b13b08-f2e2-49ce-b1a5-604458b03f9a
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column value
+		dataType: double
+		formatString: 0.00
+		lineageTag: 105e5a29-9551-4dba-a80f-64c85b5b286b
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_code
+		dataType: string
+		lineageTag: e1156745-4700-442c-aa43-1118a59d707c
+		summarizeBy: none
+		sourceColumn: country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_name
+		dataType: string
+		lineageTag: 09c34bd2-c556-46f4-8db3-f4daec8889f8
+		summarizeBy: none
+		sourceColumn: country_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column value_change = f_industrial_production_index[value]-100
+		formatString: 0.00
+		lineageTag: 85a91415-7110-422d-a3e6-796ded3c5b01
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_industrial_production_index = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_industrial_production_index.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"value", type number}, {"country_code", type text}, {"country_name", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
