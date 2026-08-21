@@ -1,18 +1,9 @@
 table f_consumer_price_index
-	lineageTag: 469e8599-745a-4f19-8023-286087616205
-
-	column Column1
-		dataType: int64
-		formatString: 0
-		lineageTag: 2bdd7d9e-abbe-4c7e-95af-be5aed389f18
-		summarizeBy: sum
-		sourceColumn: Column1
-
-		annotation SummarizationSetBy = Automatic
+	lineageTag: faa2d348-213f-45b0-b49c-df60c7c90423
 
 	column @frequency
 		dataType: string
-		lineageTag: 80e10366-74a3-4ff8-9276-17c5d604fc16
+		lineageTag: 55853259-5f0b-4cf8-8968-fcb85a1bf3b4
 		summarizeBy: none
 		sourceColumn: @frequency
 
@@ -20,7 +11,7 @@ table f_consumer_price_index
 
 	column provider_code
 		dataType: string
-		lineageTag: 6e21ce0b-77b0-4809-b167-474bd1db90ad
+		lineageTag: 521e7085-86c7-4866-be4f-bf604cf27d7d
 		summarizeBy: none
 		sourceColumn: provider_code
 
@@ -28,7 +19,7 @@ table f_consumer_price_index
 
 	column dataset_code
 		dataType: string
-		lineageTag: c32ad731-c535-4958-ad08-3c0138318461
+		lineageTag: 996fc441-02bf-460a-b00f-c8a4126720ca
 		summarizeBy: none
 		sourceColumn: dataset_code
 
@@ -36,7 +27,7 @@ table f_consumer_price_index
 
 	column dataset_name
 		dataType: string
-		lineageTag: 65091b0d-8642-45dd-841f-15bca459d8f6
+		lineageTag: 82cfaf7f-cf7f-4bd7-9f51-5384b952f89b
 		summarizeBy: none
 		sourceColumn: dataset_name
 
@@ -44,7 +35,7 @@ table f_consumer_price_index
 
 	column series_code
 		dataType: string
-		lineageTag: 720bebb8-8890-483d-aae0-b829475ecd5a
+		lineageTag: e5b23dac-e1a1-4076-84ef-43341d2c3e75
 		summarizeBy: none
 		sourceColumn: series_code
 
@@ -52,32 +43,24 @@ table f_consumer_price_index
 
 	column series_name
 		dataType: string
-		lineageTag: be282ac0-8915-4d2a-a9ac-fb34beb3df3d
+		lineageTag: f32c572f-44cd-4593-858f-ce6ab5fcee49
 		summarizeBy: none
 		sourceColumn: series_name
 
 		annotation SummarizationSetBy = Automatic
 
 	column original_period
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 77dc91b3-e241-4a89-997c-5c2302f3c146
+		dataType: string
+		lineageTag: 23c5691e-0996-48fe-910e-2b9c51844653
 		summarizeBy: none
 		sourceColumn: original_period
 
-		variation Variation
-			isDefault
-			relationship: 833b443e-98c0-4bbe-9ebd-880fe11d91d3
-			defaultHierarchy: LocalDateTable_ff8b9ca8-079b-4150-8846-ee8b75e42211.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
 
 	column period
 		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: be7b2689-7a8c-410e-b759-c1aa24db8d00
+		formatString: Long Date
+		lineageTag: e15229dd-2680-4081-9b44-d89bc346d1f6
 		summarizeBy: none
 		sourceColumn: period
 
@@ -85,11 +68,9 @@ table f_consumer_price_index
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
 	column original_value
 		dataType: double
-		lineageTag: 19ea6b80-3638-433d-b850-ba96e092a16a
+		lineageTag: 6f9aa750-0a65-4668-8fdb-faf1b99de2c0
 		summarizeBy: sum
 		sourceColumn: original_value
 
@@ -99,7 +80,7 @@ table f_consumer_price_index
 
 	column value
 		dataType: double
-		lineageTag: 210d8b8d-b4cc-45c2-856b-053f561caa1b
+		lineageTag: c5470a46-b0e9-4f1c-8b3e-2e5f61170dba
 		summarizeBy: sum
 		sourceColumn: value
 
@@ -109,7 +90,7 @@ table f_consumer_price_index
 
 	column FREQ
 		dataType: string
-		lineageTag: 9048cec3-6c6d-4c00-ac93-8200a06016dd
+		lineageTag: 05574bfa-5b35-4270-87b6-7677e03b20cf
 		summarizeBy: none
 		sourceColumn: FREQ
 
@@ -117,7 +98,7 @@ table f_consumer_price_index
 
 	column REF_AREA
 		dataType: string
-		lineageTag: 2ccb7641-75ec-48d9-ab74-97c2f16cd519
+		lineageTag: bd25900c-4839-42ee-b665-7a3ddcce19ab
 		summarizeBy: none
 		sourceColumn: REF_AREA
 
@@ -125,7 +106,7 @@ table f_consumer_price_index
 
 	column INDICATOR
 		dataType: string
-		lineageTag: d011970d-6e44-41de-8e0b-b8c44fceebd4
+		lineageTag: ecb38237-e86c-46b3-9eed-5967cb70f610
 		summarizeBy: none
 		sourceColumn: INDICATOR
 
@@ -133,7 +114,7 @@ table f_consumer_price_index
 
 	column Frequency
 		dataType: string
-		lineageTag: a671d059-6599-4b8b-9f0c-30564b01373f
+		lineageTag: 78802233-985c-48bd-acad-729d3f42f3de
 		summarizeBy: none
 		sourceColumn: Frequency
 
@@ -141,7 +122,7 @@ table f_consumer_price_index
 
 	column 'Reference Area'
 		dataType: string
-		lineageTag: 5811c6d4-c58e-4eed-b11d-b5f1a3e0bc5f
+		lineageTag: d412fe21-1180-4fc1-94ff-d7c25a02b84a
 		summarizeBy: none
 		sourceColumn: Reference Area
 
@@ -149,7 +130,7 @@ table f_consumer_price_index
 
 	column 'Indicator.1'
 		dataType: string
-		lineageTag: fd9d56dd-17d8-4c4b-9768-fa0383ee49d4
+		lineageTag: f76cfbfc-7d0d-46c0-b233-5ed086d40644
 		summarizeBy: none
 		sourceColumn: Indicator.1
 
@@ -157,7 +138,7 @@ table f_consumer_price_index
 
 	column country_name
 		dataType: string
-		lineageTag: e219f38a-345c-4da6-8bdd-95ca5bc1f3cf
+		lineageTag: 79f5cc70-7f4c-4134-904b-6c364f6c3baf
 		summarizeBy: none
 		sourceColumn: country_name
 
@@ -165,7 +146,7 @@ table f_consumer_price_index
 
 	column country_code
 		dataType: string
-		lineageTag: 3f2a4b09-115c-4475-bb3e-ef5e62443c99
+		lineageTag: a454b6f3-e328-4644-a115-f4b35998d9d8
 		summarizeBy: none
 		sourceColumn: country_code
 
@@ -175,12 +156,11 @@ table f_consumer_price_index
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_cpi.csv"),[Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"", Int64.Type}, {"@frequency", type text}, {"provider_code", type text}, {"dataset_code", type text}, {"dataset_name", type text}, {"series_code", type text}, {"series_name", type text}, {"original_period", type date}, {"period", type date}, {"original_value", type number}, {"value", type number}, {"FREQ", type text}, {"REF_AREA", type text}, {"INDICATOR", type text}, {"Frequency", type text}, {"Reference Area", type text}, {"Indicator", type text}, {"country_name", type text}, {"country_code", type text}}),
-				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Indicator", "Indicator.1"}})
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM cpi_data", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"Indicator", "Indicator.1"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"period", type date}})
 				in
-				    #"Renamed Columns"
+				    #"Changed Type"
 
 	annotation PBI_NavigationStepName = Navigation
 

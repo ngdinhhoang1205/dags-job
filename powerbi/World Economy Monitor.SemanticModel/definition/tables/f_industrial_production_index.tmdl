@@ -1,10 +1,10 @@
 table f_industrial_production_index
-	lineageTag: 27ea85fc-0155-43b9-8fba-9005fa812b9f
+	lineageTag: 56919e72-2535-481c-8dd0-81af1a382514
 
 	column Date
 		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: a8b13b08-f2e2-49ce-b1a5-604458b03f9a
+		formatString: Long Date
+		lineageTag: 9dbdd58d-92b3-4e09-97d2-692235567dfa
 		summarizeBy: none
 		sourceColumn: Date
 
@@ -12,20 +12,19 @@ table f_industrial_production_index
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
 	column value
 		dataType: double
-		formatString: 0.00
-		lineageTag: 105e5a29-9551-4dba-a80f-64c85b5b286b
+		lineageTag: 73aa6e8c-402d-4687-9475-4d6fe7c636e5
 		summarizeBy: sum
 		sourceColumn: value
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column country_code
 		dataType: string
-		lineageTag: e1156745-4700-442c-aa43-1118a59d707c
+		lineageTag: 6b9500ef-f750-402c-b963-259894db7df8
 		summarizeBy: none
 		sourceColumn: country_code
 
@@ -33,16 +32,17 @@ table f_industrial_production_index
 
 	column country_name
 		dataType: string
-		lineageTag: 09c34bd2-c556-46f4-8db3-f4daec8889f8
+		lineageTag: fb23ab62-95d1-4213-93bd-624db1aef553
 		summarizeBy: none
 		sourceColumn: country_name
 
 		annotation SummarizationSetBy = Automatic
 
-	column value_change = f_industrial_production_index[value]-100
-		formatString: 0.00
-		lineageTag: 85a91415-7110-422d-a3e6-796ded3c5b01
-		summarizeBy: sum
+	column Source
+		dataType: string
+		lineageTag: d588baff-bda7-4e39-8106-5c188d5854a8
+		summarizeBy: none
+		sourceColumn: Source
 
 		annotation SummarizationSetBy = Automatic
 
@@ -50,9 +50,8 @@ table f_industrial_production_index
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_industrial_production_index.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
-				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"value", type number}, {"country_code", type text}, {"country_name", type text}})
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM ipi_data", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Date", type date}})
 				in
 				    #"Changed Type"
 

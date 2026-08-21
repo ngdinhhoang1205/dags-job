@@ -1,18 +1,9 @@
 table f_unemployment_rate
-	lineageTag: de691d7e-f508-46d6-a84e-d516588d391a
-
-	column Column1
-		dataType: int64
-		formatString: 0
-		lineageTag: 3c7b5194-4319-48d3-b0fd-fd1cc2808de4
-		summarizeBy: sum
-		sourceColumn: Column1
-
-		annotation SummarizationSetBy = Automatic
+	lineageTag: 0d5bf85a-c3cc-4621-99c1-bced971420cc
 
 	column @frequency
 		dataType: string
-		lineageTag: 2ce5c1d6-931f-424b-8d58-07aad8114778
+		lineageTag: 70e78264-61a2-45c4-aab0-7b8954a20240
 		summarizeBy: none
 		sourceColumn: @frequency
 
@@ -20,7 +11,7 @@ table f_unemployment_rate
 
 	column provider_code
 		dataType: string
-		lineageTag: d295bab9-635c-4e09-84a1-adda98b76e38
+		lineageTag: 8d27d6ae-161d-4761-90aa-15953cfe66eb
 		summarizeBy: none
 		sourceColumn: provider_code
 
@@ -28,7 +19,7 @@ table f_unemployment_rate
 
 	column dataset_code
 		dataType: string
-		lineageTag: 228092ef-1428-44ce-86b4-8a88019f5f44
+		lineageTag: eeb7b13d-b8e0-4b45-84e3-bd221ece79b2
 		summarizeBy: none
 		sourceColumn: dataset_code
 
@@ -36,7 +27,7 @@ table f_unemployment_rate
 
 	column dataset_name
 		dataType: string
-		lineageTag: a5ec1c5c-be2b-4dde-b850-13694e2b3767
+		lineageTag: be593110-930c-410a-b330-8c948043f62b
 		summarizeBy: none
 		sourceColumn: dataset_name
 
@@ -44,7 +35,7 @@ table f_unemployment_rate
 
 	column series_code
 		dataType: string
-		lineageTag: 21c154f2-3225-4c90-a5c9-72788d45bd01
+		lineageTag: 6be40a50-345a-4a9d-9ffe-6184c177a0af
 		summarizeBy: none
 		sourceColumn: series_code
 
@@ -52,25 +43,24 @@ table f_unemployment_rate
 
 	column series_name
 		dataType: string
-		lineageTag: cdcf3834-ef5b-4c6c-b479-0a311783a550
+		lineageTag: 95245d54-e534-4df9-92c2-0fe1e3e60ba7
 		summarizeBy: none
 		sourceColumn: series_name
 
 		annotation SummarizationSetBy = Automatic
 
 	column original_period
-		dataType: int64
-		formatString: 0
-		lineageTag: b5a845c9-3009-4c46-8e25-bb9b24de6486
-		summarizeBy: sum
+		dataType: string
+		lineageTag: 55dd4a0a-a2bf-4c64-99d3-1ae3790db198
+		summarizeBy: none
 		sourceColumn: original_period
 
 		annotation SummarizationSetBy = Automatic
 
 	column period
 		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: f47311a5-ae44-4a16-a36b-883c18773493
+		formatString: Long Date
+		lineageTag: 74fd5eda-9c30-48e0-82c3-8c5c3f24fa2a
 		summarizeBy: none
 		sourceColumn: period
 
@@ -78,11 +68,9 @@ table f_unemployment_rate
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
 	column original_value
 		dataType: string
-		lineageTag: 9e445468-1f2d-4dd4-8fea-f87dd06434b3
+		lineageTag: 26a333b6-84c0-4409-b47b-a9c73098107b
 		summarizeBy: none
 		sourceColumn: original_value
 
@@ -90,7 +78,7 @@ table f_unemployment_rate
 
 	column value
 		dataType: double
-		lineageTag: b52591e1-e88c-4572-ac4a-88a3fdc87ae6
+		lineageTag: 701dfe9d-fdac-48cc-bc61-7f824a950ac6
 		summarizeBy: sum
 		sourceColumn: value
 
@@ -100,7 +88,7 @@ table f_unemployment_rate
 
 	column weo-country
 		dataType: string
-		lineageTag: b942c71d-c348-4e84-b595-9897f34462bf
+		lineageTag: 7a61d4fd-75fa-42c1-9107-969fd0266cd2
 		summarizeBy: none
 		sourceColumn: weo-country
 
@@ -108,7 +96,7 @@ table f_unemployment_rate
 
 	column weo-subject
 		dataType: string
-		lineageTag: 5a8cc5e6-d82b-433d-805f-cdc9488eb7a7
+		lineageTag: a6bdccd2-7efd-4647-be34-58e5b2a4d866
 		summarizeBy: none
 		sourceColumn: weo-subject
 
@@ -116,7 +104,7 @@ table f_unemployment_rate
 
 	column unit
 		dataType: string
-		lineageTag: ab3b0f2e-eddd-4626-a4b0-33814529cc56
+		lineageTag: 4ec475cc-5e0d-4c0c-8c01-8e2fddc4f54c
 		summarizeBy: none
 		sourceColumn: unit
 
@@ -124,7 +112,7 @@ table f_unemployment_rate
 
 	column 'WEO Country'
 		dataType: string
-		lineageTag: 1457fef0-0cc6-458f-8947-fc8803efa290
+		lineageTag: 7ae5a618-fca3-4d22-9a26-86735261be59
 		summarizeBy: none
 		sourceColumn: WEO Country
 
@@ -132,7 +120,7 @@ table f_unemployment_rate
 
 	column 'WEO Subject'
 		dataType: string
-		lineageTag: cde8f4db-2210-4e61-a12a-c9a6067848ef
+		lineageTag: e2d60350-a7de-45a3-a4f0-73a56668a4c4
 		summarizeBy: none
 		sourceColumn: WEO Subject
 
@@ -140,7 +128,7 @@ table f_unemployment_rate
 
 	column 'Unit.1'
 		dataType: string
-		lineageTag: bf6afb1c-601c-4fb3-818c-34492c4842e1
+		lineageTag: 6843e7b0-e62c-40de-bbbc-2417bdf76c7e
 		summarizeBy: none
 		sourceColumn: Unit.1
 
@@ -150,12 +138,11 @@ table f_unemployment_rate
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_unemployment_rate.csv"),[Delimiter=",", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"", Int64.Type}, {"@frequency", type text}, {"provider_code", type text}, {"dataset_code", type text}, {"dataset_name", type text}, {"series_code", type text}, {"series_name", type text}, {"original_period", Int64.Type}, {"period", type date}, {"original_value", type text}, {"value", type number}, {"weo-country", type text}, {"weo-subject", type text}, {"unit", type text}, {"WEO Country", type text}, {"WEO Subject", type text}, {"Unit", type text}}),
-				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Unit", "Unit.1"}})
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM unemployment_data", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"Unit", "Unit.1"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"period", type date}})
 				in
-				    #"Renamed Columns"
+				    #"Changed Type"
 
 	annotation PBI_NavigationStepName = Navigation
 

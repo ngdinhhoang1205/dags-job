@@ -1,18 +1,9 @@
 table f_PMI
-	lineageTag: 5d9c90e5-9a5a-462b-abd2-5346998ab643
-
-	column Column1
-		dataType: int64
-		formatString: 0
-		lineageTag: fc6b970f-3383-4c36-a64b-d5c49b2b788f
-		summarizeBy: sum
-		sourceColumn: Column1
-
-		annotation SummarizationSetBy = Automatic
+	lineageTag: caa4846e-987d-4348-b4c8-2fe994cd6e9d
 
 	column @frequency
 		dataType: string
-		lineageTag: 96a2437a-4f04-4499-8273-df5922dc2fa1
+		lineageTag: 8a18b464-350c-4d07-907c-583474d36623
 		summarizeBy: none
 		sourceColumn: @frequency
 
@@ -20,7 +11,7 @@ table f_PMI
 
 	column provider_code
 		dataType: string
-		lineageTag: f4f3aa62-ab2f-4ad3-841c-f7ce10abb8e8
+		lineageTag: b01ead20-95db-41a1-8fd4-961780e7e74c
 		summarizeBy: none
 		sourceColumn: provider_code
 
@@ -28,7 +19,7 @@ table f_PMI
 
 	column dataset_code
 		dataType: string
-		lineageTag: 698eb929-86a0-40da-a1b9-0adf447fb1d4
+		lineageTag: 61ac0aab-2358-4556-bae3-e3d1e32c4b8d
 		summarizeBy: none
 		sourceColumn: dataset_code
 
@@ -36,7 +27,7 @@ table f_PMI
 
 	column dataset_name
 		dataType: string
-		lineageTag: 7b99ec54-0dc9-4202-80e2-fa3dceb90007
+		lineageTag: 0288cde0-81b3-4657-9e8f-8c835ccb792b
 		summarizeBy: none
 		sourceColumn: dataset_name
 
@@ -44,7 +35,7 @@ table f_PMI
 
 	column series_code
 		dataType: string
-		lineageTag: f1946434-08c0-4798-b51b-f83befd1ab68
+		lineageTag: 62b117dd-874b-4b54-84ba-2a894aa7f1cd
 		summarizeBy: none
 		sourceColumn: series_code
 
@@ -52,34 +43,24 @@ table f_PMI
 
 	column series_name
 		dataType: string
-		lineageTag: d48c079b-1a24-4f5b-b76e-64e3b843c3df
+		lineageTag: 69750119-9ab0-4ba8-a709-1f696fb9af06
 		summarizeBy: none
 		sourceColumn: series_name
 
 		annotation SummarizationSetBy = Automatic
 
 	column original_period
-		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: 6a995313-bf3c-4fc4-8b53-d66cdbb66b67
+		dataType: string
+		lineageTag: 825d6812-272f-44b8-9bb1-78f52e244be5
 		summarizeBy: none
 		sourceColumn: original_period
 
-		variation Variation
-			isDefault
-			relationship: b767596a-c5d7-462b-9314-37e08c8c7f0e
-			defaultHierarchy: LocalDateTable_4c68bd06-7e0a-4171-b5ed-2a6d1611a1ff.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column period
 		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: 0b6449cb-17ce-47cf-b2d4-bd3d6eec41df
+		formatString: Long Date
+		lineageTag: d010219e-f2d4-412c-8b0b-cb24d5121643
 		summarizeBy: none
 		sourceColumn: period
 
@@ -87,11 +68,9 @@ table f_PMI
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
 	column original_value
 		dataType: string
-		lineageTag: ae92f3e7-e381-4e73-8202-1e45bac9c2aa
+		lineageTag: 5af65ec2-8d93-4cf6-9c65-1f0dd46f1f47
 		summarizeBy: none
 		sourceColumn: original_value
 
@@ -99,7 +78,7 @@ table f_PMI
 
 	column value
 		dataType: double
-		lineageTag: 6d8787f1-841c-4ef9-b1ee-557120237c3f
+		lineageTag: e09666e7-a28d-474d-a58a-81529ed956e1
 		summarizeBy: sum
 		sourceColumn: value
 
@@ -109,7 +88,7 @@ table f_PMI
 
 	column LOCATION
 		dataType: string
-		lineageTag: 7c48d898-a39b-41dd-b534-2651f11d1c8f
+		lineageTag: e7b3aad8-b22b-4697-a5e7-a6f6f930b2b5
 		summarizeBy: none
 		sourceColumn: LOCATION
 
@@ -117,7 +96,7 @@ table f_PMI
 
 	column SUBJECT
 		dataType: string
-		lineageTag: c700732b-5cbb-49ea-8925-0beb86882624
+		lineageTag: 4f9b16a4-6016-4188-a06a-ccebe8f815b0
 		summarizeBy: none
 		sourceColumn: SUBJECT
 
@@ -125,7 +104,7 @@ table f_PMI
 
 	column MEASURE
 		dataType: string
-		lineageTag: e5fc1fbf-9ee5-4303-afc1-64deeb9d1968
+		lineageTag: 7a307937-548e-4adb-ae70-e68a62f764e6
 		summarizeBy: none
 		sourceColumn: MEASURE
 
@@ -133,7 +112,7 @@ table f_PMI
 
 	column FREQUENCY
 		dataType: string
-		lineageTag: 9bc89f0f-4a44-40c8-92be-cf0c043bfb84
+		lineageTag: db34b2d6-a627-4611-ad03-abadc7c837c2
 		summarizeBy: none
 		sourceColumn: FREQUENCY
 
@@ -141,7 +120,7 @@ table f_PMI
 
 	column Country
 		dataType: string
-		lineageTag: 01db4caa-6388-4b88-b9f8-da8dba8eb36a
+		lineageTag: 5760104d-c3c5-45cf-9719-d8dcebf3adb6
 		summarizeBy: none
 		sourceColumn: Country
 
@@ -149,7 +128,7 @@ table f_PMI
 
 	column 'Subject.1'
 		dataType: string
-		lineageTag: c74b37f6-88ee-43f1-9b56-2611d13d1ee3
+		lineageTag: 9e029461-9c1e-4b3d-b25e-c5a37bdd631e
 		summarizeBy: none
 		sourceColumn: Subject.1
 
@@ -157,7 +136,7 @@ table f_PMI
 
 	column 'Measure.1'
 		dataType: string
-		lineageTag: f5c4766f-9c6f-4fd9-9ec2-5bc212274688
+		lineageTag: 03630eb8-2151-4a59-8e17-b3c03766d513
 		summarizeBy: none
 		sourceColumn: Measure.1
 
@@ -165,7 +144,7 @@ table f_PMI
 
 	column 'Frequency.1'
 		dataType: string
-		lineageTag: d3affe1d-c9ac-43ae-936d-3e454ba82ba2
+		lineageTag: 640098a3-a924-450e-84f4-93b59f08d4c6
 		summarizeBy: none
 		sourceColumn: Frequency.1
 
@@ -175,12 +154,11 @@ table f_PMI
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\global_manufacturing_PMI.csv"),[Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"", Int64.Type}, {"@frequency", type text}, {"provider_code", type text}, {"dataset_code", type text}, {"dataset_name", type text}, {"series_code", type text}, {"series_name", type text}, {"original_period", type date}, {"period", type date}, {"original_value", type text}, {"value", type number}, {"LOCATION", type text}, {"SUBJECT", type text}, {"MEASURE", type text}, {"FREQUENCY", type text}, {"Country", type text}, {"Subject", type text}, {"Measure", type text}, {"Frequency", type text}}),
-				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Subject", "Subject.1"}, {"Measure", "Measure.1"}, {"Frequency", "Frequency.1"}})
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM global_manufacturing_pmi_data", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"Subject", "Subject.1"}, {"Measure", "Measure.1"}, {"Frequency", "Frequency.1"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"period", type date}})
 				in
-				    #"Renamed Columns"
+				    #"Changed Type"
 
 	annotation PBI_NavigationStepName = Navigation
 

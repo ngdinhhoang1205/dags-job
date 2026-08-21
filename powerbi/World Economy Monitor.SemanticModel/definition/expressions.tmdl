@@ -133,26 +133,3 @@ expression 'Transform File (3)' =
 
 	annotation PBI_ResultType = Exception
 
-expression 'Errors in f_export_value' =
-		let
-		Source = f_export_value,
-		  #"Detected Type Mismatches" = let
-		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
-		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
-		    fieldNames = Record.FieldNames(recordTypeFields),
-		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
-		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
-		in
-		    Table.TransformColumns(Source, pairs),
-		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
-		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Source.Name", "@frequency", "provider_code", "dataset_code", "dataset_name", "series_code", "series_name", "original_period", "period", "original_value", "value", "FREQ", "REF_AREA", "INDICATOR", "COUNTERPART_AREA", "Frequency", "Reference Area", "Indicator.1", "Counterpart Reference Area"}),
-		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Source.Name", "@frequency", "provider_code", "dataset_code", "dataset_name", "series_code", "series_name", "original_period", "period", "original_value", "value", "FREQ", "REF_AREA", "INDICATOR", "COUNTERPART_AREA", "Frequency", "Reference Area", "Indicator.1", "Counterpart Reference Area"})
-		in
-		    #"Reordered Columns"
-	lineageTag: 611167dc-8f65-44a9-ad10-8a8135b9e33c
-	queryGroup: 'Query Errors - 7/22/2026 10:51:04 PM'
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
-

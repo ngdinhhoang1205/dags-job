@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 494.4444444444444,
+        "x": 0,
         "y": 0
       },
       "nodes": [
@@ -18,7 +18,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 7
+          "zIndex": 13
         },
         {
           "location": {
@@ -31,7 +31,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 8
+          "zIndex": 6
         },
         {
           "location": {
@@ -44,7 +44,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 9
+          "zIndex": 7
         },
         {
           "location": {
@@ -57,7 +57,7 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 10
+          "zIndex": 8
         },
         {
           "location": {
@@ -70,7 +70,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 15
+          "zIndex": 11
         },
         {
           "location": {
@@ -83,20 +83,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 11
-        },
-        {
-          "location": {
-            "x": 1420,
-            "y": 0
-          },
-          "nodeIndex": "f_trade_balance",
-          "nodeLineageTag": "d3aa183c-6302-459b-b31e-799202ab7315",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 12
+          "zIndex": 9
         },
         {
           "location": {
@@ -109,7 +96,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 13
+          "zIndex": 15
         },
         {
           "location": {
@@ -121,7 +108,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 14
+          "zIndex": 10
         },
         {
           "location": {
@@ -138,54 +125,29 @@
         },
         {
           "location": {
-            "x": 2556,
-            "y": 273.92857142857144
-          },
-          "nodeIndex": "f_export_value",
-          "nodeLineageTag": "96f8db0b-1c0c-4e55-9682-f88cbe185b5c",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 5
-        },
-        {
-          "location": {
-            "x": 2537.1428571428573,
-            "y": 625.35714285714289
-          },
-          "nodeIndex": "f_import_value",
-          "nodeLineageTag": "2b0e8495-2874-408c-a4cf-d67a7e0a32e5",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 6
-        },
-        {
-          "location": {
-            "x": 1686.8571428571429,
-            "y": 707.92857142857144
+            "x": 1601.1111111111111,
+            "y": 672.00826719576719
           },
           "nodeIndex": "d_country",
-          "nodeLineageTag": "ae3bb8dc-a9a6-4873-a684-82261529f489",
+          "nodeLineageTag": "ae0c693f-3bf4-41ea-945c-5385bd925d68",
           "size": {
-            "height": 152,
+            "height": 176,
             "width": 234
           },
-          "zIndex": 17
+          "zIndex": 18
         },
         {
           "location": {
-            "x": 1309.9999999999998,
-            "y": 1019.2499999999999
+            "x": 1254.8979591836733,
+            "y": 992.71938775510193
           },
           "nodeIndex": "f_imf_exports_goods",
+          "nodeLineageTag": "24871c48-c0c6-4a7f-8090-5165a2290132",
           "size": {
             "height": 224,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 17
         },
         {
           "location": {
@@ -198,7 +160,7 @@
             "height": 235.42857142857144,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 1
         },
         {
           "location": {
@@ -211,7 +173,7 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 2
         },
         {
           "location": {
@@ -224,7 +186,7 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 3
         },
         {
           "location": {
@@ -237,24 +199,11 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 18
-        },
-        {
-          "location": {
-            "x": 2840,
-            "y": 540.52678571428578
-          },
-          "nodeIndex": "postgre_sample",
-          "nodeLineageTag": "ae0c693f-3bf4-41ea-945c-5385bd925d68",
-          "size": {
-            "height": 176,
-            "width": 234
-          },
-          "zIndex": 0
+          "zIndex": 12
         }
       ],
       "name": "All tables",
-      "zoomValue": 54,
+      "zoomValue": 49,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

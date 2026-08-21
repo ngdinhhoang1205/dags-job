@@ -1,9 +1,9 @@
 table f_imf_exports_goods
-	lineageTag: a17c574b-d5da-412a-8a10-f9812b389c4d
+	lineageTag: 24871c48-c0c6-4a7f-8090-5165a2290132
 
 	column COUNTRY
 		dataType: string
-		lineageTag: 6033d052-3a5e-4f4e-b0b3-c86e9756bec6
+		lineageTag: 7aa8ae5f-2348-421e-8820-7f62a3b9fd39
 		summarizeBy: none
 		sourceColumn: COUNTRY
 
@@ -11,7 +11,7 @@ table f_imf_exports_goods
 
 	column INDICATOR
 		dataType: string
-		lineageTag: c7df6c38-df17-4919-94ee-66b8e4bb69cd
+		lineageTag: 2aa7ec0d-ded2-4779-975a-ca61da57c96c
 		summarizeBy: none
 		sourceColumn: INDICATOR
 
@@ -19,7 +19,7 @@ table f_imf_exports_goods
 
 	column COUNTERPART_COUNTRY
 		dataType: string
-		lineageTag: 490ad258-e07e-495c-9a0d-d79c4d246ad8
+		lineageTag: 2bbae158-0030-4769-b4eb-1c40f37ff268
 		summarizeBy: none
 		sourceColumn: COUNTERPART_COUNTRY
 
@@ -27,7 +27,7 @@ table f_imf_exports_goods
 
 	column FREQUENCY
 		dataType: string
-		lineageTag: b877cedf-d106-4b7b-a060-eea78d6941bf
+		lineageTag: cffc8a2a-894c-4d5f-8ccd-23c39ca5ef57
 		summarizeBy: none
 		sourceColumn: FREQUENCY
 
@@ -35,8 +35,8 @@ table f_imf_exports_goods
 
 	column period
 		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: d8742d37-961b-4485-b5a6-7de88f8d9782
+		formatString: Long Date
+		lineageTag: 41139289-0f96-4770-8c46-b197a2081a6c
 		summarizeBy: none
 		sourceColumn: period
 
@@ -44,24 +44,22 @@ table f_imf_exports_goods
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
 	column value
-		dataType: int64
-		formatString: 0
-		lineageTag: aac0b8e4-a8a4-4a9c-9e93-2c0a51d9ab75
+		dataType: double
+		lineageTag: 72da5448-61d3-4f09-84b6-72d2440a8901
 		summarizeBy: sum
 		sourceColumn: value
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition f_imf_exports_goods = m
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_exports.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"COUNTRY", type text}, {"INDICATOR", type text}, {"COUNTERPART_COUNTRY", type text}, {"FREQUENCY", type text}, {"period", type date}, {"value", Int64.Type}})
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM merchandise_exports_data", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"period", type date}})
 				in
 				    #"Changed Type"
 

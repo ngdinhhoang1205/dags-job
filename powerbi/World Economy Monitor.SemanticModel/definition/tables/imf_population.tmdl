@@ -1,9 +1,9 @@
 table imf_population
-	lineageTag: f0501773-0d80-4645-96ab-1e2f7271e857
+	lineageTag: c87ab619-f709-40bb-9e1a-f49e904ea7ff
 
 	column COUNTRY
 		dataType: string
-		lineageTag: 58379dc3-e4e7-4f5a-9de0-6d217d14ef95
+		lineageTag: 920d6054-fc9f-4498-bcdb-f30daf7dbdb6
 		summarizeBy: none
 		sourceColumn: COUNTRY
 
@@ -11,7 +11,7 @@ table imf_population
 
 	column INDICATOR
 		dataType: string
-		lineageTag: 8fe57394-60c8-4bc7-9d48-e5a8e92021b3
+		lineageTag: f4122e58-cdb0-481f-93bf-b3afbffec39c
 		summarizeBy: none
 		sourceColumn: INDICATOR
 
@@ -19,7 +19,7 @@ table imf_population
 
 	column FREQUENCY
 		dataType: string
-		lineageTag: 2fb21e71-6c6e-4068-86e5-4f88b14c23d7
+		lineageTag: e915cc5a-3718-41d9-90e7-2ca388555de3
 		summarizeBy: none
 		sourceColumn: FREQUENCY
 
@@ -27,8 +27,8 @@ table imf_population
 
 	column period
 		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: d04f3e95-066a-4800-af9f-3d9b3b35c962
+		formatString: Long Date
+		lineageTag: 56f389f8-473d-444b-8cfd-8dfb499c7530
 		summarizeBy: none
 		sourceColumn: period
 
@@ -36,12 +36,10 @@ table imf_population
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
 	column value
 		dataType: int64
-		formatString: #,0
-		lineageTag: d963d0e7-fdb4-46a7-bf33-04966f578bec
+		formatString: 0
+		lineageTag: 5a45fc48-5fce-4cf6-98a9-f9bc6624e7b9
 		summarizeBy: sum
 		sourceColumn: value
 
@@ -51,9 +49,8 @@ table imf_population
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_population.csv"),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"COUNTRY", type text}, {"INDICATOR", type text}, {"FREQUENCY", type text}, {"period", type date}, {"value", Int64.Type}})
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM population_data", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"period", type date}})
 				in
 				    #"Changed Type"
 

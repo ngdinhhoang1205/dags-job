@@ -1,18 +1,9 @@
 table f_retail_sales
-	lineageTag: 2e74f09e-db75-443e-a568-1ce2a563f582
-
-	column Column1
-		dataType: int64
-		formatString: 0
-		lineageTag: ff432276-3712-4cb1-88cd-acf62073c86d
-		summarizeBy: sum
-		sourceColumn: Column1
-
-		annotation SummarizationSetBy = Automatic
+	lineageTag: 40e2c5d2-b80c-41c9-806e-e1cec18028aa
 
 	column @frequency
 		dataType: string
-		lineageTag: 4bcf7719-1716-43cf-9d11-81098990890a
+		lineageTag: 2a5edd57-3e04-4583-af89-da41d30a6e5c
 		summarizeBy: none
 		sourceColumn: @frequency
 
@@ -20,7 +11,7 @@ table f_retail_sales
 
 	column provider_code
 		dataType: string
-		lineageTag: 3993bc3f-97ea-4f82-8c69-da01c9db834d
+		lineageTag: f9e4c1aa-b3a2-427b-bf0e-2fb49efc22c0
 		summarizeBy: none
 		sourceColumn: provider_code
 
@@ -28,7 +19,7 @@ table f_retail_sales
 
 	column dataset_code
 		dataType: string
-		lineageTag: eb20379f-8566-4456-aeb2-176274b18f65
+		lineageTag: 85f9fa63-eb69-4b42-9665-c9874e4a2db2
 		summarizeBy: none
 		sourceColumn: dataset_code
 
@@ -36,7 +27,7 @@ table f_retail_sales
 
 	column dataset_name
 		dataType: string
-		lineageTag: dcfb9e46-54dc-41d3-b48e-8c20327af0c4
+		lineageTag: 2b6a6db1-23d7-4f9e-9966-778b05f809d0
 		summarizeBy: none
 		sourceColumn: dataset_name
 
@@ -44,7 +35,7 @@ table f_retail_sales
 
 	column series_code
 		dataType: string
-		lineageTag: ec5880e2-4552-44d6-8785-a5afacf6f7f6
+		lineageTag: 37609a21-0dc8-4b4b-9dc4-ee5e0bc1bdcf
 		summarizeBy: none
 		sourceColumn: series_code
 
@@ -52,34 +43,24 @@ table f_retail_sales
 
 	column series_name
 		dataType: string
-		lineageTag: 423be6d2-0772-4682-9880-ef5d55108319
+		lineageTag: c84b891c-57ae-4d7e-b878-4014817cef90
 		summarizeBy: none
 		sourceColumn: series_name
 
 		annotation SummarizationSetBy = Automatic
 
 	column original_period
-		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: e37da451-a7c1-4d48-87c1-9c56aebd8ad4
+		dataType: string
+		lineageTag: 1c7e0d0a-6a0d-464f-b28b-84e6e5f27dda
 		summarizeBy: none
 		sourceColumn: original_period
 
-		variation Variation
-			isDefault
-			relationship: b982ab64-50e6-4b01-a3ef-169675838848
-			defaultHierarchy: LocalDateTable_21f8d766-408c-4519-9227-2b70000baeeb.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column period
 		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: 7637f61a-6776-4099-9766-3f3060d97d91
+		formatString: Long Date
+		lineageTag: 90828f8d-76e3-48e5-8405-95aa9e3b033e
 		summarizeBy: none
 		sourceColumn: period
 
@@ -87,11 +68,9 @@ table f_retail_sales
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
 	column original_value
 		dataType: double
-		lineageTag: 4a412e3a-c842-4977-a227-4f3390f7735a
+		lineageTag: 8f85295e-c590-4e4c-a31d-38a2170816e8
 		summarizeBy: sum
 		sourceColumn: original_value
 
@@ -101,7 +80,7 @@ table f_retail_sales
 
 	column value
 		dataType: double
-		lineageTag: e2a4dea0-ff8a-4846-9d5e-650ed58be35f
+		lineageTag: ebf1e62c-112c-4742-94d4-ca7a4bb320fe
 		summarizeBy: sum
 		sourceColumn: value
 
@@ -111,7 +90,7 @@ table f_retail_sales
 
 	column LOCATION
 		dataType: string
-		lineageTag: 6bcbbac3-243c-413e-9700-7d4a60f85d22
+		lineageTag: 874773d0-688b-4651-87b5-0ec20999c61f
 		summarizeBy: none
 		sourceColumn: LOCATION
 
@@ -119,7 +98,7 @@ table f_retail_sales
 
 	column SUBJECT
 		dataType: string
-		lineageTag: b6e3d6e4-82a7-4368-8d7e-b2d1a3476a51
+		lineageTag: 77944c6b-da40-4208-b0d0-6f0f210af051
 		summarizeBy: none
 		sourceColumn: SUBJECT
 
@@ -127,7 +106,7 @@ table f_retail_sales
 
 	column MEASURE
 		dataType: string
-		lineageTag: 049148f1-52a7-4467-9514-52645831e82e
+		lineageTag: 910651cf-cb47-424e-b47c-681078304060
 		summarizeBy: none
 		sourceColumn: MEASURE
 
@@ -135,7 +114,7 @@ table f_retail_sales
 
 	column FREQUENCY
 		dataType: string
-		lineageTag: 07e46dcd-3caf-428f-a691-b399f638ec54
+		lineageTag: f9eeffa3-d7ca-45b5-b74a-db7dd7de27f3
 		summarizeBy: none
 		sourceColumn: FREQUENCY
 
@@ -143,7 +122,7 @@ table f_retail_sales
 
 	column Country
 		dataType: string
-		lineageTag: 6c626038-cadb-42a6-8335-bb0ef77b3e88
+		lineageTag: 053ea17d-40b7-4bd1-b905-4a20790c112b
 		summarizeBy: none
 		sourceColumn: Country
 
@@ -151,7 +130,7 @@ table f_retail_sales
 
 	column 'Subject.1'
 		dataType: string
-		lineageTag: d5337b84-7de4-4996-a3db-8485e142ef0d
+		lineageTag: b75c8efa-3daf-4180-be0a-6ef82623fcbc
 		summarizeBy: none
 		sourceColumn: Subject.1
 
@@ -159,7 +138,7 @@ table f_retail_sales
 
 	column 'Measure.1'
 		dataType: string
-		lineageTag: 98921c4d-0652-4cf8-980b-80dc0d154b54
+		lineageTag: 516594d8-ba90-4eb5-b99d-5fa5d33280b1
 		summarizeBy: none
 		sourceColumn: Measure.1
 
@@ -167,7 +146,7 @@ table f_retail_sales
 
 	column 'Frequency.1'
 		dataType: string
-		lineageTag: 1635585f-b035-4d1b-ad4e-7950db4da0ee
+		lineageTag: 72e6a1f2-c10c-40b7-9ae1-c2cb8e0f6ace
 		summarizeBy: none
 		sourceColumn: Frequency.1
 
@@ -177,12 +156,11 @@ table f_retail_sales
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\retail_sales.csv"),[Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"", Int64.Type}, {"@frequency", type text}, {"provider_code", type text}, {"dataset_code", type text}, {"dataset_name", type text}, {"series_code", type text}, {"series_name", type text}, {"original_period", type date}, {"period", type date}, {"original_value", type number}, {"value", type number}, {"LOCATION", type text}, {"SUBJECT", type text}, {"MEASURE", type text}, {"FREQUENCY", type text}, {"Country", type text}, {"Subject", type text}, {"Measure", type text}, {"Frequency", type text}}),
-				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Subject", "Subject.1"}, {"Measure", "Measure.1"}, {"Frequency", "Frequency.1"}})
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM retail_sales_data", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"Subject", "Subject.1"}, {"Measure", "Measure.1"}, {"Frequency", "Frequency.1"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"period", type date}})
 				in
-				    #"Renamed Columns"
+				    #"Changed Type"
 
 	annotation PBI_NavigationStepName = Navigation
 

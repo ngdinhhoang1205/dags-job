@@ -1,9 +1,9 @@
 table f_gross_domestic_product
-	lineageTag: ed3e12c5-f049-46fb-980f-0a12e76055d7
+	lineageTag: fd30a512-b06f-404b-8b7f-7c19a9644199
 
 	column @frequency
 		dataType: string
-		lineageTag: 4e34b54c-b69b-45c2-847e-e6d03cc7b3d4
+		lineageTag: 05bbbc1d-1352-4aaa-adec-25281f1188ee
 		summarizeBy: none
 		sourceColumn: @frequency
 
@@ -11,7 +11,7 @@ table f_gross_domestic_product
 
 	column provider_code
 		dataType: string
-		lineageTag: f33143f8-af0e-42a8-8b9a-13f4627b45b1
+		lineageTag: cf77fe91-78f9-486a-9814-74fe42c9fe0b
 		summarizeBy: none
 		sourceColumn: provider_code
 
@@ -19,7 +19,7 @@ table f_gross_domestic_product
 
 	column dataset_code
 		dataType: string
-		lineageTag: 64473dd3-1008-4f8e-a467-c051c0af8b61
+		lineageTag: c38aac28-7d86-4fce-84a8-fd528a22f87c
 		summarizeBy: none
 		sourceColumn: dataset_code
 
@@ -27,7 +27,7 @@ table f_gross_domestic_product
 
 	column dataset_name
 		dataType: string
-		lineageTag: ba99d161-edc2-4351-b016-ce693e3f9ab9
+		lineageTag: e190937a-6fbd-4ffb-b776-0f341c71b86c
 		summarizeBy: none
 		sourceColumn: dataset_name
 
@@ -35,7 +35,7 @@ table f_gross_domestic_product
 
 	column series_code
 		dataType: string
-		lineageTag: 8095837d-b9ef-4209-8cbf-7ca3793cf153
+		lineageTag: b2960093-896b-411d-bb78-ab7f6e212548
 		summarizeBy: none
 		sourceColumn: series_code
 
@@ -43,25 +43,24 @@ table f_gross_domestic_product
 
 	column series_name
 		dataType: string
-		lineageTag: 51c82c3d-c081-47ba-8ce0-310d258afa85
+		lineageTag: bf4773f5-41f1-47fd-baa7-a67219c8153c
 		summarizeBy: none
 		sourceColumn: series_name
 
 		annotation SummarizationSetBy = Automatic
 
 	column original_period
-		dataType: int64
-		formatString: 0
-		lineageTag: 8ec55680-fcbc-4423-94cf-9d38ec779404
-		summarizeBy: sum
+		dataType: string
+		lineageTag: 8bede98e-dea9-4153-8db8-6452daa37178
+		summarizeBy: none
 		sourceColumn: original_period
 
 		annotation SummarizationSetBy = Automatic
 
 	column period
 		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: f8e560f6-3db3-4e5b-8b51-c908ee1bd7d8
+		formatString: Long Date
+		lineageTag: 61049c91-3065-4e6a-b20f-b93e3b9e9429
 		summarizeBy: none
 		sourceColumn: period
 
@@ -69,11 +68,9 @@ table f_gross_domestic_product
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
 	column original_value
 		dataType: double
-		lineageTag: 09aa4a03-3d56-4d35-840a-adc920dce45f
+		lineageTag: 019fd651-4a16-4ddd-9a4e-f22d8ce38d7d
 		summarizeBy: sum
 		sourceColumn: original_value
 
@@ -83,16 +80,17 @@ table f_gross_domestic_product
 
 	column value
 		dataType: double
-		formatString: #,0
-		lineageTag: 84268141-d63e-4231-b585-734ce5af0638
+		lineageTag: 49975536-7c8f-4551-89d2-d909e5eb82fc
 		summarizeBy: sum
 		sourceColumn: value
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column FREQ
 		dataType: string
-		lineageTag: 3987058e-e8cc-4680-bcba-2fa9c0c9fe4e
+		lineageTag: 47eaec82-705f-4636-b0a6-a6de1d56684a
 		summarizeBy: none
 		sourceColumn: FREQ
 
@@ -100,7 +98,7 @@ table f_gross_domestic_product
 
 	column REF_AREA
 		dataType: string
-		lineageTag: a8c7d03f-8aee-45b4-a6ff-53b37bdecd53
+		lineageTag: a91f67bb-37df-446b-beb2-c56957ea1e70
 		summarizeBy: none
 		sourceColumn: REF_AREA
 
@@ -108,7 +106,7 @@ table f_gross_domestic_product
 
 	column INDICATOR
 		dataType: string
-		lineageTag: 05888cbd-208c-48a0-8988-639765eb9e94
+		lineageTag: fbcf7d76-e406-4508-8c35-70e55e634c08
 		summarizeBy: none
 		sourceColumn: INDICATOR
 
@@ -116,7 +114,7 @@ table f_gross_domestic_product
 
 	column Frequency
 		dataType: string
-		lineageTag: a1a61790-f30e-4f98-b1d8-3cc1f66e22fb
+		lineageTag: 56f02469-34e8-4952-9356-b5b9a480cea2
 		summarizeBy: none
 		sourceColumn: Frequency
 
@@ -124,25 +122,25 @@ table f_gross_domestic_product
 
 	column 'Reference Area'
 		dataType: string
-		lineageTag: 87edb765-a804-4bfd-a644-036a2518484d
+		lineageTag: 2510f483-70e9-4305-8bc2-c415fe62833b
 		summarizeBy: none
 		sourceColumn: Reference Area
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Indicator 2'
+	column 'Indicator.1'
 		dataType: string
-		lineageTag: ff86c2d3-13ae-4d33-986c-20b6c87652ec
+		lineageTag: b8d78704-9e2d-48dd-be89-0ba9d5e0f2ed
 		summarizeBy: none
-		sourceColumn: Indicator
+		sourceColumn: Indicator.1
 
 		annotation SummarizationSetBy = Automatic
 
-	column value_usd
+	column usd/local
 		dataType: double
-		lineageTag: 6f0624a0-f276-4a9e-8a16-8a3665ed4e9f
+		lineageTag: 33dfca75-8c18-4795-b98b-20d7a39eb6b6
 		summarizeBy: sum
-		sourceColumn: value_usd
+		sourceColumn: usd/local
 
 		annotation SummarizationSetBy = Automatic
 
@@ -150,7 +148,7 @@ table f_gross_domestic_product
 
 	column local/usd
 		dataType: double
-		lineageTag: 5d8da40c-2327-4818-a289-fc5e381f9e74
+		lineageTag: 81232dd9-0f1b-4a80-85ce-1b9ba2bad90e
 		summarizeBy: sum
 		sourceColumn: local/usd
 
@@ -158,11 +156,11 @@ table f_gross_domestic_product
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column usd/local
+	column value_usd
 		dataType: double
-		lineageTag: ec909101-500f-46c1-8db9-c3d7aa67024d
+		lineageTag: 9e1d5d7a-cc53-4147-b5f9-f0d4e5bc0eaf
 		summarizeBy: sum
-		sourceColumn: usd/local
+		sourceColumn: value_usd
 
 		annotation SummarizationSetBy = Automatic
 
@@ -172,9 +170,9 @@ table f_gross_domestic_product
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_gdp.csv"),[Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"@frequency", type text}, {"provider_code", type text}, {"dataset_code", type text}, {"dataset_name", type text}, {"series_code", type text}, {"series_name", type text}, {"original_period", Int64.Type}, {"period", type date}, {"original_value", type number}, {"value", type number}, {"FREQ", type text}, {"REF_AREA", type text}, {"INDICATOR", type text}, {"Frequency", type text}, {"Reference Area", type text}, {"Indicator", type text}, {"usd/local", type number}, {"local/usd", type number}, {"value_usd", type number}})
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM gdp_data", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"Indicator", "Indicator.1"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"period", type date}})
 				in
 				    #"Changed Type"
 

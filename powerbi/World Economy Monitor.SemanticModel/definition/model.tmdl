@@ -37,38 +37,27 @@ queryGroup 'Query Errors - 7/22/2026 10:51:04 PM'
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["f_gross_domestic_product","f_industrial_production_index","f_consumer_price_index","f_cb_policy_rates","f_unemployment_rate","f_retail_sales","f_PMI","f_trade_balance","Sample File","Parameter1","Transform Sample File","Transform File","f_import_value","Sample File (2)","Parameter2","Transform Sample File (2)","Transform File (2)","f_export_value","Sample File (3)","Parameter3","Transform Sample File (3)","Transform File (3)","Errors in f_export_value","d_country","f_imf_exports_goods","f_imf_imports_goods","f_imf_exports_services","f_imf_imports_services","imf_population","postgre_sample"]
+annotation PBI_QueryOrder = ["f_gross_domestic_product","f_industrial_production_index","f_consumer_price_index","f_cb_policy_rates","f_unemployment_rate","f_retail_sales","f_PMI","Sample File","Parameter1","Transform Sample File","Transform File","Sample File (2)","Parameter2","Transform Sample File (2)","Transform File (2)","f_imf_exports_goods","f_imf_imports_goods","f_imf_exports_services","f_imf_imports_services","imf_population","Sample File (3)","Parameter3","Transform Sample File (3)","Transform File (3)","d_country"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table f_gross_domestic_product
 ref table DateTableTemplate_c7485acd-8fe8-4d6f-965e-175c7012b68a
-ref table f_industrial_production_index
-ref table f_consumer_price_index
-ref table LocalDateTable_ff8b9ca8-079b-4150-8846-ee8b75e42211
-ref table f_cb_policy_rates
-ref table LocalDateTable_224dd0b7-5155-4f0c-8ad3-6dfc6cdb9900
-ref table f_unemployment_rate
-ref table f_retail_sales
-ref table LocalDateTable_21f8d766-408c-4519-9227-2b70000baeeb
-ref table f_PMI
-ref table LocalDateTable_4c68bd06-7e0a-4171-b5ed-2a6d1611a1ff
-ref table f_trade_balance
-ref table LocalDateTable_b35fdfd0-a791-4e1f-9eaa-0cf362c312d3
 ref table Measures_Table
 ref table d_calendar
-ref table f_import_value
-ref table LocalDateTable_da58b041-c6a4-43ae-b3c8-f12f4a24875a
-ref table f_export_value
-ref table LocalDateTable_4a7bf3ce-4222-44d5-a6d8-09c9299768ec
 ref table d_country
+ref table f_gross_domestic_product
+ref table f_industrial_production_index
+ref table f_consumer_price_index
+ref table f_cb_policy_rates
+ref table f_unemployment_rate
+ref table f_retail_sales
+ref table f_PMI
 ref table f_imf_exports_goods
 ref table f_imf_imports_goods
 ref table f_imf_exports_services
 ref table f_imf_imports_services
 ref table imf_population
 ref table LocalDateTable_35297e2b-eb05-4156-83d9-d2d62e3b524b
-ref table postgre_sample
 
 ref cultureInfo en-US
 

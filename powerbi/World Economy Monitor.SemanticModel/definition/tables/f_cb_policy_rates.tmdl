@@ -1,18 +1,9 @@
 table f_cb_policy_rates
-	lineageTag: e2b3586d-92b0-4d14-8352-3eb5a1351132
-
-	column Column1
-		dataType: int64
-		formatString: 0
-		lineageTag: 825a389d-8ef1-4cb1-acae-82bf62aab575
-		summarizeBy: sum
-		sourceColumn: Column1
-
-		annotation SummarizationSetBy = Automatic
+	lineageTag: 4b854d61-281e-480d-9ebb-c5958f558fe3
 
 	column @frequency
 		dataType: string
-		lineageTag: c8d5b650-e861-4359-82e0-121c5cbf2a74
+		lineageTag: 14849833-de45-4680-a27e-99d46a76ca08
 		summarizeBy: none
 		sourceColumn: @frequency
 
@@ -20,7 +11,7 @@ table f_cb_policy_rates
 
 	column provider_code
 		dataType: string
-		lineageTag: 99c20da4-672b-47ae-a39f-33c6d5c62608
+		lineageTag: 2081682a-168c-455b-8147-ed16288f1c13
 		summarizeBy: none
 		sourceColumn: provider_code
 
@@ -28,7 +19,7 @@ table f_cb_policy_rates
 
 	column dataset_code
 		dataType: string
-		lineageTag: 3028ffb8-ce1e-4dc7-9e71-11b8ffc794fa
+		lineageTag: 236ed3d5-6f9d-48bb-b0f5-26a038af6be3
 		summarizeBy: none
 		sourceColumn: dataset_code
 
@@ -36,7 +27,7 @@ table f_cb_policy_rates
 
 	column dataset_name
 		dataType: string
-		lineageTag: 88748509-63fb-429f-b40d-2d2d92e806ca
+		lineageTag: d4bd0356-bc1c-46e5-821e-9d59010b5807
 		summarizeBy: none
 		sourceColumn: dataset_name
 
@@ -44,7 +35,7 @@ table f_cb_policy_rates
 
 	column series_code
 		dataType: string
-		lineageTag: 2e60719f-fdf7-4ef8-97c5-30d1e012086b
+		lineageTag: af2366e0-576f-4b95-b84a-24883d7a9f9d
 		summarizeBy: none
 		sourceColumn: series_code
 
@@ -52,32 +43,24 @@ table f_cb_policy_rates
 
 	column series_name
 		dataType: string
-		lineageTag: 74ef1078-c216-4f0a-80d7-810403ab53e8
+		lineageTag: 0d4940d9-6175-4b92-a4c5-a0a6ec722452
 		summarizeBy: none
 		sourceColumn: series_name
 
 		annotation SummarizationSetBy = Automatic
 
 	column original_period
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: e68937cf-36fc-41d1-8360-64430cc3a555
+		dataType: string
+		lineageTag: 58ccf43d-23e1-4763-b40c-a319ae2b894f
 		summarizeBy: none
 		sourceColumn: original_period
 
-		variation Variation
-			isDefault
-			relationship: 62b2b910-538d-4a41-abaf-3383a0715ac4
-			defaultHierarchy: LocalDateTable_224dd0b7-5155-4f0c-8ad3-6dfc6cdb9900.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
 
 	column period
 		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: 383477ad-3cac-4b89-9f8b-4a85159eedbd
+		formatString: Long Date
+		lineageTag: 9fb9abbf-fb43-485e-931e-963a2538b62a
 		summarizeBy: none
 		sourceColumn: period
 
@@ -85,19 +68,19 @@ table f_cb_policy_rates
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
 	column original_value
-		dataType: string
-		lineageTag: d81efefb-2b30-4828-b661-094a326fefc0
-		summarizeBy: none
+		dataType: double
+		lineageTag: ffff68ea-48c6-4e2b-9ab1-007414a4957a
+		summarizeBy: sum
 		sourceColumn: original_value
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column value
 		dataType: double
-		lineageTag: 51b37f33-e9a1-4b8d-881c-f17581447686
+		lineageTag: 2054b279-7ea0-4f14-b3d2-e0ee566b4b8a
 		summarizeBy: sum
 		sourceColumn: value
 
@@ -107,7 +90,7 @@ table f_cb_policy_rates
 
 	column FREQ
 		dataType: string
-		lineageTag: 6589cb18-468b-4bc9-9f2d-ad16ac19b5c6
+		lineageTag: ee53d7f4-7ccd-4977-a2b5-fde9cb897ec8
 		summarizeBy: none
 		sourceColumn: FREQ
 
@@ -115,7 +98,7 @@ table f_cb_policy_rates
 
 	column REF_AREA
 		dataType: string
-		lineageTag: 049993f6-b9a3-4acf-b32b-edf3ddb981f8
+		lineageTag: 253a6f09-a55c-4de2-b3b3-f207e9344153
 		summarizeBy: none
 		sourceColumn: REF_AREA
 
@@ -123,7 +106,7 @@ table f_cb_policy_rates
 
 	column Frequency
 		dataType: string
-		lineageTag: fcbb64c8-00d8-49c3-8c65-334d9ed88915
+		lineageTag: 8b60040c-94d1-4d5e-ba95-b6977b9dcb42
 		summarizeBy: none
 		sourceColumn: Frequency
 
@@ -131,7 +114,7 @@ table f_cb_policy_rates
 
 	column 'Reference area'
 		dataType: string
-		lineageTag: 71be52b0-7c8c-4baa-bf41-e50b2fe7b496
+		lineageTag: 8c24d197-c09b-4d9b-9689-23d0ec0b7106
 		summarizeBy: none
 		sourceColumn: Reference area
 
@@ -141,9 +124,8 @@ table f_cb_policy_rates
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\cb_policy_rates.csv"),[Delimiter=",", Columns=15, Encoding=1252, QuoteStyle=QuoteStyle.None]),
-				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"", Int64.Type}, {"@frequency", type text}, {"provider_code", type text}, {"dataset_code", type text}, {"dataset_name", type text}, {"series_code", type text}, {"series_name", type text}, {"original_period", type date}, {"period", type date}, {"original_value", type text}, {"value", type number}, {"FREQ", type text}, {"REF_AREA", type text}, {"Frequency", type text}, {"Reference area", type text}})
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM cb_policy_rate_data", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"period", type date}})
 				in
 				    #"Changed Type"
 

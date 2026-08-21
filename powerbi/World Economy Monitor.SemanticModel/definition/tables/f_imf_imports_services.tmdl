@@ -1,9 +1,9 @@
 table f_imf_imports_services
-	lineageTag: b3db0569-16f1-4011-9220-2a95ec5b718a
+	lineageTag: 468faf54-0712-4f65-af29-2a4a2b00ce00
 
 	column COUNTRY
 		dataType: string
-		lineageTag: 04ac3b83-771c-4202-a3b5-a2aa3dd35dbf
+		lineageTag: eb15a34c-2dea-495d-8244-7b39c34948b6
 		summarizeBy: none
 		sourceColumn: COUNTRY
 
@@ -11,7 +11,7 @@ table f_imf_imports_services
 
 	column BOP_ACCOUNTING_ENTRY
 		dataType: string
-		lineageTag: 2fbfca88-34ed-4741-bb79-0d9535675c42
+		lineageTag: 32c39c8d-d003-478a-a25e-80cf4bb144b9
 		summarizeBy: none
 		sourceColumn: BOP_ACCOUNTING_ENTRY
 
@@ -19,7 +19,7 @@ table f_imf_imports_services
 
 	column INDICATOR
 		dataType: string
-		lineageTag: e86c953c-4dc3-42c1-90ac-919082df4029
+		lineageTag: 9b1f34ba-ca96-4602-9dc8-e14caffc8d7e
 		summarizeBy: none
 		sourceColumn: INDICATOR
 
@@ -27,7 +27,7 @@ table f_imf_imports_services
 
 	column UNIT
 		dataType: string
-		lineageTag: 02ac37f7-4247-4b5f-820e-56c48b451ab9
+		lineageTag: d0eae54a-edad-487c-9a4d-246feeb38996
 		summarizeBy: none
 		sourceColumn: UNIT
 
@@ -35,7 +35,7 @@ table f_imf_imports_services
 
 	column FREQUENCY
 		dataType: string
-		lineageTag: 6f785494-0ed3-48bf-b385-5a6352ee684a
+		lineageTag: 30f9de90-d67c-4529-b68e-bdb4142411b9
 		summarizeBy: none
 		sourceColumn: FREQUENCY
 
@@ -43,8 +43,8 @@ table f_imf_imports_services
 
 	column period
 		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: 67204482-c51e-4b83-98df-ecde6ab54318
+		formatString: Long Date
+		lineageTag: 2e241fc0-9ab4-4695-bde0-3fce1a64bd0e
 		summarizeBy: none
 		sourceColumn: period
 
@@ -52,11 +52,9 @@ table f_imf_imports_services
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
-
 	column value
 		dataType: double
-		lineageTag: d3b2dc90-d59d-488a-8ab6-aab44c1b52f2
+		lineageTag: 166d8833-7b04-4504-a08e-a4b9d01f92b6
 		summarizeBy: sum
 		sourceColumn: value
 
@@ -68,9 +66,8 @@ table f_imf_imports_services
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\Projects\DA Porforlio\data\imf_services_imports.csv"),[Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"COUNTRY", type text}, {"BOP_ACCOUNTING_ENTRY", type text}, {"INDICATOR", type text}, {"UNIT", type text}, {"FREQUENCY", type text}, {"period", type date}, {"value", type number}})
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM trade_in_services_imports", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"period", type date}})
 				in
 				    #"Changed Type"
 
