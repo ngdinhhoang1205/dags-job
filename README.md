@@ -28,6 +28,14 @@ Monitor.pbip`) — see [Data Sources](#data-sources) and [Power BI Report](#powe
    docker compose up -d --build
    ```
 
+   This does not start the dbt service — it lives in a separate repo/compose stack,
+   [ngdinhhoang1205/dbt-run](https://github.com/ngdinhhoang1205/dbt-run). **Start this repo's
+   stack first**: the dbt container connects to `postgres-business` over the host's published
+   port (`host.docker.internal:${BUSINESS_POSTGRES_PORT}`), so it needs this stack up and
+   healthy before it can do anything useful. Once this is running, start the dbt repo's stack
+   the same way (`docker compose up -d --build` there) if you'll use `dbt_jobs_analytics`. See
+   [dbt Transformations](#dbt-transformations) for details.
+
 3. Access points:
 
    | Service | URL | Login |
@@ -47,6 +55,8 @@ Monitor.pbip`) — see [Data Sources](#data-sources) and [Power BI Report](#powe
 | `BUSINESS_POSTGRES_USER` / `_PASSWORD` / `_DB` / `_PORT` | Credentials and host port for the business Postgres instance. | Pick your own. |
 | `PGADMIN_DEFAULT_EMAIL` / `_PASSWORD` / `_PORT` | pgAdmin's own login and host port. | Pick your own. |
 | `IMF_API_KEY` | Required by `dags/utils.py`'s `fetch_imf_api()` and everything built on it (`fetch_ipi`, `fetch_policy_rate`, `fetch_weo`, `fetch_bop_services`, `fetch_imts`) — DAGs that call those (`ipi_data`, `cb_policy_rate_data`, `population_data`, `merchandise_imports_data`, `merchandise_exports_data`, `trade_in_services_data`) fail without it. Not needed for DAGs that only use DBnomics (`fetch_series` / `fetch_imf_data` / `fetch_imf_bulk`), e.g. `fetch_exchange_rate`, `gdp_data`, `cpi_data`, `unemployment_data`, `retail_sales_data`, `global_manufacturing_pmi_data`, `country_mapping`. | Register for a free key at https://portal.api.imf.org/ |
+| `DBT_API_URL` | Base URL of the separate dbt-api service (see [dbt Transformations](#dbt-transformations)) that `dbt_jobs_analytics` calls. Must be `http://host.docker.internal:<port>`, not `localhost` — from inside the Airflow containers, `localhost` means the container itself. | `http://host.docker.internal:8001` by default (matches `DBT_API_PORT` in the dbt repo's `.env`). |
+| `DBT_API_KEY` | Shared secret sent as the `X-API-Key` header on every call to the dbt-api service. Must match `DBT_API_KEY` in the dbt repo's `.env` exactly. | `python -c "import secrets; print(secrets.token_hex(32))"` |
 
 ## DAGs
 
@@ -65,10 +75,51 @@ Monitor.pbip`) — see [Data Sources](#data-sources) and [Power BI Report](#powe
 | `merchandise_imports_data` | `dags/merchandise_imports.py` | Merchandise imports, FOB valuation with CIF fallback per country that doesn't report FOB (IMF's direct IMTS API), writes `merchandise_imports_data`. |
 | `trade_in_services_data` | `dags/trade_in_services.py` | Trade in services, exports and imports (IMF's direct BOP API, quarterly data split evenly into monthly), writes `trade_in_services_exports` and `trade_in_services_imports`. |
 | `global_manufacturing_pmi_data` | `dags/global_manufacturing_pmi.py` | Global manufacturing PMI / business confidence index (OECD/MEI via DBnomics), writes `global_manufacturing_pmi_data`. |
+| `dbt_jobs_analytics` | `dags/dbt_jobs_analytics.py` | Calls the separate [dbt-api service](#dbt-transformations)'s `POST /run` over HTTP to run `dbt run` for the `jobs_analytics` dbt project against the business DB. Scheduled a few hours after the ingestion DAGs above as a time-based buffer, not a real dependency. |
 
 Shared fetch/DB helpers live in `dags/utils.py` (`get_business_db_engine`, `replace_table`,
 `log_job_run`, plus the IMF/DBnomics fetch functions). Country reference lists live in
 `dags/config.py`.
+
+## dbt Transformations
+
+The `jobs_analytics` dbt project (staging/mart models on top of the tables the ingestion DAGs
+write) lives in a **completely separate repo and Docker Compose stack**:
+[ngdinhhoang1205/dbt-run](https://github.com/ngdinhhoang1205/dbt-run) (`D:/Projects/dbt`
+locally). It is not part of this repo and not built into the Airflow image — dbt-core's pinned
+dependencies (Jinja2, click, MarkupSafe, ...) would conflict with Airflow's own constraints file
+if installed into the same image.
+
+**Start this repo's stack before the dbt one.** The dbt container has no way to know when
+`postgres-business` becomes healthy — it just connects to `host.docker.internal:${BUSINESS_POSTGRES_PORT}`
+on request — so bring this repo up first (`docker compose up -d --build`, see
+[Setup](#setup)), then start the dbt repo's stack the same way. There's no such ordering
+requirement the other way: `dbt_jobs_analytics` only needs the dbt-api container to be up by the
+time it runs, not at Airflow startup.
+
+Instead, that repo builds a small **dbt-api** service: a FastAPI wrapper (`server.py`) around the
+`dbt` CLI, exposing `GET /health` and `POST /run` (shells out to `dbt run --project-dir
+jobs_analytics`, returns stdout/stderr as JSON). `docker-compose.yaml` there publishes it on the
+host at `DBT_API_PORT` (default `8001`), and dbt connects to this repo's `postgres-business` via
+the host's published port (`host.docker.internal:${BUSINESS_POSTGRES_PORT}`, default `5433`) —
+the two stacks share no Docker network.
+
+`dags/dbt_jobs_analytics.py` in *this* repo just does `requests.post(f"{DBT_API_URL}/run",
+headers={"X-API-Key": DBT_API_KEY})`. To use it:
+
+1. In `D:/Projects/dbt`, copy `.env.example` to `.env`, generate a key (`python -c "import
+   secrets; print(secrets.token_hex(32))"`) for `DBT_API_KEY`, and run `docker compose up -d
+   --build`.
+2. In this repo's `.env`, set `DBT_API_KEY` to that same value, and `DBT_API_URL` to
+   `http://host.docker.internal:${DBT_API_PORT}` (default `http://host.docker.internal:8001`).
+
+**Drawback worth knowing:** `DBT_API_PORT` is published on `0.0.0.0`, not `127.0.0.1` — this is
+necessary so `host.docker.internal` traffic from the Airflow containers can reach it (Docker
+Desktop's loopback-only publishes aren't reliably reachable that way), but it also means the
+`/run` endpoint is reachable from your LAN, not just this machine, unless Windows Firewall blocks
+it. The `X-API-Key` check is the only thing standing between "anyone on your network" and
+"triggers a `dbt run` against your business database" — treat `DBT_API_KEY` like a real secret,
+and leave it unset only if you're comfortable with an open trigger endpoint.
 
 ## Data Sources
 
@@ -172,3 +223,5 @@ docker compose down
   unpinned for direct dependencies only; installed against Airflow's own constraints file so
   transitive versions stay compatible with Airflow itself (see `Dockerfile`).
 - `requirements-dev.txt` — local-only tooling (Jupyter, pytest, etc.), not installed in the image.
+- dbt-core/dbt-postgres are **not** dependencies of this repo at all — they live in the separate
+  dbt-api service under `D:/Projects/dbt` (see [dbt Transformations](#dbt-transformations)).
