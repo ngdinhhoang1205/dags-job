@@ -42,11 +42,11 @@
                       "Entity": "Measures_Table"
                     }
                   },
-                  "Property": "_policy_rate"
+                  "Property": "_policy_rate_gdp_weighted"
                 }
               },
-              "queryRef": "Measures_Table._policy_rate",
-              "nativeQueryRef": "_policy_rate"
+              "queryRef": "Measures_Table._policy_rate_gdp_weighted",
+              "nativeQueryRef": "_policy_rate_gdp_weighted"
             }
           ]
         }

@@ -1,0 +1,61 @@
+table f_policy_rate_weighted_gdp
+	lineageTag: f53bf5fc-529e-4585-bb12-a1d3f6a02a46
+
+	column country_code
+		dataType: string
+		lineageTag: f3a92598-f5ad-44e5-8113-b60582db0a6d
+		summarizeBy: none
+		sourceColumn: country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 02b6e74a-51b8-4b84-85f0-cf62accee504
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column period
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ce06e59e-dfaf-4484-b30f-6db224b64901
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+	column policy_rate
+		dataType: double
+		lineageTag: b19cd87b-6b94-408a-a71c-508101ba9735
+		summarizeBy: sum
+		sourceColumn: policy_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gdp_usd
+		dataType: double
+		lineageTag: a4620112-f2be-43f6-88e6-747057d4f197
+		summarizeBy: sum
+		sourceColumn: gdp_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition f_policy_rate_weighted_gdp = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM dbt_dev.policy_rate_weighted_gdp", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

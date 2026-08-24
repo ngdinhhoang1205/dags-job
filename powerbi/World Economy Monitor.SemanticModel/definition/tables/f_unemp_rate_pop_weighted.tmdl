@@ -1,0 +1,61 @@
+table f_unemp_rate_pop_weighted
+	lineageTag: 312ab579-8c33-4d69-a016-2180518f97ff
+
+	column country_code
+		dataType: string
+		lineageTag: f98b4b9c-51a5-48e6-867e-0e03baa01ff4
+		summarizeBy: none
+		sourceColumn: country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column period
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 00b11285-ca97-4d31-8b3b-821998014435
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+	column unemp_value
+		dataType: double
+		lineageTag: 4a0e8c3a-3d8a-4e19-a01c-cf774490669a
+		summarizeBy: sum
+		sourceColumn: unemp_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pop_value
+		dataType: int64
+		formatString: 0
+		lineageTag: f8af6c1b-c9ca-4418-bc1c-0c9813763403
+		summarizeBy: sum
+		sourceColumn: pop_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column pop_perc
+		dataType: double
+		lineageTag: 7ea5f55d-7134-4ecc-a160-d591c6fbca7f
+		summarizeBy: sum
+		sourceColumn: pop_perc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition f_unemp_rate_pop_weighted = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM dbt_dev.unemp_rate_pop_weighted", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

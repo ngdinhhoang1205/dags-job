@@ -42,11 +42,12 @@
                       "Entity": "Measures_Table"
                     }
                   },
-                  "Property": "_current_unemployment_rate"
+                  "Property": "_current_unemployment_rate_pop_weighted"
                 }
               },
-              "queryRef": "Measures_Table._current_unemployment_rate",
-              "nativeQueryRef": "_current_unemployment_rate"
+              "queryRef": "Measures_Table._current_unemployment_rate_pop_weighted",
+              "nativeQueryRef": "Unemp%",
+              "displayName": "Unemp%"
             }
           ]
         }

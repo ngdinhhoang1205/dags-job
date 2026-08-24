@@ -190,31 +190,6 @@ Key fact tables loaded into the model: `f_gross_domestic_product`, `f_industrial
 `f_imf_exports_services`, `imf_population`, plus `d_country` and `d_calendar` as dimension tables
 and a central `Measures_Table` for DAX measures.
 
-## Useful commands
-
-Test a single task without going through the scheduler (fast feedback loop, prints output to
-your terminal):
-
-```bash
-docker compose exec -T airflow-scheduler airflow tasks test <dag_id> <task_id> <YYYY-MM-DD>
-```
-
-Check for DAG parse errors:
-
-```bash
-docker compose exec -T airflow-scheduler airflow dags list-import-errors
-```
-
-Query the business database directly:
-
-```bash
-docker compose exec -T postgres-business psql -U business -d business
-```
-
-Stop everything:
-
-```bash
-docker compose down
 ```
 
 ## Dependencies

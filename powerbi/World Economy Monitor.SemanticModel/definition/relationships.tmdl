@@ -99,3 +99,19 @@ relationship 8fb7dc0c-ac7b-20df-cb57-5d08aeae96f7
 	fromColumn: f_imf_imports_services.period
 	toColumn: d_calendar.Date
 
+relationship 6dfe5398-4c78-eb28-93be-d8352e9ebc90
+	fromColumn: f_unemp_rate_pop_weighted.country_code
+	toColumn: d_country.iso3_code
+
+relationship c3ecbc7e-c862-d9a8-0724-465c76aa9ba6
+	fromColumn: f_unemp_rate_pop_weighted.period
+	toColumn: d_calendar.Date
+
+relationship 0b312d61-c548-6ded-6cf0-b45e7c9a6e48
+	fromColumn: f_policy_rate_weighted_gdp.country_code
+	toColumn: d_country.iso3_code
+
+relationship 724c256f-3984-c52e-3343-3fc5796a74d6
+	fromColumn: f_policy_rate_weighted_gdp.period
+	toColumn: d_calendar.Date
+

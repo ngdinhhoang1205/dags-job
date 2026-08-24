@@ -4,5 +4,22 @@
   "displayName": "Economic Growth",
   "displayOption": "FitToPage",
   "height": 1200,
-  "width": 1280
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "405f7dd1086028548dc9",
+      "target": "233da54e1adce4030122",
+      "type": "NoFilter"
+    },
+    {
+      "source": "03fac0054366ec802080",
+      "target": "1e94c9022675c302307c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "405f7dd1086028548dc9",
+      "target": "1e94c9022675c302307c",
+      "type": "NoFilter"
+    }
+  ]
 }

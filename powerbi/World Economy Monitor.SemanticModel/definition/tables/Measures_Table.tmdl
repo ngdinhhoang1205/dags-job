@@ -418,6 +418,73 @@ table Measures_Table
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 4cca561c-f736-45e3-8ebf-f2c32e996059
 
+	measure _current_unemployment_rate_pop_weighted =
+			
+			VAR CurrentYear =
+			    YEAR(MAX(f_unemp_rate_pop_weighted[period]))
+			
+			VAR CountryData =
+			    CALCULATETABLE(
+			        f_unemp_rate_pop_weighted,
+			        REMOVEFILTERS(f_unemp_rate_pop_weighted[country_code]),
+			        FILTER(
+			            ALL(f_unemp_rate_pop_weighted[period]),
+			            YEAR(f_unemp_rate_pop_weighted[period]) = CurrentYear
+			        )
+			    )
+			
+			VAR TotalPopulation =
+			    SUMX(
+			        CountryData,
+			        f_unemp_rate_pop_weighted[pop_value]
+			    )
+			
+			RETURN
+			    DIVIDE(
+			        SUMX(
+			            CountryData,
+			            f_unemp_rate_pop_weighted[unemp_value]
+			                * f_unemp_rate_pop_weighted[pop_value]
+			        ),
+			        TotalPopulation
+			    ) / 100
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 690e7629-42db-4627-a696-abd5447b1320
+
+	measure _policy_rate_gdp_weighted =
+			
+			VAR CurrentYear =
+			    YEAR(MAX(f_policy_rate_weighted_gdp[period]))
+			
+			VAR CurrentPeriod =
+			    MAX(f_policy_rate_weighted_gdp[period])
+			
+			VAR CountryData =
+			    CALCULATETABLE(
+			        f_policy_rate_weighted_gdp,
+			        REMOVEFILTERS(f_policy_rate_weighted_gdp[country_code]),
+			        REMOVEFILTERS(f_policy_rate_weighted_gdp[period]),
+			        f_policy_rate_weighted_gdp[period] = CurrentPeriod
+			    )
+			
+			VAR TotalGDP =
+			    SUMX(
+			        CountryData,
+			        f_policy_rate_weighted_gdp[gdp_usd]
+			    )
+			
+			VAR WeightedPolicyRate =
+			    SUMX(
+			        CountryData,
+			        f_policy_rate_weighted_gdp[policy_rate]
+			            * f_policy_rate_weighted_gdp[gdp_usd]
+			    )
+			
+			RETURN
+			    DIVIDE(WeightedPolicyRate, TotalGDP)/100
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 72af04b9-4f4c-4169-8a08-180df217566f
+
 	column Value
 		formatString: 0
 		lineageTag: 42ec9451-10d8-4f13-9535-08121cb2c23c
