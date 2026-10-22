@@ -6,9 +6,9 @@ from airflow.decorators import dag, task
 
 @dag(
     dag_id="fetch_exchange_rate",
-    schedule="@monthly",
-    start_date=pendulum.datetime(2026, 8, 13, tz="UTC"),
-    catchup=True,
+    schedule="0 7,19 * * *",
+    start_date=pendulum.datetime(2026, 8, 13, tz="Asia/Ho_Chi_Minh"),
+    catchup=False,
     tags=["fetch_exchange_rate"],
 )
 def exchange_rate():

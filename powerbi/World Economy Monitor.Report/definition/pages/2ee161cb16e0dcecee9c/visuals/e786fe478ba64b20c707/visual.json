@@ -399,6 +399,34 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "8fbfdcb878a3bf3d816f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "d_calendar"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "968e69a0f536b8f1e0c0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_unemployment_rate_pop_weighted"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -18963,307 +18963,377 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "f_unemp_rate_pop_weighted.pop_perc": {
+			    "measures_table.policy_rate_gdp_weighted": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "f_unemp_rate_pop_weighted",
-			          "ConceptualProperty": "pop_perc"
+			          "ConceptualEntity": "Measures_Table",
+			          "ConceptualProperty": "_policy_rate_gdp_weighted"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "pop perc": {
+			          "policy rate gdp weighted": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "pop_perc": {
+			          "_policy_rate_gdp_weighted": {
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
 			        }
 			      ]
+			    },
+			    "f_policy_rate_weighted_gdp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "f_policy_rate_weighted_gdp"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "f policy rate weighted gdp": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "f_policy_rate_weighted_gdp": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "f_policy_rate_weighted_gdp.country_code": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "f_policy_rate_weighted_gdp",
+			          "ConceptualProperty": "country_code"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "country code": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "country_code": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "country id": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "country key": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "nation code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "location code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        }
+			      ]
+			    },
+			    "f_policy_rate_weighted_gdp.year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "f_policy_rate_weighted_gdp",
+			          "ConceptualProperty": "year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "f_policy_rate_weighted_gdp.period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "f_policy_rate_weighted_gdp",
+			          "ConceptualProperty": "period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "period": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "era": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "epoch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "age": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "stage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "phase": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "f_policy_rate_weighted_gdp.policy_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "f_policy_rate_weighted_gdp",
+			          "ConceptualProperty": "policy_rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "policy rate": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "policy_rate": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "rate": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "policy degree": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "policy frequency": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "policy percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "policy ratio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "policy quotient": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "degree": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "ratio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "quotient": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "policy amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "policy proportion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "f_policy_rate_weighted_gdp.gdp_usd": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "f_policy_rate_weighted_gdp",
+			          "ConceptualProperty": "gdp_usd"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "gdp usd": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "gdp_usd": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "usd": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "imf_population_has_d_country": {
-			      "Binding": {
-			        "ConceptualEntity": "imf_population"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "imf_population": {
-			          "Target": {
-			            "Entity": "imf_population"
-			          }
-			        },
-			        "d_country": {
-			          "Target": {
-			            "Entity": "d_country"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "imf_population"
-			            },
-			            "Object": {
-			              "Role": "d_country"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "imf_populations_have_d_countries"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_country"
-			            },
-			            "Object": {
-			              "Role": "imf_population"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_countries_have_imf_populations"
-			        }
-			      ]
-			    },
-			    "f_imf_imports_service_has_d_calendar": {
-			      "Binding": {
-			        "ConceptualEntity": "f_imf_imports_services"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_imf_imports_service": {
-			          "Target": {
-			            "Entity": "f_imf_imports_service"
-			          }
-			        },
-			        "d_calendar": {
-			          "Target": {
-			            "Entity": "d_calendar"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_imf_imports_service"
-			            },
-			            "Object": {
-			              "Role": "d_calendar"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_imf_imports_services_have_d_calendars"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_calendar"
-			            },
-			            "Object": {
-			              "Role": "f_imf_imports_service"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_calendars_have_f_imf_imports_services"
-			        }
-			      ]
-			    },
-			    "f_imf_imports_service_has_d_country": {
-			      "Binding": {
-			        "ConceptualEntity": "f_imf_imports_services"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_imf_imports_service": {
-			          "Target": {
-			            "Entity": "f_imf_imports_service"
-			          }
-			        },
-			        "d_country": {
-			          "Target": {
-			            "Entity": "d_country"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_imf_imports_service"
-			            },
-			            "Object": {
-			              "Role": "d_country"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_imf_imports_services_have_d_countries"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_country"
-			            },
-			            "Object": {
-			              "Role": "f_imf_imports_service"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_countries_have_f_imf_imports_services"
-			        }
-			      ]
-			    },
-			    "f_imf_exports_service_has_d_calendar": {
-			      "Binding": {
-			        "ConceptualEntity": "f_imf_exports_services"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_imf_exports_service": {
-			          "Target": {
-			            "Entity": "f_imf_exports_service"
-			          }
-			        },
-			        "d_calendar": {
-			          "Target": {
-			            "Entity": "d_calendar"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_imf_exports_service"
-			            },
-			            "Object": {
-			              "Role": "d_calendar"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_imf_exports_services_have_d_calendars"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_calendar"
-			            },
-			            "Object": {
-			              "Role": "f_imf_exports_service"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_calendars_have_f_imf_exports_services"
-			        }
-			      ]
-			    },
-			    "f_imf_exports_service_has_d_country": {
-			      "Binding": {
-			        "ConceptualEntity": "f_imf_exports_services"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_imf_exports_service": {
-			          "Target": {
-			            "Entity": "f_imf_exports_service"
-			          }
-			        },
-			        "d_country": {
-			          "Target": {
-			            "Entity": "d_country"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_imf_exports_service"
-			            },
-			            "Object": {
-			              "Role": "d_country"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_imf_exports_services_have_d_countries"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_country"
-			            },
-			            "Object": {
-			              "Role": "f_imf_exports_service"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_countries_have_f_imf_exports_services"
-			        }
-			      ]
-			    },
-			    "f_imf_imports_goods_has_d_calendar": {
-			      "Binding": {
-			        "ConceptualEntity": "f_imf_imports_goods"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_imf_imports_goods": {
-			          "Target": {
-			            "Entity": "f_imf_imports_goods"
-			          }
-			        },
-			        "d_calendar": {
-			          "Target": {
-			            "Entity": "d_calendar"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_imf_imports_goods"
-			            },
-			            "Object": {
-			              "Role": "d_calendar"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_imf_imports_goods_have_d_calendars"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_calendar"
-			            },
-			            "Object": {
-			              "Role": "f_imf_imports_goods"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_calendars_have_f_imf_imports_goods"
-			        }
-			      ]
-			    },
 			    "f_imf_imports_goods_has_d_country": {
 			      "Binding": {
 			        "ConceptualEntity": "f_imf_imports_goods"
@@ -20057,6 +20127,171 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "d_countries_have_f_gross_domestic_products"
+			        }
+			      ]
+			    },
+			    "f_policy_rate_weighted_gdp_has_gdp_usd": {
+			      "Binding": {
+			        "ConceptualEntity": "f_policy_rate_weighted_gdp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_policy_rate_weighted_gdp": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp"
+			          }
+			        },
+			        "f_policy_rate_weighted_gdp.gdp_usd": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp.gdp_usd"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_policy_rate_weighted_gdp"
+			            },
+			            "Object": {
+			              "Role": "f_policy_rate_weighted_gdp.gdp_usd"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_policy_rate_weighted_gdp_have_gdp_usd"
+			        }
+			      ]
+			    },
+			    "f_policy_rate_weighted_gdp_has_policy_rate": {
+			      "Binding": {
+			        "ConceptualEntity": "f_policy_rate_weighted_gdp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_policy_rate_weighted_gdp": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp"
+			          }
+			        },
+			        "f_policy_rate_weighted_gdp.policy_rate": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp.policy_rate"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_policy_rate_weighted_gdp"
+			            },
+			            "Object": {
+			              "Role": "f_policy_rate_weighted_gdp.policy_rate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_policy_rate_weighted_gdp_have_policy_rates"
+			        }
+			      ]
+			    },
+			    "f_policy_rate_weighted_gdp_has_period": {
+			      "Binding": {
+			        "ConceptualEntity": "f_policy_rate_weighted_gdp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_policy_rate_weighted_gdp": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp"
+			          }
+			        },
+			        "f_policy_rate_weighted_gdp.period": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp.period"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_policy_rate_weighted_gdp"
+			            },
+			            "Object": {
+			              "Role": "f_policy_rate_weighted_gdp.period"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_policy_rate_weighted_gdp_have_periods"
+			        }
+			      ]
+			    },
+			    "f_policy_rate_weighted_gdp_has_year": {
+			      "Binding": {
+			        "ConceptualEntity": "f_policy_rate_weighted_gdp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_policy_rate_weighted_gdp": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp"
+			          }
+			        },
+			        "f_policy_rate_weighted_gdp.year": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_policy_rate_weighted_gdp"
+			            },
+			            "Object": {
+			              "Role": "f_policy_rate_weighted_gdp.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_policy_rate_weighted_gdp_have_years"
+			        }
+			      ]
+			    },
+			    "f_policy_rate_weighted_gdp_has_measures_table_policy_rate_gdp_weighted": {
+			      "Binding": {
+			        "ConceptualEntity": "f_policy_rate_weighted_gdp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_policy_rate_weighted_gdp": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp"
+			          }
+			        },
+			        "measures_table.policy_rate_gdp_weighted": {
+			          "Target": {
+			            "Entity": "measures_table.policy_rate_gdp_weighted"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_policy_rate_weighted_gdp"
+			            },
+			            "Object": {
+			              "Role": "measures_table.policy_rate_gdp_weighted"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_policy_rate_weighted_gdp_have_policy_rate_gdp_weighted"
 			        }
 			      ]
 			    },
@@ -27159,6 +27394,51 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "f_policy_rate_weighted_gdp_in_d_country": {
+			      "Binding": {
+			        "ConceptualEntity": "f_policy_rate_weighted_gdp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_policy_rate_weighted_gdp": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp"
+			          }
+			        },
+			        "d_country": {
+			          "Target": {
+			            "Entity": "d_country"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "d_country"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "f_policy_rate_weighted_gdp"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "d_country"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_policy_rate_weighted_gdp_are_in_d_countries"
+			        }
+			      ]
+			    },
 			    "f_unemp_rate_pop_weighted_in_d_country": {
 			      "Binding": {
 			        "ConceptualEntity": "f_unemp_rate_pop_weighted"
@@ -28329,6 +28609,282 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "f_imf_imports_goods_has_d_calendar": {
+			      "Binding": {
+			        "ConceptualEntity": "f_imf_imports_goods"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_imf_imports_goods": {
+			          "Target": {
+			            "Entity": "f_imf_imports_goods"
+			          }
+			        },
+			        "d_calendar": {
+			          "Target": {
+			            "Entity": "d_calendar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_imf_imports_goods"
+			            },
+			            "Object": {
+			              "Role": "d_calendar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_imf_imports_goods_have_d_calendars"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_calendar"
+			            },
+			            "Object": {
+			              "Role": "f_imf_imports_goods"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_calendars_have_f_imf_imports_goods"
+			        }
+			      ]
+			    },
+			    "f_imf_exports_service_has_d_country": {
+			      "Binding": {
+			        "ConceptualEntity": "f_imf_exports_services"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_imf_exports_service": {
+			          "Target": {
+			            "Entity": "f_imf_exports_service"
+			          }
+			        },
+			        "d_country": {
+			          "Target": {
+			            "Entity": "d_country"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_imf_exports_service"
+			            },
+			            "Object": {
+			              "Role": "d_country"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_imf_exports_services_have_d_countries"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_country"
+			            },
+			            "Object": {
+			              "Role": "f_imf_exports_service"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_countries_have_f_imf_exports_services"
+			        }
+			      ]
+			    },
+			    "f_imf_exports_service_has_d_calendar": {
+			      "Binding": {
+			        "ConceptualEntity": "f_imf_exports_services"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_imf_exports_service": {
+			          "Target": {
+			            "Entity": "f_imf_exports_service"
+			          }
+			        },
+			        "d_calendar": {
+			          "Target": {
+			            "Entity": "d_calendar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_imf_exports_service"
+			            },
+			            "Object": {
+			              "Role": "d_calendar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_imf_exports_services_have_d_calendars"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_calendar"
+			            },
+			            "Object": {
+			              "Role": "f_imf_exports_service"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_calendars_have_f_imf_exports_services"
+			        }
+			      ]
+			    },
+			    "f_imf_imports_service_has_d_country": {
+			      "Binding": {
+			        "ConceptualEntity": "f_imf_imports_services"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_imf_imports_service": {
+			          "Target": {
+			            "Entity": "f_imf_imports_service"
+			          }
+			        },
+			        "d_country": {
+			          "Target": {
+			            "Entity": "d_country"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_imf_imports_service"
+			            },
+			            "Object": {
+			              "Role": "d_country"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_imf_imports_services_have_d_countries"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_country"
+			            },
+			            "Object": {
+			              "Role": "f_imf_imports_service"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_countries_have_f_imf_imports_services"
+			        }
+			      ]
+			    },
+			    "f_imf_imports_service_has_d_calendar": {
+			      "Binding": {
+			        "ConceptualEntity": "f_imf_imports_services"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_imf_imports_service": {
+			          "Target": {
+			            "Entity": "f_imf_imports_service"
+			          }
+			        },
+			        "d_calendar": {
+			          "Target": {
+			            "Entity": "d_calendar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_imf_imports_service"
+			            },
+			            "Object": {
+			              "Role": "d_calendar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_imf_imports_services_have_d_calendars"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_calendar"
+			            },
+			            "Object": {
+			              "Role": "f_imf_imports_service"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_calendars_have_f_imf_imports_services"
+			        }
+			      ]
+			    },
+			    "imf_population_has_d_country": {
+			      "Binding": {
+			        "ConceptualEntity": "imf_population"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "imf_population": {
+			          "Target": {
+			            "Entity": "imf_population"
+			          }
+			        },
+			        "d_country": {
+			          "Target": {
+			            "Entity": "d_country"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "imf_population"
+			            },
+			            "Object": {
+			              "Role": "d_country"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "imf_populations_have_d_countries"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_country"
+			            },
+			            "Object": {
+			              "Role": "imf_population"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_countries_have_imf_populations"
+			        }
+			      ]
+			    },
 			    "imf_population_has_d_calendar": {
 			      "Binding": {
 			        "ConceptualEntity": "imf_population"
@@ -28464,6 +29020,98 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "d_calendars_have_f_unemp_rate_pop_weighted"
+			        }
+			      ]
+			    },
+			    "f_policy_rate_weighted_gdp_has_d_country": {
+			      "Binding": {
+			        "ConceptualEntity": "f_policy_rate_weighted_gdp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_policy_rate_weighted_gdp": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp"
+			          }
+			        },
+			        "d_country": {
+			          "Target": {
+			            "Entity": "d_country"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_policy_rate_weighted_gdp"
+			            },
+			            "Object": {
+			              "Role": "d_country"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_policy_rate_weighted_gdp_have_d_countries"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_country"
+			            },
+			            "Object": {
+			              "Role": "f_policy_rate_weighted_gdp"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_countries_have_f_policy_rate_weighted_gdp"
+			        }
+			      ]
+			    },
+			    "f_policy_rate_weighted_gdp_has_d_calendar": {
+			      "Binding": {
+			        "ConceptualEntity": "f_policy_rate_weighted_gdp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_policy_rate_weighted_gdp": {
+			          "Target": {
+			            "Entity": "f_policy_rate_weighted_gdp"
+			          }
+			        },
+			        "d_calendar": {
+			          "Target": {
+			            "Entity": "d_calendar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_policy_rate_weighted_gdp"
+			            },
+			            "Object": {
+			              "Role": "d_calendar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_policy_rate_weighted_gdp_have_d_calendars"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_calendar"
+			            },
+			            "Object": {
+			              "Role": "f_policy_rate_weighted_gdp"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_calendars_have_f_policy_rate_weighted_gdp"
 			        }
 			      ]
 			    },

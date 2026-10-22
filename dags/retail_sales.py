@@ -6,9 +6,9 @@ from airflow.decorators import dag, task
 
 @dag(
     dag_id="retail_sales_data",
-    schedule="@monthly",
-    start_date=pendulum.datetime(2026, 8, 13, tz="UTC"),
-    catchup=True,
+    schedule="0 7,19 * * *",
+    start_date=pendulum.datetime(2026, 8, 13, tz="Asia/Ho_Chi_Minh"),
+    catchup=False,
     tags=["retail_sales_data"],
 )
 def retail_sales_data():

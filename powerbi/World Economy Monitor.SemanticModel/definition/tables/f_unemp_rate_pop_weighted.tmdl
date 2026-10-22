@@ -37,16 +37,6 @@ table f_unemp_rate_pop_weighted
 
 		annotation SummarizationSetBy = Automatic
 
-	column pop_perc
-		dataType: double
-		lineageTag: 7ea5f55d-7134-4ecc-a160-d591c6fbca7f
-		summarizeBy: sum
-		sourceColumn: pop_perc
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	partition f_unemp_rate_pop_weighted = m
 		mode: import
 		source =
