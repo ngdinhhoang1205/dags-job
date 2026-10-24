@@ -391,6 +391,34 @@
             }
           ]
         }
+      },
+      {
+        "name": "47c6b3aaebf6ecb1edab",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_policy_rate_subtitle"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "36d64e922c963dab1c3c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_policy_rate_overview"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

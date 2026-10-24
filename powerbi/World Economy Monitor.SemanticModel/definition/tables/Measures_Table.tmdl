@@ -96,17 +96,6 @@ table Measures_Table
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 459786dc-d6e6-4654-baae-550fd2f6210e
 
-	measure _mom_cpi =
-			
-			VAR latest_date = MAX(f_consumer_price_index[period])
-			VAR previous_month = EOMONTH(latest_date, -2) + 1
-			VAR current_cpi = SUMX(FILTER(f_consumer_price_index, f_consumer_price_index[period]=latest_date), f_consumer_price_index[value])
-			VAR previous_cpi = SUMX(FILTER(f_consumer_price_index, f_consumer_price_index[period]=previous_month), f_consumer_price_index[value])
-			
-			RETURN DIVIDE(current_cpi-previous_cpi, previous_cpi, 0)
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: 356619cc-f2ec-4406-a71b-8a69835aae58
-
 	measure _current_policy_rate_overview = ```
 			
 			VAR latest_date = MAX(f_cb_policy_rates[period])
@@ -406,14 +395,26 @@ table Measures_Table
 
 	measure _yoy_cpi_time_series = ```
 			
-			VAR current_cpi = SUMX(f_consumer_price_index, f_consumer_price_index[value])
-			VAR previous_cpi = CALCULATE(
-			        SUM(f_consumer_price_index[value]),
-			        SAMEPERIODLASTYEAR(f_consumer_price_index[period]),
-			        REMOVEFILTERS(f_consumer_price_index) 
-			    )
+			// VAR current_cpi = SUMX(f_consumer_price_index, f_consumer_price_index[value])
+			// VAR previous_cpi = CALCULATE(
+			//         SUM(f_consumer_price_index[value]),
+			//         SAMEPERIODLASTYEAR(f_consumer_price_index[period]),
+			//         REMOVEFILTERS(f_consumer_price_index) 
+			//     )
 			
-			RETURN DIVIDE(current_cpi-previous_cpi, previous_cpi, 0)
+			// RETURN DIVIDE(current_cpi-previous_cpi, previous_cpi, 0)
+			
+			VAR by_country =
+			    ADDCOLUMNS(
+			        VALUES(f_consumer_price_index[country_code]),
+			        "@cur",  CALCULATE(SUM(f_consumer_price_index[value])),
+			        "@prev", CALCULATE(SUM(f_consumer_price_index[value]),
+			                           SAMEPERIODLASTYEAR(d_calendar[Date]))
+			    )
+			VAR valid = FILTER(by_country, NOT ISBLANK([@cur]) && NOT ISBLANK([@prev]))
+			RETURN
+			    AVERAGEX(valid, DIVIDE([@cur], [@prev]) - 1)
+			
 			```
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 4cca561c-f736-45e3-8ebf-f2c32e996059
@@ -484,6 +485,61 @@ table Measures_Table
 			    DIVIDE(WeightedPolicyRate, TotalGDP)/100
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 72af04b9-4f4c-4169-8a08-180df217566f
+
+	measure _cpi_yoy =
+			
+			-- Only meaningful for a single country; blank when several are in context
+			IF(
+			    DISTINCTCOUNT(f_consumer_price_index[country_code]) = 1,
+			    AVERAGE(f_consumer_price_index[cpi_yoy])
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2e0b8152-ae7a-4d4b-a8a2-bb0ed781f72f
+
+	measure _cpi_mom =
+			
+			IF(
+			    DISTINCTCOUNT(f_consumer_price_index[country_code]) = 1,
+			    AVERAGE(f_consumer_price_index[cpi_mom])
+			)
+		lineageTag: 9577863d-b5cb-47b3-9875-88fb6884f6c4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _cpi_latest_period = ```
+			
+			-- Latest month that has a YoY value, ignoring date slicers/filters
+			CALCULATE(
+			    MAX(f_consumer_price_index[period]),
+			    REMOVEFILTERS(d_calendar),
+			    NOT ISBLANK(f_consumer_price_index[cpi_yoy])
+			)
+			
+			```
+		formatString: General Date
+		lineageTag: 8d9e1d98-2dfb-4399-9c6b-ea0add773d65
+
+	measure _cpi_yoy_latest = ```
+			
+			VAR latest = [_cpi_latest_period]
+			RETURN
+			    CALCULATE(
+			        [_cpi_yoy],
+			        REMOVEFILTERS(d_calendar),
+			        f_consumer_price_index[period] = latest
+			    )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b4d89be1-f69f-48cf-bffb-cecfff78da4f
+
+	measure 'CPI YoY subtitle' = ```
+			
+			VAR latest = [_cpi_latest_period]
+			RETURN FORMAT(latest, "yyyy-mm") & " vs " & FORMAT(EDATE(latest, -12), "yyyy-mm")
+			
+			```
+		lineageTag: 60e35a9a-52e6-477d-b806-81c64f3e8294
 
 	column Value
 		formatString: 0

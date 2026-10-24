@@ -51,7 +51,7 @@ table f_policy_rate_weighted_gdp
 		mode: import
 		source =
 				let
-				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM dbt_dev.policy_rate_weighted_gdp", null, [EnableFolding=true])
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM dbt_dev.policy_rate_weighted_gdp#(lf)WHERE gdp_usd IS NOT NULL AND policy_rate IS NOT NULL", null, [EnableFolding=true])
 				in
 				    Source
 

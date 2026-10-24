@@ -41,7 +41,7 @@ table f_unemp_rate_pop_weighted
 		mode: import
 		source =
 				let
-				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM dbt_dev.unemp_rate_pop_weighted", null, [EnableFolding=true])
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM dbt_dev.unemp_rate_pop_weighted#(lf)WHERE unemp_value IS NOT NULL#(lf)", null, [EnableFolding=true])
 				in
 				    Source
 

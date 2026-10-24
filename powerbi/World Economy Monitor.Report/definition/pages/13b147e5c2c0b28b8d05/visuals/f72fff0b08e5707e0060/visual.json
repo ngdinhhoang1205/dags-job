@@ -356,6 +356,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "e6ddaf7318ba19cb5478",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_import_goods"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

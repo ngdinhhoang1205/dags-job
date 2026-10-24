@@ -1,65 +1,9 @@
 table f_consumer_price_index
 	lineageTag: faa2d348-213f-45b0-b49c-df60c7c90423
 
-	column @frequency
-		dataType: string
-		lineageTag: 55853259-5f0b-4cf8-8968-fcb85a1bf3b4
-		summarizeBy: none
-		sourceColumn: @frequency
-
-		annotation SummarizationSetBy = Automatic
-
-	column provider_code
-		dataType: string
-		lineageTag: 521e7085-86c7-4866-be4f-bf604cf27d7d
-		summarizeBy: none
-		sourceColumn: provider_code
-
-		annotation SummarizationSetBy = Automatic
-
-	column dataset_code
-		dataType: string
-		lineageTag: 996fc441-02bf-460a-b00f-c8a4126720ca
-		summarizeBy: none
-		sourceColumn: dataset_code
-
-		annotation SummarizationSetBy = Automatic
-
-	column dataset_name
-		dataType: string
-		lineageTag: 82cfaf7f-cf7f-4bd7-9f51-5384b952f89b
-		summarizeBy: none
-		sourceColumn: dataset_name
-
-		annotation SummarizationSetBy = Automatic
-
-	column series_code
-		dataType: string
-		lineageTag: e5b23dac-e1a1-4076-84ef-43341d2c3e75
-		summarizeBy: none
-		sourceColumn: series_code
-
-		annotation SummarizationSetBy = Automatic
-
-	column series_name
-		dataType: string
-		lineageTag: f32c572f-44cd-4593-858f-ce6ab5fcee49
-		summarizeBy: none
-		sourceColumn: series_name
-
-		annotation SummarizationSetBy = Automatic
-
-	column original_period
-		dataType: string
-		lineageTag: 23c5691e-0996-48fe-910e-2b9c51844653
-		summarizeBy: none
-		sourceColumn: original_period
-
-		annotation SummarizationSetBy = Automatic
-
 	column period
 		dataType: dateTime
-		formatString: Long Date
+		formatString: yyyy-mm-dd
 		lineageTag: e15229dd-2680-4081-9b44-d89bc346d1f6
 		summarizeBy: none
 		sourceColumn: period
@@ -68,81 +12,7 @@ table f_consumer_price_index
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column original_value
-		dataType: double
-		lineageTag: 6f9aa750-0a65-4668-8fdb-faf1b99de2c0
-		summarizeBy: sum
-		sourceColumn: original_value
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column value
-		dataType: double
-		lineageTag: c5470a46-b0e9-4f1c-8b3e-2e5f61170dba
-		summarizeBy: sum
-		sourceColumn: value
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column FREQ
-		dataType: string
-		lineageTag: 05574bfa-5b35-4270-87b6-7677e03b20cf
-		summarizeBy: none
-		sourceColumn: FREQ
-
-		annotation SummarizationSetBy = Automatic
-
-	column REF_AREA
-		dataType: string
-		lineageTag: bd25900c-4839-42ee-b665-7a3ddcce19ab
-		summarizeBy: none
-		sourceColumn: REF_AREA
-
-		annotation SummarizationSetBy = Automatic
-
-	column INDICATOR
-		dataType: string
-		lineageTag: ecb38237-e86c-46b3-9eed-5967cb70f610
-		summarizeBy: none
-		sourceColumn: INDICATOR
-
-		annotation SummarizationSetBy = Automatic
-
-	column Frequency
-		dataType: string
-		lineageTag: 78802233-985c-48bd-acad-729d3f42f3de
-		summarizeBy: none
-		sourceColumn: Frequency
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Reference Area'
-		dataType: string
-		lineageTag: d412fe21-1180-4fc1-94ff-d7c25a02b84a
-		summarizeBy: none
-		sourceColumn: Reference Area
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Indicator.1'
-		dataType: string
-		lineageTag: f76cfbfc-7d0d-46c0-b233-5ed086d40644
-		summarizeBy: none
-		sourceColumn: Indicator.1
-
-		annotation SummarizationSetBy = Automatic
-
-	column country_name
-		dataType: string
-		lineageTag: 79f5cc70-7f4c-4134-904b-6c364f6c3baf
-		summarizeBy: none
-		sourceColumn: country_name
-
-		annotation SummarizationSetBy = Automatic
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column country_code
 		dataType: string
@@ -152,13 +22,40 @@ table f_consumer_price_index
 
 		annotation SummarizationSetBy = Automatic
 
+	column cpi_index
+		dataType: double
+		lineageTag: eb957576-21f1-41cb-bff0-dd36770b05f8
+		summarizeBy: sum
+		sourceColumn: cpi_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cpi_yoy
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9864e66c-a0fc-4c64-95d4-7b2175016f48
+		summarizeBy: sum
+		sourceColumn: cpi_yoy
+
+		annotation SummarizationSetBy = Automatic
+
+	column cpi_mom
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d1622d8a-1270-4a28-9053-e8375c2c9b7a
+		summarizeBy: sum
+		sourceColumn: cpi_mom
+
+		annotation SummarizationSetBy = Automatic
+
 	partition f_consumer_price_index = m
 		mode: import
 		source =
 				let
-				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM cpi_data", null, [EnableFolding=true]),
-				    #"Renamed Columns" = Table.RenameColumns(Source,{{"Indicator", "Indicator.1"}}),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"period", type date}})
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5433", "business"), "SELECT *#(lf)FROM dbt_dev.cpi_data#(lf)", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"period", type date}})
 				in
 				    #"Changed Type"
 

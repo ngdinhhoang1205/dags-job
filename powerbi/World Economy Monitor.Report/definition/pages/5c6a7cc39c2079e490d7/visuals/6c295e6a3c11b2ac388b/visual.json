@@ -32,6 +32,24 @@
             }
           ]
         },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "d_country"
+                    }
+                  },
+                  "Property": "country_name"
+                }
+              },
+              "queryRef": "d_country.country_name",
+              "nativeQueryRef": "country_name"
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {
@@ -42,12 +60,12 @@
                       "Entity": "Measures_Table"
                     }
                   },
-                  "Property": "_yoy_cpi"
+                  "Property": "_cpi_yoy"
                 }
               },
-              "queryRef": "Measures_Table._yoy_cpi",
-              "nativeQueryRef": "YoY CPI%",
-              "displayName": "YoY CPI%"
+              "queryRef": "Measures_Table._cpi_yoy",
+              "nativeQueryRef": "CPI (YoY)",
+              "displayName": "CPI (YoY)"
             }
           ]
         }
@@ -397,8 +415,21 @@
               }
             }
           ]
+        }
+      },
+      {
+        "name": "52489a84340daab8422c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "d_calendar"
+              }
+            },
+            "Property": "Date"
+          }
         },
-        "howCreated": "User"
+        "type": "Categorical"
       }
     ]
   }

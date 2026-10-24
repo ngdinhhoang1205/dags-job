@@ -1,0 +1,353 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "ef30763818f65c72a134",
+  "position": {
+    "x": 9.5167286245353164,
+    "y": 101.11524163568774,
+    "z": 0,
+    "height": 618.58736059479554,
+    "width": 1270.4832713754647,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "d_country"
+                    }
+                  },
+                  "Property": "country_name"
+                }
+              },
+              "queryRef": "d_country.country_name",
+              "nativeQueryRef": "Country",
+              "displayName": "Country"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "_current_gdp"
+                }
+              },
+              "queryRef": "Measures_Table._current_gdp",
+              "nativeQueryRef": "GDP",
+              "displayName": "GDP"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "_cpi_yoy_latest"
+                }
+              },
+              "queryRef": "Measures_Table._cpi_yoy_latest",
+              "nativeQueryRef": "Inflation %",
+              "displayName": "Inflation %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "_current_unemployment_rate_pop_weighted"
+                }
+              },
+              "queryRef": "Measures_Table._current_unemployment_rate_pop_weighted",
+              "nativeQueryRef": "Unemployment %",
+              "displayName": "Unemployment %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "_current_export_goods"
+                }
+              },
+              "queryRef": "Measures_Table._current_export_goods",
+              "nativeQueryRef": "Export (Goods)",
+              "displayName": "Export (Goods)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "_current_import_goods"
+                }
+              },
+              "queryRef": "Measures_Table._current_import_goods",
+              "nativeQueryRef": "Import (Goods)",
+              "displayName": "Import (Goods)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "_current_export_service"
+                }
+              },
+              "queryRef": "Measures_Table._current_export_service",
+              "nativeQueryRef": "Export (Services)",
+              "displayName": "Export (Services)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "_current_import_service"
+                }
+              },
+              "queryRef": "Measures_Table._current_import_service",
+              "nativeQueryRef": "Import (Services)",
+              "displayName": "Import (Services)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "_current_policy_rate_overview"
+                }
+              },
+              "queryRef": "Measures_Table._current_policy_rate_overview",
+              "nativeQueryRef": "Policy Rate",
+              "displayName": "Policy Rate"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures_Table"
+                  }
+                },
+                "Property": "_current_gdp"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "242.66914740174084D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "d_country.country_name"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fecf28725a3f3ad07c2c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "d_country"
+              }
+            },
+            "Property": "country_name"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "d_country",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "d"
+                            }
+                          },
+                          "Property": "country_name"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "b3ceaae043aa6dd67797",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_gdp"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "899d40b6480099d7ec0c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_unemployment_rate_pop_weighted"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dcc29647446ed7c2480c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_import_goods"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "139fae69c1bf49a0ea04",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_import_service"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d03430a337a854bc3fda",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_export_goods"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2048a5bd412143b86a54",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_export_service"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1d5d10ce1a3cda23328d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_policy_rate_overview"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -59,14 +59,14 @@
             "startDate": {
               "expr": {
                 "Literal": {
-                  "Value": "datetime'2006-12-13T23:45:39.346'"
+                  "Value": "datetime'1945-01-01T00:00:00'"
                 }
               }
             },
             "endDate": {
               "expr": {
                 "Literal": {
-                  "Value": "datetime'2026-06-01T00:00:00'"
+                  "Value": "datetime'2026-09-01T00:00:00'"
                 }
               }
             },
@@ -112,7 +112,7 @@
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "datetime'2006-12-13T00:00:00'"
+                                "Value": "datetime'1945-01-01T00:00:00'"
                               }
                             }
                           }
@@ -132,7 +132,7 @@
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "datetime'2026-06-02T00:00:00'"
+                                "Value": "datetime'2026-09-02T00:00:00'"
                               }
                             }
                           }

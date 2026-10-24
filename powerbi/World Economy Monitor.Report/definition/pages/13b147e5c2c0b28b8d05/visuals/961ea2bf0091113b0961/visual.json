@@ -360,6 +360,34 @@
             }
           ]
         }
+      },
+      {
+        "name": "24c1af7afa4de9e585a6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_unemployment_rate_subtitle"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "db0d933b29de739707e4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "_current_unemployment_rate_pop_weighted"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -749,45 +749,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.492
 			          }
-			        },
-			        {
-			          "YoY CPI": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "measures_table.mom_cpi": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Measures_Table",
-			          "ConceptualProperty": "_mom_cpi"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "mom cpi": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "_mom_cpi": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "cpi": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
 			        }
 			      ]
 			    },
@@ -932,6 +893,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "i%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Policy Rate": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -3318,6 +3289,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Import (Goods)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Import": {
 			            "State": "Suggested",
 			            "Source": {
@@ -3464,6 +3445,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "Goods Export Value": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Export (Goods)": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -4400,16 +4391,6 @@ cultureInfo en-US
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
-			        },
-			        {
-			          "YoY CPI%": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -5006,6 +4987,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Export (Services)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Export": {
 			            "State": "Suggested",
 			            "Source": {
@@ -5148,6 +5139,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "Import (Services)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        },
 			        {
@@ -5878,16 +5879,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.499
-			          }
-			        },
-			        {
-			          "Inflation": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -8522,502 +8513,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "f_consumer_price_index.frequency": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "@frequency"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "@frequency": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "@ incidence": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "@ occurrence": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "@ regularity": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "@ rate": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.provider_code": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "provider_code"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "provider code": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "provider_code": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "provider id": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "provider key": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.dataset_code": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "dataset_code"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dataset code": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "dataset_code": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "dataset id": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "dataset key": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.dataset_name": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "dataset_name"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dataset name": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "dataset_name": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "dataset": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "dataset nickname": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "dataset title": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "dataset label": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "dataset tag": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.series_code": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "series_code"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "series code": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "series_code": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "series id": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "series key": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.series_name": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "series_name"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "series name": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "series_name": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "series": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "series nickname": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "series title": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "series label": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "series tag": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "succession": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "progression": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "sequence": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "run": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "chain": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "string": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.original_period": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "original_period"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "original period": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "original_period": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "original era": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        },
-			        {
-			          "original epoch": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        },
-			        {
-			          "original age": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.461
-			          }
-			        },
-			        {
-			          "original stage": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.461
-			          }
-			        },
-			        {
-			          "original phase": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.461
-			          }
-			        },
-			        {
-			          "original episode": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        },
-			        {
-			          "original interlude": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        },
-			        {
-			          "original interval": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        },
-			        {
-			          "original extent": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        }
-			      ]
-			    },
 			    "f_consumer_price_index.period": {
 			      "Definition": {
 			        "Binding": {
@@ -9090,773 +8585,6 @@ cultureInfo en-US
 			        }
 			      ],
 			      "SemanticType": "Time"
-			    },
-			    "f_consumer_price_index.original_value": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "original_value"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "original value": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "original_value": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "original assessment": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "original worth": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        },
-			        {
-			          "original price": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        },
-			        {
-			          "original cost": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        },
-			        {
-			          "original charge": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        },
-			        {
-			          "original rate": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        },
-			        {
-			          "original importance": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        },
-			        {
-			          "original significance": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        },
-			        {
-			          "original usefulness": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        },
-			        {
-			          "original consequence": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.value": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "value"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "value": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "assessment": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "worth": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "price": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "cost": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "charge": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "importance": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.466
-			          }
-			        },
-			        {
-			          "significance": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.466
-			          }
-			        },
-			        {
-			          "usefulness": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.466
-			          }
-			        },
-			        {
-			          "consequence": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.466
-			          }
-			        },
-			        {
-			          "use": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.freq": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "FREQ"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "freq": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.ref_area": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "REF_AREA"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ref area": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "REF_AREA": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "area": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "ref region": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "ref locale": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "ref locality": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "ref neighbourhood": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "region": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "locale": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "locality": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "neighbourhood": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "ref district": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "ref continent": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.indicator": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "INDICATOR"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "indicator": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "pointer": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "needle": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "gage": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "gauge": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "dial": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "meter": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "marker": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.466
-			          }
-			        },
-			        {
-			          "statistic": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.466
-			          }
-			        },
-			        {
-			          "sign": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "guide": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.frequency1": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "Frequency"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "frequency": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "incidence": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "occurrence": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "regularity": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.reference_area": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "Reference Area"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "reference area": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "area": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "reference region": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "reference locale": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "reference locality": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "reference neighbourhood": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "region": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "locale": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "locality": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "neighbourhood": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "reference district": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "reference continent": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.indicator_1": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "Indicator.1"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "indicator.1": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index.country_name": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "f_consumer_price_index",
-			          "ConceptualProperty": "country_name"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "country name": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "country_name": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "country nickname": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "country title": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "country label": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "country tag": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "nation name": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "location name": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        }
-			      ]
 			    },
 			    "f_consumer_price_index.country_code": {
 			      "Definition": {
@@ -18495,6 +17223,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Unemployment %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Unemp%": {
 			            "State": "Suggested",
 			            "Source": {
@@ -19331,9 +18069,1151 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "measures_table.cpi_yoy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures_Table",
+			          "ConceptualProperty": "_cpi_yoy"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cpi yoy": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_cpi_yoy": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "CPI (YoY)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.cpi_mom": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures_Table",
+			          "ConceptualProperty": "_cpi_mom"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cpi mom": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_cpi_mom": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "mom": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "cpi ma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "cpi mommy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "cpi mamma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "cpi mama": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "cpi mammy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "cpi momma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "ma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "mommy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "mamma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "mama": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.cpi_latest_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures_Table",
+			          "ConceptualProperty": "_cpi_latest_period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cpi latest period": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_cpi_latest_period": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "latest period": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "cpi latest era": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "cpi latest epoch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "latest era": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "latest epoch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "cpi latest age": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "cpi latest stage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "cpi latest phase": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "latest age": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "latest stage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "latest phase": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "measures_table.cpi_yoy_latest": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures_Table",
+			          "ConceptualProperty": "_cpi_yoy_latest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cpi yoy latest": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_cpi_yoy_latest": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Inflation %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.CPI_YoY_subtitle": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measures_Table",
+			          "ConceptualProperty": "CPI YoY subtitle"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CPI YoY subtitle": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cpi yoy slogan": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "cpi yoy description": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "cpi yoy legend": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "cpi yoy header": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "cpi yoy footer": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "cpi yoy surtitle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "cpi yoy supertitle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "cpi yoy caption": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "cpi yoy title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "cpi yoy heading": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "f_consumer_price_index.cpi_index": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "f_consumer_price_index",
+			          "ConceptualProperty": "cpi_index"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cpi index": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cpi_index": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "index": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "cpi directory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "cpi catalogue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "cpi catalog": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "cpi guide": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "cpi file": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "cpi key": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "cpi table": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "directory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "catalogue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "catalog": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "f_consumer_price_index.cpi_yoy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "f_consumer_price_index",
+			          "ConceptualProperty": "cpi_yoy"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cpi yoy": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cpi_yoy": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "f_consumer_price_index.cpi_mom": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "f_consumer_price_index",
+			          "ConceptualProperty": "cpi_mom"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cpi mom": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cpi_mom": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "mom": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "cpi ma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "cpi mommy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "cpi mamma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "cpi mama": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "cpi mammy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "cpi momma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "ma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "mommy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "mamma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "mama": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "f_unemp_rate_pop_weighted_has_d_calendar": {
+			      "Binding": {
+			        "ConceptualEntity": "f_unemp_rate_pop_weighted"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_unemp_rate_pop_weighted": {
+			          "Target": {
+			            "Entity": "f_unemp_rate_pop_weighted"
+			          }
+			        },
+			        "d_calendar": {
+			          "Target": {
+			            "Entity": "d_calendar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_unemp_rate_pop_weighted"
+			            },
+			            "Object": {
+			              "Role": "d_calendar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_unemp_rate_pop_weighted_have_d_calendars"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_calendar"
+			            },
+			            "Object": {
+			              "Role": "f_unemp_rate_pop_weighted"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_calendars_have_f_unemp_rate_pop_weighted"
+			        }
+			      ]
+			    },
+			    "f_unemp_rate_pop_weighted_has_d_country": {
+			      "Binding": {
+			        "ConceptualEntity": "f_unemp_rate_pop_weighted"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_unemp_rate_pop_weighted": {
+			          "Target": {
+			            "Entity": "f_unemp_rate_pop_weighted"
+			          }
+			        },
+			        "d_country": {
+			          "Target": {
+			            "Entity": "d_country"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_unemp_rate_pop_weighted"
+			            },
+			            "Object": {
+			              "Role": "d_country"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_unemp_rate_pop_weighted_have_d_countries"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_country"
+			            },
+			            "Object": {
+			              "Role": "f_unemp_rate_pop_weighted"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_countries_have_f_unemp_rate_pop_weighted"
+			        }
+			      ]
+			    },
+			    "imf_population_has_d_calendar": {
+			      "Binding": {
+			        "ConceptualEntity": "imf_population"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "imf_population": {
+			          "Target": {
+			            "Entity": "imf_population"
+			          }
+			        },
+			        "d_calendar": {
+			          "Target": {
+			            "Entity": "d_calendar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "imf_population"
+			            },
+			            "Object": {
+			              "Role": "d_calendar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "imf_populations_have_d_calendars"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_calendar"
+			            },
+			            "Object": {
+			              "Role": "imf_population"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_calendars_have_imf_populations"
+			        }
+			      ]
+			    },
+			    "imf_population_has_d_country": {
+			      "Binding": {
+			        "ConceptualEntity": "imf_population"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "imf_population": {
+			          "Target": {
+			            "Entity": "imf_population"
+			          }
+			        },
+			        "d_country": {
+			          "Target": {
+			            "Entity": "d_country"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "imf_population"
+			            },
+			            "Object": {
+			              "Role": "d_country"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "imf_populations_have_d_countries"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_country"
+			            },
+			            "Object": {
+			              "Role": "imf_population"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_countries_have_imf_populations"
+			        }
+			      ]
+			    },
+			    "f_imf_imports_service_has_d_calendar": {
+			      "Binding": {
+			        "ConceptualEntity": "f_imf_imports_services"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_imf_imports_service": {
+			          "Target": {
+			            "Entity": "f_imf_imports_service"
+			          }
+			        },
+			        "d_calendar": {
+			          "Target": {
+			            "Entity": "d_calendar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_imf_imports_service"
+			            },
+			            "Object": {
+			              "Role": "d_calendar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_imf_imports_services_have_d_calendars"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_calendar"
+			            },
+			            "Object": {
+			              "Role": "f_imf_imports_service"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_calendars_have_f_imf_imports_services"
+			        }
+			      ]
+			    },
+			    "f_imf_imports_service_has_d_country": {
+			      "Binding": {
+			        "ConceptualEntity": "f_imf_imports_services"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_imf_imports_service": {
+			          "Target": {
+			            "Entity": "f_imf_imports_service"
+			          }
+			        },
+			        "d_country": {
+			          "Target": {
+			            "Entity": "d_country"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_imf_imports_service"
+			            },
+			            "Object": {
+			              "Role": "d_country"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_imf_imports_services_have_d_countries"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_country"
+			            },
+			            "Object": {
+			              "Role": "f_imf_imports_service"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_countries_have_f_imf_imports_services"
+			        }
+			      ]
+			    },
+			    "f_imf_exports_service_has_d_calendar": {
+			      "Binding": {
+			        "ConceptualEntity": "f_imf_exports_services"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_imf_exports_service": {
+			          "Target": {
+			            "Entity": "f_imf_exports_service"
+			          }
+			        },
+			        "d_calendar": {
+			          "Target": {
+			            "Entity": "d_calendar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_imf_exports_service"
+			            },
+			            "Object": {
+			              "Role": "d_calendar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_imf_exports_services_have_d_calendars"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_calendar"
+			            },
+			            "Object": {
+			              "Role": "f_imf_exports_service"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_calendars_have_f_imf_exports_services"
+			        }
+			      ]
+			    },
+			    "f_imf_exports_service_has_d_country": {
+			      "Binding": {
+			        "ConceptualEntity": "f_imf_exports_services"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_imf_exports_service": {
+			          "Target": {
+			            "Entity": "f_imf_exports_service"
+			          }
+			        },
+			        "d_country": {
+			          "Target": {
+			            "Entity": "d_country"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_imf_exports_service"
+			            },
+			            "Object": {
+			              "Role": "d_country"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_imf_exports_services_have_d_countries"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_country"
+			            },
+			            "Object": {
+			              "Role": "f_imf_exports_service"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_countries_have_f_imf_exports_services"
+			        }
+			      ]
+			    },
+			    "f_imf_imports_goods_has_d_calendar": {
+			      "Binding": {
+			        "ConceptualEntity": "f_imf_imports_goods"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_imf_imports_goods": {
+			          "Target": {
+			            "Entity": "f_imf_imports_goods"
+			          }
+			        },
+			        "d_calendar": {
+			          "Target": {
+			            "Entity": "d_calendar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_imf_imports_goods"
+			            },
+			            "Object": {
+			              "Role": "d_calendar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_imf_imports_goods_have_d_calendars"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "d_calendar"
+			            },
+			            "Object": {
+			              "Role": "f_imf_imports_goods"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_calendars_have_f_imf_imports_goods"
+			        }
+			      ]
+			    },
 			    "f_imf_imports_goods_has_d_country": {
 			      "Binding": {
 			        "ConceptualEntity": "f_imf_imports_goods"
@@ -20130,6 +20010,270 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "f_consumer_price_index_has_cpi_mom": {
+			      "Binding": {
+			        "ConceptualEntity": "f_consumer_price_index"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_consumer_price_index": {
+			          "Target": {
+			            "Entity": "f_consumer_price_index"
+			          }
+			        },
+			        "f_consumer_price_index.cpi_mom": {
+			          "Target": {
+			            "Entity": "f_consumer_price_index.cpi_mom"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_consumer_price_index"
+			            },
+			            "Object": {
+			              "Role": "f_consumer_price_index.cpi_mom"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_consumer_price_indices_have_cpi_moms"
+			        }
+			      ]
+			    },
+			    "f_consumer_price_index_has_cpi_yoy": {
+			      "Binding": {
+			        "ConceptualEntity": "f_consumer_price_index"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_consumer_price_index": {
+			          "Target": {
+			            "Entity": "f_consumer_price_index"
+			          }
+			        },
+			        "f_consumer_price_index.cpi_yoy": {
+			          "Target": {
+			            "Entity": "f_consumer_price_index.cpi_yoy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_consumer_price_index"
+			            },
+			            "Object": {
+			              "Role": "f_consumer_price_index.cpi_yoy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_consumer_price_indices_have_cpi_yoys"
+			        }
+			      ]
+			    },
+			    "f_consumer_price_index_has_cpi_index": {
+			      "Binding": {
+			        "ConceptualEntity": "f_consumer_price_index"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_consumer_price_index": {
+			          "Target": {
+			            "Entity": "f_consumer_price_index"
+			          }
+			        },
+			        "f_consumer_price_index.cpi_index": {
+			          "Target": {
+			            "Entity": "f_consumer_price_index.cpi_index"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_consumer_price_index"
+			            },
+			            "Object": {
+			              "Role": "f_consumer_price_index.cpi_index"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_consumer_price_indices_have_cpi_indices"
+			        }
+			      ]
+			    },
+			    "f_consumer_price_index_has_measures_table_CPI_YoY_subtitle": {
+			      "Binding": {
+			        "ConceptualEntity": "f_consumer_price_index"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_consumer_price_index": {
+			          "Target": {
+			            "Entity": "f_consumer_price_index"
+			          }
+			        },
+			        "measures_table.CPI_YoY_subtitle": {
+			          "Target": {
+			            "Entity": "measures_table.CPI_YoY_subtitle"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_consumer_price_index"
+			            },
+			            "Object": {
+			              "Role": "measures_table.CPI_YoY_subtitle"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_consumer_price_indices_have_CPI_YoY_subtitle"
+			        }
+			      ]
+			    },
+			    "f_consumer_price_index_has_measures_table_cpi_yoy_latest": {
+			      "Binding": {
+			        "ConceptualEntity": "f_consumer_price_index"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_consumer_price_index": {
+			          "Target": {
+			            "Entity": "f_consumer_price_index"
+			          }
+			        },
+			        "measures_table.cpi_yoy_latest": {
+			          "Target": {
+			            "Entity": "measures_table.cpi_yoy_latest"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_consumer_price_index"
+			            },
+			            "Object": {
+			              "Role": "measures_table.cpi_yoy_latest"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_consumer_price_indices_have_cpi_yoy_latest"
+			        }
+			      ]
+			    },
+			    "f_consumer_price_index_has_measures_table_cpi_latest_period": {
+			      "Binding": {
+			        "ConceptualEntity": "f_consumer_price_index"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_consumer_price_index": {
+			          "Target": {
+			            "Entity": "f_consumer_price_index"
+			          }
+			        },
+			        "measures_table.cpi_latest_period": {
+			          "Target": {
+			            "Entity": "measures_table.cpi_latest_period"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_consumer_price_index"
+			            },
+			            "Object": {
+			              "Role": "measures_table.cpi_latest_period"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_consumer_price_indices_have_cpi_latest_period"
+			        }
+			      ]
+			    },
+			    "f_consumer_price_index_has_measures_table_cpi_mom": {
+			      "Binding": {
+			        "ConceptualEntity": "f_consumer_price_index"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_consumer_price_index": {
+			          "Target": {
+			            "Entity": "f_consumer_price_index"
+			          }
+			        },
+			        "measures_table.cpi_mom": {
+			          "Target": {
+			            "Entity": "measures_table.cpi_mom"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_consumer_price_index"
+			            },
+			            "Object": {
+			              "Role": "measures_table.cpi_mom"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_consumer_price_indices_have_cpi_mom"
+			        }
+			      ]
+			    },
+			    "f_consumer_price_index_has_measures_table_cpi_yoy": {
+			      "Binding": {
+			        "ConceptualEntity": "f_consumer_price_index"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "f_consumer_price_index": {
+			          "Target": {
+			            "Entity": "f_consumer_price_index"
+			          }
+			        },
+			        "measures_table.cpi_yoy": {
+			          "Target": {
+			            "Entity": "measures_table.cpi_yoy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "f_consumer_price_index"
+			            },
+			            "Object": {
+			              "Role": "measures_table.cpi_yoy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "f_consumer_price_indices_have_cpi_yoy"
+			        }
+			      ]
+			    },
 			    "f_policy_rate_weighted_gdp_has_gdp_usd": {
 			      "Binding": {
 			        "ConceptualEntity": "f_policy_rate_weighted_gdp"
@@ -20292,39 +20436,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "f_policy_rate_weighted_gdp_have_policy_rate_gdp_weighted"
-			        }
-			      ]
-			    },
-			    "f_unemp_rate_pop_weighted_has_pop_perc": {
-			      "Binding": {
-			        "ConceptualEntity": "f_unemp_rate_pop_weighted"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_unemp_rate_pop_weighted": {
-			          "Target": {
-			            "Entity": "f_unemp_rate_pop_weighted"
-			          }
-			        },
-			        "f_unemp_rate_pop_weighted.pop_perc": {
-			          "Target": {
-			            "Entity": "f_unemp_rate_pop_weighted.pop_perc"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_unemp_rate_pop_weighted"
-			            },
-			            "Object": {
-			              "Role": "f_unemp_rate_pop_weighted.pop_perc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_unemp_rate_pop_weighted_have_pop_percs"
 			        }
 			      ]
 			    },
@@ -23529,336 +23640,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "f_consumer_price_index_has_country_name": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.country_name": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.country_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.country_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_country_names"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_indicator_1": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.indicator_1": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.indicator_1"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.indicator_1"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_indicator_1"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_reference_area": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.reference_area": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.reference_area"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.reference_area"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_reference_areas"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_frequency1": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.frequency1": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.frequency1"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.frequency1"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_frequencies"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_indicator": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.indicator": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.indicator"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.indicator"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_indicators"
-			        },
-			        {
-			          "Verb": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index.indicator"
-			            },
-			            "Verbs": [
-			              {
-			                "indicate": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "f_consumer_price_index"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.75,
-			          "ID": "indicators_indicate_f_consumer_price_indices"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index.indicator"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "indicators_have_f_consumer_price_indices"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_ref_area": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.ref_area": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.ref_area"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.ref_area"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_ref_areas"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_freq": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.freq": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.freq"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.freq"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_freqs"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_value": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.value": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.value"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.value"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_values"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_original_value": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.original_value": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.original_value"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.original_value"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_original_values"
-			        }
-			      ]
-			    },
 			    "f_consumer_price_index_has_period": {
 			      "Binding": {
 			        "ConceptualEntity": "f_consumer_price_index"
@@ -23889,237 +23670,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "f_consumer_price_indices_have_periods"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_original_period": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.original_period": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.original_period"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.original_period"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_original_periods"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_series_name": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.series_name": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.series_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.series_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_series_names"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_series_code": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.series_code": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.series_code"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.series_code"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_series_codes"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_dataset_name": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.dataset_name": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.dataset_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.dataset_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_dataset_names"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_dataset_code": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.dataset_code": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.dataset_code"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.dataset_code"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_dataset_codes"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_provider_code": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.provider_code": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.provider_code"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.provider_code"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_provider_codes"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_frequency": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.frequency": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.frequency"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "f_consumer_price_index.frequency"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_frequencies1"
 			        }
 			      ]
 			    },
@@ -25014,15 +24564,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "f_consumer_price_index_has_measures_table_yoy_cpi_time_series": {
+			    "measures_table_has_yoy_cpi_time_series": {
 			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
+			        "ConceptualEntity": "Measures_Table"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "f_consumer_price_index": {
+			        "measures_table": {
 			          "Target": {
-			            "Entity": "f_consumer_price_index"
+			            "Entity": "measures_table"
 			          }
 			        },
 			        "measures_table.yoy_cpi_time_series": {
@@ -25035,7 +24585,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "f_consumer_price_index"
+			              "Role": "measures_table"
 			            },
 			            "Object": {
 			              "Role": "measures_table.yoy_cpi_time_series"
@@ -25043,7 +24593,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_yoy_cpi_time_series"
+			          "ID": "measures_tables_have_yoy_cpi_time_series"
 			        }
 			      ]
 			    },
@@ -25773,15 +25323,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "f_consumer_price_index_has_measures_table_yoy_cpi": {
+			    "measures_table_has_yoy_cpi": {
 			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
+			        "ConceptualEntity": "Measures_Table"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "f_consumer_price_index": {
+			        "measures_table": {
 			          "Target": {
-			            "Entity": "f_consumer_price_index"
+			            "Entity": "measures_table"
 			          }
 			        },
 			        "measures_table.yoy_cpi": {
@@ -25794,7 +25344,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "f_consumer_price_index"
+			              "Role": "measures_table"
 			            },
 			            "Object": {
 			              "Role": "measures_table.yoy_cpi"
@@ -25802,7 +25352,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_yoy_cpi"
+			          "ID": "measures_tables_have_yoy_cpi"
 			        }
 			      ]
 			    },
@@ -26998,48 +26548,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "f_consumer_price_index_has_measures_table_mom_cpi": {
+			    "measures_table_has_yoy_cpi_overview": {
 			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
+			        "ConceptualEntity": "Measures_Table"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "f_consumer_price_index": {
+			        "measures_table": {
 			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "measures_table.mom_cpi": {
-			          "Target": {
-			            "Entity": "measures_table.mom_cpi"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Object": {
-			              "Role": "measures_table.mom_cpi"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_mom_cpi"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_has_measures_table_yoy_cpi_overview": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
+			            "Entity": "measures_table"
 			          }
 			        },
 			        "measures_table.yoy_cpi_overview": {
@@ -27052,7 +26569,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "f_consumer_price_index"
+			              "Role": "measures_table"
 			            },
 			            "Object": {
 			              "Role": "measures_table.yoy_cpi_overview"
@@ -27060,7 +26577,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_have_yoy_cpi_overview"
+			          "ID": "measures_tables_have_yoy_cpi_overview"
 			        }
 			      ]
 			    },
@@ -28294,141 +27811,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "f_consumer_price_index_in_country_name": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.country_name": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.country_name"
-			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "Where": {
-			          "Role": "f_consumer_price_index.country_name"
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "f_consumer_price_index.country_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_are_in_country_names"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_in_reference_area": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.reference_area": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.reference_area"
-			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "Where": {
-			          "Role": "f_consumer_price_index.reference_area"
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "f_consumer_price_index.reference_area"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_are_in_reference_areas"
-			        }
-			      ]
-			    },
-			    "f_consumer_price_index_in_ref_area": {
-			      "Binding": {
-			        "ConceptualEntity": "f_consumer_price_index"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_consumer_price_index": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index"
-			          }
-			        },
-			        "f_consumer_price_index.ref_area": {
-			          "Target": {
-			            "Entity": "f_consumer_price_index.ref_area"
-			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "Where": {
-			          "Role": "f_consumer_price_index.ref_area"
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "f_consumer_price_index"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "f_consumer_price_index.ref_area"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_consumer_price_indices_are_in_ref_areas"
-			        }
-			      ]
-			    },
 			    "f_industrial_production_index_in_country_name": {
 			      "Binding": {
 			        "ConceptualEntity": "f_industrial_production_index"
@@ -28606,420 +27988,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "d_countries_are_in_country_names"
-			        }
-			      ]
-			    },
-			    "f_imf_imports_goods_has_d_calendar": {
-			      "Binding": {
-			        "ConceptualEntity": "f_imf_imports_goods"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_imf_imports_goods": {
-			          "Target": {
-			            "Entity": "f_imf_imports_goods"
-			          }
-			        },
-			        "d_calendar": {
-			          "Target": {
-			            "Entity": "d_calendar"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_imf_imports_goods"
-			            },
-			            "Object": {
-			              "Role": "d_calendar"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_imf_imports_goods_have_d_calendars"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_calendar"
-			            },
-			            "Object": {
-			              "Role": "f_imf_imports_goods"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_calendars_have_f_imf_imports_goods"
-			        }
-			      ]
-			    },
-			    "f_imf_exports_service_has_d_country": {
-			      "Binding": {
-			        "ConceptualEntity": "f_imf_exports_services"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_imf_exports_service": {
-			          "Target": {
-			            "Entity": "f_imf_exports_service"
-			          }
-			        },
-			        "d_country": {
-			          "Target": {
-			            "Entity": "d_country"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_imf_exports_service"
-			            },
-			            "Object": {
-			              "Role": "d_country"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_imf_exports_services_have_d_countries"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_country"
-			            },
-			            "Object": {
-			              "Role": "f_imf_exports_service"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_countries_have_f_imf_exports_services"
-			        }
-			      ]
-			    },
-			    "f_imf_exports_service_has_d_calendar": {
-			      "Binding": {
-			        "ConceptualEntity": "f_imf_exports_services"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_imf_exports_service": {
-			          "Target": {
-			            "Entity": "f_imf_exports_service"
-			          }
-			        },
-			        "d_calendar": {
-			          "Target": {
-			            "Entity": "d_calendar"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_imf_exports_service"
-			            },
-			            "Object": {
-			              "Role": "d_calendar"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_imf_exports_services_have_d_calendars"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_calendar"
-			            },
-			            "Object": {
-			              "Role": "f_imf_exports_service"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_calendars_have_f_imf_exports_services"
-			        }
-			      ]
-			    },
-			    "f_imf_imports_service_has_d_country": {
-			      "Binding": {
-			        "ConceptualEntity": "f_imf_imports_services"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_imf_imports_service": {
-			          "Target": {
-			            "Entity": "f_imf_imports_service"
-			          }
-			        },
-			        "d_country": {
-			          "Target": {
-			            "Entity": "d_country"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_imf_imports_service"
-			            },
-			            "Object": {
-			              "Role": "d_country"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_imf_imports_services_have_d_countries"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_country"
-			            },
-			            "Object": {
-			              "Role": "f_imf_imports_service"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_countries_have_f_imf_imports_services"
-			        }
-			      ]
-			    },
-			    "f_imf_imports_service_has_d_calendar": {
-			      "Binding": {
-			        "ConceptualEntity": "f_imf_imports_services"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_imf_imports_service": {
-			          "Target": {
-			            "Entity": "f_imf_imports_service"
-			          }
-			        },
-			        "d_calendar": {
-			          "Target": {
-			            "Entity": "d_calendar"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_imf_imports_service"
-			            },
-			            "Object": {
-			              "Role": "d_calendar"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_imf_imports_services_have_d_calendars"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_calendar"
-			            },
-			            "Object": {
-			              "Role": "f_imf_imports_service"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_calendars_have_f_imf_imports_services"
-			        }
-			      ]
-			    },
-			    "imf_population_has_d_country": {
-			      "Binding": {
-			        "ConceptualEntity": "imf_population"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "imf_population": {
-			          "Target": {
-			            "Entity": "imf_population"
-			          }
-			        },
-			        "d_country": {
-			          "Target": {
-			            "Entity": "d_country"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "imf_population"
-			            },
-			            "Object": {
-			              "Role": "d_country"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "imf_populations_have_d_countries"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_country"
-			            },
-			            "Object": {
-			              "Role": "imf_population"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_countries_have_imf_populations"
-			        }
-			      ]
-			    },
-			    "imf_population_has_d_calendar": {
-			      "Binding": {
-			        "ConceptualEntity": "imf_population"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "imf_population": {
-			          "Target": {
-			            "Entity": "imf_population"
-			          }
-			        },
-			        "d_calendar": {
-			          "Target": {
-			            "Entity": "d_calendar"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "imf_population"
-			            },
-			            "Object": {
-			              "Role": "d_calendar"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "imf_populations_have_d_calendars"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_calendar"
-			            },
-			            "Object": {
-			              "Role": "imf_population"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_calendars_have_imf_populations"
-			        }
-			      ]
-			    },
-			    "f_unemp_rate_pop_weighted_has_d_country": {
-			      "Binding": {
-			        "ConceptualEntity": "f_unemp_rate_pop_weighted"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_unemp_rate_pop_weighted": {
-			          "Target": {
-			            "Entity": "f_unemp_rate_pop_weighted"
-			          }
-			        },
-			        "d_country": {
-			          "Target": {
-			            "Entity": "d_country"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_unemp_rate_pop_weighted"
-			            },
-			            "Object": {
-			              "Role": "d_country"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_unemp_rate_pop_weighted_have_d_countries"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_country"
-			            },
-			            "Object": {
-			              "Role": "f_unemp_rate_pop_weighted"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_countries_have_f_unemp_rate_pop_weighted"
-			        }
-			      ]
-			    },
-			    "f_unemp_rate_pop_weighted_has_d_calendar": {
-			      "Binding": {
-			        "ConceptualEntity": "f_unemp_rate_pop_weighted"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "f_unemp_rate_pop_weighted": {
-			          "Target": {
-			            "Entity": "f_unemp_rate_pop_weighted"
-			          }
-			        },
-			        "d_calendar": {
-			          "Target": {
-			            "Entity": "d_calendar"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "f_unemp_rate_pop_weighted"
-			            },
-			            "Object": {
-			              "Role": "d_calendar"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "f_unemp_rate_pop_weighted_have_d_calendars"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_calendar"
-			            },
-			            "Object": {
-			              "Role": "f_unemp_rate_pop_weighted"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_calendars_have_f_unemp_rate_pop_weighted"
 			        }
 			      ]
 			    },

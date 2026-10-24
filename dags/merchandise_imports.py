@@ -9,6 +9,7 @@ from airflow.decorators import dag, task
     schedule="0 7,19 * * *",
     start_date=pendulum.datetime(2026, 8, 13, tz="Asia/Ho_Chi_Minh"),
     catchup=False,
+    default_args={"retries": 3, "retry_delay": pendulum.duration(minutes=15)},
     tags=["merchandise_imports_data"],
 )
 def merchandise_imports_data():
