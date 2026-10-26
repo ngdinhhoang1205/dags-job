@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.git/
+.env
+jobs_analytics/target/
+jobs_analytics/dbt_packages/
+jobs_analytics/logs/
+logs/

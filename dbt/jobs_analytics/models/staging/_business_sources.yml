@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: business
+    database: business
+    schema: public
+    tables:
+      - name: cb_policy_rate_data
+      - name: country_mapping
+      - name: cpi_data
+      - name: exchange_rate
+      - name: gdp_data
+      - name: global_manufacturing_pmi_data
+      - name: ipi_data
+      - name: job_runs
+      - name: merchandise_exports_data
+      - name: merchandise_imports_data
+      - name: population_data
+      - name: retail_sales_data
+      - name: trade_in_services_exports
+      - name: trade_in_services_imports
+      - name: unemployment_data

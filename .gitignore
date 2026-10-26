@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 logs/
 powerbi/World Economy Monitor.SemanticModel/.pbi/cache.abf
+# dbt (dbt/jobs_analytics)
+target/
+dbt_packages/
+.user.yml
+.venv/

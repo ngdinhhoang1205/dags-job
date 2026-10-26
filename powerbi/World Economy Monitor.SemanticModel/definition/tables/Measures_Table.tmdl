@@ -73,29 +73,6 @@ table Measures_Table
 		formatString: 0
 		lineageTag: f9da6273-8208-45ce-bbf0-58960575012b
 
-	measure _yoy_cpi_overview = ```
-			
-			VAR latest_date = MAX(f_consumer_price_index[period])
-			VAR latest_year = YEAR(latest_date)
-			VAR same_date_previous_year = MAX(f_consumer_price_index[period])-365
-			VAR previous_year = YEAR(same_date_previous_year)
-			
-			VAR current_cpi = SUMX(FILTER(f_consumer_price_index, AND(YEAR(f_consumer_price_index[period])=latest_year, f_consumer_price_index[period]<= latest_date)), f_consumer_price_index[value])
-			// VAR previous_cpi = CALCULATE(
-			//         SUM(f_consumer_price_index[value]),
-			//         SAMEPERIODLASTYEAR(f_consumer_price_index[period]),
-			//         REMOVEFILTERS(f_consumer_price_index) 
-			//     )
-			VAR previous_cpi = CALCULATE(
-			        SUM(f_consumer_price_index[value]),
-			        YEAR(f_consumer_price_index[period])=previous_year,
-			        f_consumer_price_index[period]<= same_date_previous_year
-			    )
-			RETURN DIVIDE(current_cpi-previous_cpi, previous_cpi, 0)
-			```
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: 459786dc-d6e6-4654-baae-550fd2f6210e
-
 	measure _current_policy_rate_overview = ```
 			
 			VAR latest_date = MAX(f_cb_policy_rates[period])
@@ -310,19 +287,11 @@ table Measures_Table
 			VAR pop = SUMX(FILTER(imf_population, imf_population[period]=current_year),
 			        imf_population[value]
 			)
-			RETURN DIVIDE(gdp, pop, 0)*1000000
+			RETURN DIVIDE(gdp, pop, 0)
 			```
 		lineageTag: bd843749-183e-4314-b292-960a06e8403a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure _yoy_cpi =
-			
-			VAR current_cpi = AVERAGEX(f_consumer_price_index, f_consumer_price_index[value])
-			VAR previous_cpi = CALCULATE(AVERAGE(f_consumer_price_index[value]), DATEADD(d_calendar[Date], -1, YEAR))
-			RETURN DIVIDE(current_cpi-previous_cpi, previous_cpi, 0)
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: 7a089e6e-dc44-49cb-8149-ab8fafd20f30
 
 	measure _policy_rate = AVERAGE(f_cb_policy_rates[value])/100
 		formatString: 0.00%;-0.00%;0.00%
@@ -392,32 +361,6 @@ table Measures_Table
 
 	measure _current_policy_rate_subtitle = "Latest: " & [_current_policy_rate_year]
 		lineageTag: 73acb4ba-f915-4881-be93-30a3edef874e
-
-	measure _yoy_cpi_time_series = ```
-			
-			// VAR current_cpi = SUMX(f_consumer_price_index, f_consumer_price_index[value])
-			// VAR previous_cpi = CALCULATE(
-			//         SUM(f_consumer_price_index[value]),
-			//         SAMEPERIODLASTYEAR(f_consumer_price_index[period]),
-			//         REMOVEFILTERS(f_consumer_price_index) 
-			//     )
-			
-			// RETURN DIVIDE(current_cpi-previous_cpi, previous_cpi, 0)
-			
-			VAR by_country =
-			    ADDCOLUMNS(
-			        VALUES(f_consumer_price_index[country_code]),
-			        "@cur",  CALCULATE(SUM(f_consumer_price_index[value])),
-			        "@prev", CALCULATE(SUM(f_consumer_price_index[value]),
-			                           SAMEPERIODLASTYEAR(d_calendar[Date]))
-			    )
-			VAR valid = FILTER(by_country, NOT ISBLANK([@cur]) && NOT ISBLANK([@prev]))
-			RETURN
-			    AVERAGEX(valid, DIVIDE([@cur], [@prev]) - 1)
-			
-			```
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: 4cca561c-f736-45e3-8ebf-f2c32e996059
 
 	measure _current_unemployment_rate_pop_weighted =
 			

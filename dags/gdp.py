@@ -52,7 +52,9 @@ def gdp_data():
                 'Reference Area', 'Indicator', "usd/local"]]
 
             imf_gdp['local/usd'] = 1/imf_gdp['usd/local']
-            imf_gdp['value_usd'] = imf_gdp['value']*imf_gdp['usd/local']
+            # IFS NGDP_XDC is reported in millions of local currency; scale to whole dollars so
+            # value_usd matches the other *_usd columns (merchandise/services trade are in dollars).
+            imf_gdp['value_usd'] = imf_gdp['value']*imf_gdp['usd/local']*1_000_000
 
             # Remove Macao since it's not a country
             imf_gdp = imf_gdp[imf_gdp['REF_AREA']!='MO']

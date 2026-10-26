@@ -13,7 +13,8 @@ x-airflow-common: &airflow-common
     BUSINESS_POSTGRES_PASSWORD: "${BUSINESS_POSTGRES_PASSWORD:-business}"
     BUSINESS_POSTGRES_DB: "${BUSINESS_POSTGRES_DB:-business}"
     IMF_API_KEY: "${IMF_API_KEY:-}"
-    DBT_API_URL: "${DBT_API_URL:-http://host.docker.internal:8001}"
+    # dbt-api service below, reached over the compose network.
+    DBT_API_URL: http://dbt-api:8000
     DBT_API_KEY: "${DBT_API_KEY:-}"
   volumes:
     - ./dags:/opt/airflow/dags
@@ -133,6 +134,32 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    restart: always
+
+  # FastAPI wrapper around the dbt CLI (dbt/server.py). Kept out of the Airflow image because
+  # dbt-core's pinned dependencies conflict with Airflow's constraints file. The
+  # dbt_jobs_analytics DAG calls POST /run on it; the port is published on loopback only, for
+  # manual curl calls from this machine.
+  dbt-api:
+    build: ./dbt
+    environment:
+      BUSINESS_POSTGRES_HOST: postgres-business
+      BUSINESS_POSTGRES_PORT: 5432
+      BUSINESS_POSTGRES_USER: "${BUSINESS_POSTGRES_USER:-business}"
+      BUSINESS_POSTGRES_PASSWORD: "${BUSINESS_POSTGRES_PASSWORD:-business}"
+      BUSINESS_POSTGRES_DB: "${BUSINESS_POSTGRES_DB:-business}"
+      DBT_API_KEY: "${DBT_API_KEY:-}"
+    ports:
+      - "127.0.0.1:${DBT_API_PORT:-8001}:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    depends_on:
+      postgres-business:
+        condition: service_healthy
     restart: always
 
 volumes:

@@ -1,0 +1,17 @@
+# Baked into the dbt-api image at /root/.dbt/profiles.yml.
+# host/port default to the business Postgres on the compose stack's internal network
+# (postgres-business:5432), which is how the dbt-api service in docker-compose.yaml reaches it.
+# For a local `dbt run` outside Docker, set BUSINESS_POSTGRES_HOST=localhost and
+# BUSINESS_POSTGRES_PORT to the host-published port (5433 by default).
+jobs_analytics:
+  target: docker
+  outputs:
+    docker:
+      type: postgres
+      host: "{{ env_var('BUSINESS_POSTGRES_HOST', 'postgres-business') }}"
+      port: "{{ env_var('BUSINESS_POSTGRES_PORT', '5432') | int }}"
+      dbname: "{{ env_var('BUSINESS_POSTGRES_DB', 'business') }}"
+      schema: dbt_dev
+      user: "{{ env_var('BUSINESS_POSTGRES_USER', 'business') }}"
+      pass: "{{ env_var('BUSINESS_POSTGRES_PASSWORD', 'business') }}"
+      threads: 4
